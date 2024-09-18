@@ -933,7 +933,7 @@
             // 
             // button3
             // 
-            button3.BackColor = Color.NavajoWhite;
+            button3.BackColor = Color.LightSteelBlue;
             button3.Cursor = Cursors.Hand;
             button3.Location = new Point(284, 554);
             button3.Name = "button3";
