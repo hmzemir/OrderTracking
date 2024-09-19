@@ -911,18 +911,21 @@
             anaSayfaToolStripMenuItem.Name = "anaSayfaToolStripMenuItem";
             anaSayfaToolStripMenuItem.Size = new Size(71, 20);
             anaSayfaToolStripMenuItem.Text = "Ana Sayfa";
+            anaSayfaToolStripMenuItem.Click += anaSayfaToolStripMenuItem_Click;
             // 
             // onaylananTekliflerToolStripMenuItem
             // 
             onaylananTekliflerToolStripMenuItem.Name = "onaylananTekliflerToolStripMenuItem";
             onaylananTekliflerToolStripMenuItem.Size = new Size(119, 20);
             onaylananTekliflerToolStripMenuItem.Text = "Onaylanan Teklifler";
+            onaylananTekliflerToolStripMenuItem.Click += onaylananTekliflerToolStripMenuItem_Click;
             // 
             // teklifOnaylaToolStripMenuItem
             // 
             teklifOnaylaToolStripMenuItem.Name = "teklifOnaylaToolStripMenuItem";
             teklifOnaylaToolStripMenuItem.Size = new Size(86, 20);
             teklifOnaylaToolStripMenuItem.Text = "Teklif Onayla";
+            teklifOnaylaToolStripMenuItem.Click += teklifOnaylaToolStripMenuItem_Click;
             // 
             // yöneticiToolStripMenuItem
             // 

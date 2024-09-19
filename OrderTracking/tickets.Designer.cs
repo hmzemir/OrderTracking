@@ -81,6 +81,7 @@
             anaSayfaToolStripMenuItem.Name = "anaSayfaToolStripMenuItem";
             anaSayfaToolStripMenuItem.Size = new Size(71, 20);
             anaSayfaToolStripMenuItem.Text = "Ana Sayfa";
+            anaSayfaToolStripMenuItem.Click += anaSayfaToolStripMenuItem_Click;
             // 
             // onaylananTekliflerToolStripMenuItem
             // 
@@ -93,6 +94,7 @@
             teklifOnaylaToolStripMenuItem.Name = "teklifOnaylaToolStripMenuItem";
             teklifOnaylaToolStripMenuItem.Size = new Size(86, 20);
             teklifOnaylaToolStripMenuItem.Text = "Teklif Onayla";
+            teklifOnaylaToolStripMenuItem.Click += teklifOnaylaToolStripMenuItem_Click;
             // 
             // yöneticiToolStripMenuItem
             // 

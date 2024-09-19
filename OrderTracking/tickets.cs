@@ -26,5 +26,41 @@ namespace OrderTracking
         {
 
         }
+
+        private void anaSayfaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Mevcut formu kapat
+                this.Hide();
+
+                // Yeni tickets formunu aç
+                home homeForm = new home();
+                homeForm.Show();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Bir hata oluştu: " + ex.Message);
+            }
+        }
+
+        private void teklifOnaylaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Mevcut formu kapat
+                this.Hide();
+
+                // Yeni tickets formunu aç
+                tickets ticketForm = new tickets();
+                ticketForm.Show();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Bir hata oluştu: " + ex.Message);
+            }
+        }
     }
 }

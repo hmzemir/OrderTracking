@@ -23,7 +23,7 @@ namespace OrderTracking
             // Panelin adýný doðru þekilde belirtin. Örneðin, panel1 ise:
             parentPanel = this.panel1;
 
-            
+
 
             // AutoScroll'u kapatýn
             parentPanel.AutoScroll = false;
@@ -92,6 +92,47 @@ namespace OrderTracking
         private void SaveDataToDatabase()
         {
             // Boþ býrakýldý veya mevcut mantýðýnýzý koruyabilirsiniz.
+        }
+
+        private void anaSayfaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Mevcut formu kapat
+                this.Hide();
+
+                // Yeni tickets formunu aç
+                home homeForm = new home();
+                homeForm.Show();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Bir hata oluþtu: " + ex.Message);
+            }
+        }
+
+        private void onaylananTekliflerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void teklifOnaylaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Mevcut formu kapat
+                this.Hide();
+
+                // Yeni tickets formunu aç
+                tickets ticketForm = new tickets();
+                ticketForm.Show();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Bir hata oluþtu: " + ex.Message);
+            }
         }
     }
 }
