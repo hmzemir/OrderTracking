@@ -23,8 +23,7 @@ namespace OrderTracking
             // Panelin adýný doðru þekilde belirtin. Örneðin, panel1 ise:
             parentPanel = this.panel1;
 
-            // Butonun Click olayýný baðlama (Eðer Designer üzerinden baðlamadýysanýz)
-            button2.Click += button2_Click;
+            
 
             // AutoScroll'u kapatýn
             parentPanel.AutoScroll = false;

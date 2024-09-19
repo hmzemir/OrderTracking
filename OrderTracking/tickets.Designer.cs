@@ -39,6 +39,8 @@
             yedeklemeToolStripMenuItem = new ToolStripMenuItem();
             label34 = new Label();
             groupBox3 = new GroupBox();
+            richTextBox1 = new RichTextBox();
+            label6 = new Label();
             aciklamaTextBox = new RichTextBox();
             label7 = new Label();
             textBox4 = new TextBox();
@@ -52,8 +54,6 @@
             label3 = new Label();
             label2 = new Label();
             button3 = new Button();
-            richTextBox1 = new RichTextBox();
-            label6 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             menuStrip1.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -155,13 +155,36 @@
             groupBox3.TabStop = false;
             groupBox3.Text = "Ürün Bilgileri";
             // 
+            // richTextBox1
+            // 
+            richTextBox1.BorderStyle = BorderStyle.FixedSingle;
+            richTextBox1.Font = new Font("Century Gothic", 12F);
+            richTextBox1.Location = new Point(432, 50);
+            richTextBox1.Margin = new Padding(5);
+            richTextBox1.Name = "richTextBox1";
+            richTextBox1.ReadOnly = true;
+            richTextBox1.Size = new Size(173, 159);
+            richTextBox1.TabIndex = 70;
+            richTextBox1.Text = "";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Eras Medium ITC", 14.25F);
+            label6.Location = new Point(432, 23);
+            label6.Name = "label6";
+            label6.Size = new Size(69, 22);
+            label6.TabIndex = 69;
+            label6.Text = "Rotalar";
+            // 
             // aciklamaTextBox
             // 
-            aciklamaTextBox.BorderStyle = BorderStyle.None;
+            aciklamaTextBox.BorderStyle = BorderStyle.FixedSingle;
             aciklamaTextBox.Font = new Font("Century Gothic", 12F);
             aciklamaTextBox.Location = new Point(26, 412);
             aciklamaTextBox.Margin = new Padding(5);
             aciklamaTextBox.Name = "aciklamaTextBox";
+            aciklamaTextBox.ReadOnly = true;
             aciklamaTextBox.Size = new Size(318, 135);
             aciklamaTextBox.TabIndex = 68;
             aciklamaTextBox.Text = "";
@@ -178,11 +201,12 @@
             // 
             // textBox4
             // 
-            textBox4.BorderStyle = BorderStyle.None;
+            textBox4.BorderStyle = BorderStyle.FixedSingle;
             textBox4.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
             textBox4.Location = new Point(26, 353);
             textBox4.Name = "textBox4";
-            textBox4.Size = new Size(135, 20);
+            textBox4.ReadOnly = true;
+            textBox4.Size = new Size(135, 27);
             textBox4.TabIndex = 66;
             // 
             // label5
@@ -197,11 +221,12 @@
             // 
             // textBox3
             // 
-            textBox3.BorderStyle = BorderStyle.None;
+            textBox3.BorderStyle = BorderStyle.FixedSingle;
             textBox3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
             textBox3.Location = new Point(26, 284);
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(135, 20);
+            textBox3.ReadOnly = true;
+            textBox3.Size = new Size(135, 27);
             textBox3.TabIndex = 64;
             // 
             // label4
@@ -216,11 +241,12 @@
             // 
             // textBox2
             // 
-            textBox2.BorderStyle = BorderStyle.None;
+            textBox2.BorderStyle = BorderStyle.FixedSingle;
             textBox2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
             textBox2.Location = new Point(26, 212);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(135, 20);
+            textBox2.ReadOnly = true;
+            textBox2.Size = new Size(135, 27);
             textBox2.TabIndex = 62;
             // 
             // label1
@@ -245,11 +271,12 @@
             // 
             // textBox1
             // 
-            textBox1.BorderStyle = BorderStyle.None;
+            textBox1.BorderStyle = BorderStyle.FixedSingle;
             textBox1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
             textBox1.Location = new Point(26, 75);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(135, 20);
+            textBox1.ReadOnly = true;
+            textBox1.Size = new Size(135, 27);
             textBox1.TabIndex = 60;
             // 
             // label3
@@ -282,27 +309,6 @@
             button3.TabIndex = 59;
             button3.Text = "Onayla Ve Yazdır";
             button3.UseVisualStyleBackColor = false;
-            // 
-            // richTextBox1
-            // 
-            richTextBox1.BorderStyle = BorderStyle.None;
-            richTextBox1.Font = new Font("Century Gothic", 12F);
-            richTextBox1.Location = new Point(432, 50);
-            richTextBox1.Margin = new Padding(5);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(173, 159);
-            richTextBox1.TabIndex = 70;
-            richTextBox1.Text = "";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Eras Medium ITC", 14.25F);
-            label6.Location = new Point(432, 23);
-            label6.Name = "label6";
-            label6.Size = new Size(69, 22);
-            label6.TabIndex = 69;
-            label6.Text = "Rotalar";
             // 
             // tickets
             // 

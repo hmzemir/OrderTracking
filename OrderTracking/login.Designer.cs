@@ -28,18 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
+            label34 = new Label();
             SuspendLayout();
+            // 
+            // label34
+            // 
+            label34.AutoSize = true;
+            label34.Font = new Font("Eras Demi ITC", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label34.Location = new Point(121, 46);
+            label34.Name = "label34";
+            label34.Size = new Size(96, 24);
+            label34.TabIndex = 52;
+            label34.Text = "Giriş Yap";
             // 
             // login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(417, 434);
+            ClientSize = new Size(423, 459);
+            Controls.Add(label34);
             Name = "login";
             Text = "login";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Label label34;
     }
 }
