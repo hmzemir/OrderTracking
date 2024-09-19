@@ -69,8 +69,12 @@
             label28 = new Label();
             menuStrip1 = new MenuStrip();
             anaSayfaToolStripMenuItem = new ToolStripMenuItem();
+            onaylananTekliflerToolStripMenuItem = new ToolStripMenuItem();
             teklifOnaylaToolStripMenuItem = new ToolStripMenuItem();
             yöneticiToolStripMenuItem = new ToolStripMenuItem();
+            kullanıcıEkleToolStripMenuItem = new ToolStripMenuItem();
+            istatistiklkerToolStripMenuItem = new ToolStripMenuItem();
+            yedeklemeToolStripMenuItem = new ToolStripMenuItem();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)urunMiktarNumeric).BeginInit();
             panel1.SuspendLayout();
@@ -503,7 +507,7 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { anaSayfaToolStripMenuItem, teklifOnaylaToolStripMenuItem, yöneticiToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { anaSayfaToolStripMenuItem, onaylananTekliflerToolStripMenuItem, teklifOnaylaToolStripMenuItem, yöneticiToolStripMenuItem, yedeklemeToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1904, 24);
@@ -516,6 +520,12 @@
             anaSayfaToolStripMenuItem.Size = new Size(71, 20);
             anaSayfaToolStripMenuItem.Text = "Ana Sayfa";
             // 
+            // onaylananTekliflerToolStripMenuItem
+            // 
+            onaylananTekliflerToolStripMenuItem.Name = "onaylananTekliflerToolStripMenuItem";
+            onaylananTekliflerToolStripMenuItem.Size = new Size(119, 20);
+            onaylananTekliflerToolStripMenuItem.Text = "Onaylanan Teklifler";
+            // 
             // teklifOnaylaToolStripMenuItem
             // 
             teklifOnaylaToolStripMenuItem.Name = "teklifOnaylaToolStripMenuItem";
@@ -524,9 +534,28 @@
             // 
             // yöneticiToolStripMenuItem
             // 
+            yöneticiToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { kullanıcıEkleToolStripMenuItem, istatistiklkerToolStripMenuItem });
             yöneticiToolStripMenuItem.Name = "yöneticiToolStripMenuItem";
             yöneticiToolStripMenuItem.Size = new Size(61, 20);
             yöneticiToolStripMenuItem.Text = "Yönetici";
+            // 
+            // kullanıcıEkleToolStripMenuItem
+            // 
+            kullanıcıEkleToolStripMenuItem.Name = "kullanıcıEkleToolStripMenuItem";
+            kullanıcıEkleToolStripMenuItem.Size = new Size(143, 22);
+            kullanıcıEkleToolStripMenuItem.Text = "Kullanıcı Ekle";
+            // 
+            // istatistiklkerToolStripMenuItem
+            // 
+            istatistiklkerToolStripMenuItem.Name = "istatistiklkerToolStripMenuItem";
+            istatistiklkerToolStripMenuItem.Size = new Size(143, 22);
+            istatistiklkerToolStripMenuItem.Text = "İstatistiklker";
+            // 
+            // yedeklemeToolStripMenuItem
+            // 
+            yedeklemeToolStripMenuItem.Name = "yedeklemeToolStripMenuItem";
+            yedeklemeToolStripMenuItem.Size = new Size(76, 20);
+            yedeklemeToolStripMenuItem.Text = "Yedekleme";
             // 
             // home
             // 
@@ -602,5 +631,9 @@
         private ToolStripMenuItem yöneticiToolStripMenuItem;
         private Button button1;
         private Button button3;
+        private ToolStripMenuItem kullanıcıEkleToolStripMenuItem;
+        private ToolStripMenuItem istatistiklkerToolStripMenuItem;
+        private ToolStripMenuItem yedeklemeToolStripMenuItem;
+        private ToolStripMenuItem onaylananTekliflerToolStripMenuItem;
     }
 }

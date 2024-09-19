@@ -21,5 +21,10 @@ namespace OrderTracking
         {
 
         }
+
+        private void label34_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
