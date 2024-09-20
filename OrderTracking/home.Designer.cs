@@ -937,13 +937,14 @@
             // kullanıcıEkleToolStripMenuItem
             // 
             kullanıcıEkleToolStripMenuItem.Name = "kullanıcıEkleToolStripMenuItem";
-            kullanıcıEkleToolStripMenuItem.Size = new Size(143, 22);
+            kullanıcıEkleToolStripMenuItem.Size = new Size(180, 22);
             kullanıcıEkleToolStripMenuItem.Text = "Kullanıcı Ekle";
+            kullanıcıEkleToolStripMenuItem.Click += kullanıcıEkleToolStripMenuItem_Click;
             // 
             // istatistiklkerToolStripMenuItem
             // 
             istatistiklkerToolStripMenuItem.Name = "istatistiklkerToolStripMenuItem";
-            istatistiklkerToolStripMenuItem.Size = new Size(143, 22);
+            istatistiklkerToolStripMenuItem.Size = new Size(180, 22);
             istatistiklkerToolStripMenuItem.Text = "İstatistiklker";
             // 
             // yedeklemeToolStripMenuItem

@@ -80,5 +80,21 @@ namespace OrderTracking
                 MessageBox.Show("Bir hata oluştu: " + ex.Message);
             }
         }
+
+        private void kullanıcıEkleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                // Yeni tickets formunu aç
+                addUser adduserForm = new addUser();
+                adduserForm.Show();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Bir hata oluştu: " + ex.Message);
+            }
+        }
     }
 }
