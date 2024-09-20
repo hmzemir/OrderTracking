@@ -114,7 +114,20 @@ namespace OrderTracking
 
         private void onaylananTekliflerToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            try
+            {
+                // Mevcut formu kapat
+                this.Hide();
 
+                // Yeni tickets formunu aç
+                orders orderForm = new orders();
+                orderForm.Show();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Bir hata oluþtu: " + ex.Message);
+            }
         }
 
         private void teklifOnaylaToolStripMenuItem_Click(object sender, EventArgs e)

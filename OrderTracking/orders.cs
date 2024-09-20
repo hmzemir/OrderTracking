@@ -10,24 +10,20 @@ using System.Windows.Forms;
 
 namespace OrderTracking
 {
-    public partial class tickets : Form
+    public partial class orders : Form
     {
-        public tickets()
+        public orders()
         {
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
 
-        }
 
-        private void label34_Click(object sender, EventArgs e)
-        {
 
-        }
 
-        private void anaSayfaToolStripMenuItem_Click(object sender, EventArgs e)
+
+
+        private void anaSayfaToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             try
             {

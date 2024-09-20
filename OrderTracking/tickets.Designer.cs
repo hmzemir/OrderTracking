@@ -88,6 +88,7 @@
             onaylananTekliflerToolStripMenuItem.Name = "onaylananTekliflerToolStripMenuItem";
             onaylananTekliflerToolStripMenuItem.Size = new Size(119, 20);
             onaylananTekliflerToolStripMenuItem.Text = "Onaylanan Teklifler";
+            onaylananTekliflerToolStripMenuItem.Click += onaylananTekliflerToolStripMenuItem_Click;
             // 
             // teklifOnaylaToolStripMenuItem
             // 
