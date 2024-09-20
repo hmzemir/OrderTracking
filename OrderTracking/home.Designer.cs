@@ -952,6 +952,7 @@
             yedeklemeToolStripMenuItem.Name = "yedeklemeToolStripMenuItem";
             yedeklemeToolStripMenuItem.Size = new Size(76, 20);
             yedeklemeToolStripMenuItem.Text = "Yedekleme";
+            yedeklemeToolStripMenuItem.Click += yedeklemeToolStripMenuItem_Click;
             // 
             // home
             // 

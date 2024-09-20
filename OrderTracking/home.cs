@@ -163,5 +163,21 @@ namespace OrderTracking
                 MessageBox.Show("Bir hata oluþtu: " + ex.Message);
             }
         }
+
+        private void yedeklemeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                // Yeni tickets formunu aç
+                databaseSave dataForm = new databaseSave();
+                dataForm.Show();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Bir hata oluþtu: " + ex.Message);
+            }
+        }
     }
 }
