@@ -54,6 +54,9 @@
             label3 = new Label();
             label2 = new Label();
             button3 = new Button();
+            button1 = new Button();
+            textBox5 = new TextBox();
+            label8 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             menuStrip1.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -153,7 +156,7 @@
             groupBox3.Font = new Font("Impact", 18F, FontStyle.Regular, GraphicsUnit.Point, 162);
             groupBox3.Location = new Point(704, 102);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(642, 614);
+            groupBox3.Size = new Size(550, 614);
             groupBox3.TabIndex = 53;
             groupBox3.TabStop = false;
             groupBox3.Text = "Ürün Bilgileri";
@@ -162,7 +165,7 @@
             // 
             richTextBox1.BorderStyle = BorderStyle.FixedSingle;
             richTextBox1.Font = new Font("Century Gothic", 12F);
-            richTextBox1.Location = new Point(432, 50);
+            richTextBox1.Location = new Point(339, 50);
             richTextBox1.Margin = new Padding(5);
             richTextBox1.Name = "richTextBox1";
             richTextBox1.ReadOnly = true;
@@ -174,7 +177,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Eras Medium ITC", 14.25F);
-            label6.Location = new Point(432, 23);
+            label6.Location = new Point(339, 23);
             label6.Name = "label6";
             label6.Size = new Size(69, 22);
             label6.TabIndex = 69;
@@ -306,18 +309,49 @@
             // 
             button3.BackColor = Color.DarkSeaGreen;
             button3.Cursor = Cursors.Hand;
-            button3.Location = new Point(442, 555);
+            button3.Location = new Point(349, 555);
             button3.Name = "button3";
             button3.Size = new Size(194, 53);
             button3.TabIndex = 59;
             button3.Text = "Onayla Ve Yazdır";
             button3.UseVisualStyleBackColor = false;
             // 
+            // button1
+            // 
+            button1.Font = new Font("Eras Demi ITC", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button1.Location = new Point(1399, 189);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 31);
+            button1.TabIndex = 59;
+            button1.Text = "Ara";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // textBox5
+            // 
+            textBox5.BorderStyle = BorderStyle.FixedSingle;
+            textBox5.Location = new Point(1312, 151);
+            textBox5.Name = "textBox5";
+            textBox5.Size = new Size(162, 23);
+            textBox5.TabIndex = 58;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Eras Demi ITC", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.Location = new Point(1312, 114);
+            label8.Name = "label8";
+            label8.Size = new Size(162, 24);
+            label8.TabIndex = 57;
+            label8.Text = "Firma / Kisi Ara";
+            // 
             // tickets
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1904, 1041);
+            Controls.Add(button1);
+            Controls.Add(textBox5);
+            Controls.Add(label8);
             Controls.Add(groupBox3);
             Controls.Add(label34);
             Controls.Add(menuStrip1);
@@ -360,5 +394,8 @@
         private Label label7;
         private RichTextBox richTextBox1;
         private Label label6;
+        private Button button1;
+        private TextBox textBox5;
+        private Label label8;
     }
 }

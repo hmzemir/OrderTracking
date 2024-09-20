@@ -38,6 +38,9 @@
             kullanıcıEkleToolStripMenuItem = new ToolStripMenuItem();
             istatistiklkerToolStripMenuItem = new ToolStripMenuItem();
             yedeklemeToolStripMenuItem = new ToolStripMenuItem();
+            label1 = new Label();
+            textBox1 = new TextBox();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -45,7 +48,7 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(193, 84);
+            dataGridView1.Location = new Point(33, 94);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(948, 542);
             dataGridView1.TabIndex = 0;
@@ -54,7 +57,7 @@
             // 
             label34.AutoSize = true;
             label34.Font = new Font("Eras Demi ITC", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label34.Location = new Point(193, 57);
+            label34.Location = new Point(33, 67);
             label34.Name = "label34";
             label34.Size = new Size(206, 24);
             label34.TabIndex = 52;
@@ -115,11 +118,42 @@
             yedeklemeToolStripMenuItem.Size = new Size(76, 20);
             yedeklemeToolStripMenuItem.Text = "Yedekleme";
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Eras Demi ITC", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(1121, 94);
+            label1.Name = "label1";
+            label1.Size = new Size(162, 24);
+            label1.TabIndex = 54;
+            label1.Text = "Firma / Kisi Ara";
+            // 
+            // textBox1
+            // 
+            textBox1.BorderStyle = BorderStyle.FixedSingle;
+            textBox1.Location = new Point(1121, 131);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(162, 23);
+            textBox1.TabIndex = 55;
+            // 
+            // button1
+            // 
+            button1.Font = new Font("Eras Demi ITC", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button1.Location = new Point(1208, 169);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 31);
+            button1.TabIndex = 56;
+            button1.Text = "Ara";
+            button1.UseVisualStyleBackColor = true;
+            // 
             // orders
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1904, 1041);
+            Controls.Add(button1);
+            Controls.Add(textBox1);
+            Controls.Add(label1);
             Controls.Add(menuStrip1);
             Controls.Add(label34);
             Controls.Add(dataGridView1);
@@ -144,5 +178,8 @@
         private ToolStripMenuItem kullanıcıEkleToolStripMenuItem;
         private ToolStripMenuItem istatistiklkerToolStripMenuItem;
         private ToolStripMenuItem yedeklemeToolStripMenuItem;
+        private Label label1;
+        private TextBox textBox1;
+        private Button button1;
     }
 }
