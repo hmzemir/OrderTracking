@@ -31,15 +31,12 @@
             groupBox1 = new GroupBox();
             aciklamaTextBox = new RichTextBox();
             label7 = new Label();
-            urunCinsiCombo = new ComboBox();
             label6 = new Label();
             urunMiktarNumeric = new NumericUpDown();
             label5 = new Label();
-            urunAdıCombo = new ComboBox();
             label4 = new Label();
             tarihTimerPicker = new DateTimePicker();
             label3 = new Label();
-            adCombo = new ComboBox();
             label2 = new Label();
             panel1 = new Panel();
             label25 = new Label();
@@ -110,6 +107,9 @@
             kullanıcıEkleToolStripMenuItem = new ToolStripMenuItem();
             istatistiklkerToolStripMenuItem = new ToolStripMenuItem();
             yedeklemeToolStripMenuItem = new ToolStripMenuItem();
+            sahipCombo = new ComboBox();
+            urun_adiCombo = new ComboBox();
+            urun_cinsiCombo = new ComboBox();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)urunMiktarNumeric).BeginInit();
             panel1.SuspendLayout();
@@ -131,17 +131,17 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(urun_cinsiCombo);
+            groupBox1.Controls.Add(urun_adiCombo);
+            groupBox1.Controls.Add(sahipCombo);
             groupBox1.Controls.Add(aciklamaTextBox);
             groupBox1.Controls.Add(label7);
-            groupBox1.Controls.Add(urunCinsiCombo);
             groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(urunMiktarNumeric);
             groupBox1.Controls.Add(label5);
-            groupBox1.Controls.Add(urunAdıCombo);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(tarihTimerPicker);
             groupBox1.Controls.Add(label3);
-            groupBox1.Controls.Add(adCombo);
             groupBox1.Controls.Add(label2);
             groupBox1.Font = new Font("Impact", 18F, FontStyle.Regular, GraphicsUnit.Point, 162);
             groupBox1.Location = new Point(40, 60);
@@ -172,15 +172,6 @@
             label7.TabIndex = 2;
             label7.Text = "Açıklama";
             // 
-            // urunCinsiCombo
-            // 
-            urunCinsiCombo.Font = new Font("Century Gothic", 12F);
-            urunCinsiCombo.FormattingEnabled = true;
-            urunCinsiCombo.Location = new Point(18, 424);
-            urunCinsiCombo.Name = "urunCinsiCombo";
-            urunCinsiCombo.Size = new Size(121, 29);
-            urunCinsiCombo.TabIndex = 11;
-            // 
             // label6
             // 
             label6.AutoSize = true;
@@ -208,15 +199,6 @@
             label5.Size = new Size(118, 22);
             label5.TabIndex = 7;
             label5.Text = "Ürün Miiktarı";
-            // 
-            // urunAdıCombo
-            // 
-            urunAdıCombo.Font = new Font("Century Gothic", 12F);
-            urunAdıCombo.FormattingEnabled = true;
-            urunAdıCombo.Location = new Point(18, 264);
-            urunAdıCombo.Name = "urunAdıCombo";
-            urunAdıCombo.Size = new Size(121, 29);
-            urunAdıCombo.TabIndex = 6;
             // 
             // label4
             // 
@@ -247,15 +229,6 @@
             label3.Size = new Size(53, 22);
             label3.TabIndex = 2;
             label3.Text = "Tarih";
-            // 
-            // adCombo
-            // 
-            adCombo.Font = new Font("Century Gothic", 12F);
-            adCombo.FormattingEnabled = true;
-            adCombo.Location = new Point(17, 114);
-            adCombo.Name = "adCombo";
-            adCombo.Size = new Size(121, 29);
-            adCombo.TabIndex = 1;
             // 
             // label2
             // 
@@ -745,6 +718,7 @@
             kayit.TabIndex = 59;
             kayit.Text = "Kaydet";
             kayit.UseVisualStyleBackColor = false;
+            kayit.Click += kayit_Click;
             // 
             // button1
             // 
@@ -954,6 +928,30 @@
             yedeklemeToolStripMenuItem.Text = "Yedekleme";
             yedeklemeToolStripMenuItem.Click += yedeklemeToolStripMenuItem_Click;
             // 
+            // sahipCombo
+            // 
+            sahipCombo.FormattingEnabled = true;
+            sahipCombo.Location = new Point(18, 115);
+            sahipCombo.Name = "sahipCombo";
+            sahipCombo.Size = new Size(121, 37);
+            sahipCombo.TabIndex = 48;
+            // 
+            // urun_adiCombo
+            // 
+            urun_adiCombo.FormattingEnabled = true;
+            urun_adiCombo.Location = new Point(18, 264);
+            urun_adiCombo.Name = "urun_adiCombo";
+            urun_adiCombo.Size = new Size(121, 37);
+            urun_adiCombo.TabIndex = 49;
+            // 
+            // urun_cinsiCombo
+            // 
+            urun_cinsiCombo.FormattingEnabled = true;
+            urun_cinsiCombo.Location = new Point(18, 425);
+            urun_cinsiCombo.Name = "urun_cinsiCombo";
+            urun_cinsiCombo.Size = new Size(121, 37);
+            urun_cinsiCombo.TabIndex = 50;
+            // 
             // home
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -996,14 +994,11 @@
         #endregion
         private GroupBox groupBox1;
         private Label label2;
-        private ComboBox adCombo;
         private DateTimePicker tarihTimerPicker;
         private Label label3;
-        private ComboBox urunAdıCombo;
         private Label label4;
         private NumericUpDown urunMiktarNumeric;
         private Label label5;
-        private ComboBox urunCinsiCombo;
         private Label label6;
         private Label label7;
         private RichTextBox aciklamaTextBox;
@@ -1076,5 +1071,8 @@
         private NumericUpDown rota3Numeric;
         private RichTextBox rota3Text;
         private Label label8;
+        private ComboBox urun_adiCombo;
+        private ComboBox sahipCombo;
+        private ComboBox urun_cinsiCombo;
     }
 }
