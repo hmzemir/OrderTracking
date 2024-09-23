@@ -43,50 +43,50 @@
             label2 = new Label();
             panel1 = new Panel();
             label25 = new Label();
-            numericUpDown10 = new NumericUpDown();
-            richTextBox10 = new RichTextBox();
+            rota10Numeric = new NumericUpDown();
+            rota10Text = new RichTextBox();
             label26 = new Label();
             label23 = new Label();
-            numericUpDown9 = new NumericUpDown();
-            richTextBox9 = new RichTextBox();
+            rota8Numeric = new NumericUpDown();
+            rota8Text = new RichTextBox();
             label24 = new Label();
             label20 = new Label();
-            numericUpDown8 = new NumericUpDown();
-            richTextBox8 = new RichTextBox();
+            rota6Numeric = new NumericUpDown();
+            rota6Text = new RichTextBox();
             label22 = new Label();
             label18 = new Label();
-            numericUpDown7 = new NumericUpDown();
-            richTextBox7 = new RichTextBox();
+            rota4Numeric = new NumericUpDown();
+            rota4Text = new RichTextBox();
             label19 = new Label();
             label16 = new Label();
             label14 = new Label();
-            numericUpDown6 = new NumericUpDown();
-            numericUpDown5 = new NumericUpDown();
-            richTextBox6 = new RichTextBox();
+            rota2Numeric = new NumericUpDown();
+            rota9Numeric = new NumericUpDown();
+            rota2Text = new RichTextBox();
             label17 = new Label();
-            richTextBox5 = new RichTextBox();
+            rota9Text = new RichTextBox();
             label15 = new Label();
             label11 = new Label();
-            numericUpDown4 = new NumericUpDown();
-            richTextBox4 = new RichTextBox();
+            rota7Numeric = new NumericUpDown();
+            rota7Text = new RichTextBox();
             label13 = new Label();
             label9 = new Label();
-            numericUpDown3 = new NumericUpDown();
-            richTextBox3 = new RichTextBox();
+            rota5Numeric = new NumericUpDown();
+            rota5Text = new RichTextBox();
             label10 = new Label();
             label1 = new Label();
-            numericUpDown2 = new NumericUpDown();
-            richTextBox2 = new RichTextBox();
+            rota3Numeric = new NumericUpDown();
+            rota3Text = new RichTextBox();
             label8 = new Label();
             label12 = new Label();
-            numericUpDown1 = new NumericUpDown();
-            richTextBox1 = new RichTextBox();
+            rota1Numeric = new NumericUpDown();
+            rota1Text = new RichTextBox();
             label27 = new Label();
             groupBox2 = new GroupBox();
             label21 = new Label();
-            numericUpDown11 = new NumericUpDown();
+            karNumeric = new NumericUpDown();
             groupBox3 = new GroupBox();
-            button3 = new Button();
+            kayit = new Button();
             button1 = new Button();
             label41 = new Label();
             label40 = new Label();
@@ -113,18 +113,18 @@
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)urunMiktarNumeric).BeginInit();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown10).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown9).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown8).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown7).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown6).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown5).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)rota10Numeric).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)rota8Numeric).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)rota6Numeric).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)rota4Numeric).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)rota2Numeric).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)rota9Numeric).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)rota7Numeric).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)rota5Numeric).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)rota3Numeric).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)rota1Numeric).BeginInit();
             groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown11).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)karNumeric).BeginInit();
             groupBox3.SuspendLayout();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -270,44 +270,44 @@
             // panel1
             // 
             panel1.Controls.Add(label25);
-            panel1.Controls.Add(numericUpDown10);
-            panel1.Controls.Add(richTextBox10);
+            panel1.Controls.Add(rota10Numeric);
+            panel1.Controls.Add(rota10Text);
             panel1.Controls.Add(label26);
             panel1.Controls.Add(label23);
-            panel1.Controls.Add(numericUpDown9);
-            panel1.Controls.Add(richTextBox9);
+            panel1.Controls.Add(rota8Numeric);
+            panel1.Controls.Add(rota8Text);
             panel1.Controls.Add(label24);
             panel1.Controls.Add(label20);
-            panel1.Controls.Add(numericUpDown8);
-            panel1.Controls.Add(richTextBox8);
+            panel1.Controls.Add(rota6Numeric);
+            panel1.Controls.Add(rota6Text);
             panel1.Controls.Add(label22);
             panel1.Controls.Add(label18);
-            panel1.Controls.Add(numericUpDown7);
-            panel1.Controls.Add(richTextBox7);
+            panel1.Controls.Add(rota4Numeric);
+            panel1.Controls.Add(rota4Text);
             panel1.Controls.Add(label19);
             panel1.Controls.Add(label16);
             panel1.Controls.Add(label14);
-            panel1.Controls.Add(numericUpDown6);
-            panel1.Controls.Add(numericUpDown5);
-            panel1.Controls.Add(richTextBox6);
+            panel1.Controls.Add(rota2Numeric);
+            panel1.Controls.Add(rota9Numeric);
+            panel1.Controls.Add(rota2Text);
             panel1.Controls.Add(label17);
-            panel1.Controls.Add(richTextBox5);
+            panel1.Controls.Add(rota9Text);
             panel1.Controls.Add(label15);
             panel1.Controls.Add(label11);
-            panel1.Controls.Add(numericUpDown4);
-            panel1.Controls.Add(richTextBox4);
+            panel1.Controls.Add(rota7Numeric);
+            panel1.Controls.Add(rota7Text);
             panel1.Controls.Add(label13);
             panel1.Controls.Add(label9);
-            panel1.Controls.Add(numericUpDown3);
-            panel1.Controls.Add(richTextBox3);
+            panel1.Controls.Add(rota5Numeric);
+            panel1.Controls.Add(rota5Text);
             panel1.Controls.Add(label10);
             panel1.Controls.Add(label1);
-            panel1.Controls.Add(numericUpDown2);
-            panel1.Controls.Add(richTextBox2);
+            panel1.Controls.Add(rota3Numeric);
+            panel1.Controls.Add(rota3Text);
             panel1.Controls.Add(label8);
             panel1.Controls.Add(label12);
-            panel1.Controls.Add(numericUpDown1);
-            panel1.Controls.Add(richTextBox1);
+            panel1.Controls.Add(rota1Numeric);
+            panel1.Controls.Add(rota1Text);
             panel1.Controls.Add(label27);
             panel1.Font = new Font("Eras Medium ITC", 14.25F);
             panel1.Location = new Point(25, 36);
@@ -324,23 +324,23 @@
             label25.TabIndex = 65;
             label25.Text = "TL";
             // 
-            // numericUpDown10
+            // rota10Numeric
             // 
-            numericUpDown10.BorderStyle = BorderStyle.FixedSingle;
-            numericUpDown10.Location = new Point(426, 495);
-            numericUpDown10.Name = "numericUpDown10";
-            numericUpDown10.Size = new Size(42, 29);
-            numericUpDown10.TabIndex = 64;
-            numericUpDown10.TextAlign = HorizontalAlignment.Center;
+            rota10Numeric.BorderStyle = BorderStyle.FixedSingle;
+            rota10Numeric.Location = new Point(426, 495);
+            rota10Numeric.Name = "rota10Numeric";
+            rota10Numeric.Size = new Size(42, 29);
+            rota10Numeric.TabIndex = 64;
+            rota10Numeric.TextAlign = HorizontalAlignment.Center;
             // 
-            // richTextBox10
+            // rota10Text
             // 
-            richTextBox10.BorderStyle = BorderStyle.None;
-            richTextBox10.Location = new Point(257, 455);
-            richTextBox10.Name = "richTextBox10";
-            richTextBox10.Size = new Size(163, 69);
-            richTextBox10.TabIndex = 63;
-            richTextBox10.Text = "";
+            rota10Text.BorderStyle = BorderStyle.None;
+            rota10Text.Location = new Point(257, 455);
+            rota10Text.Name = "rota10Text";
+            rota10Text.Size = new Size(163, 69);
+            rota10Text.TabIndex = 63;
+            rota10Text.Text = "";
             // 
             // label26
             // 
@@ -360,23 +360,23 @@
             label23.TabIndex = 61;
             label23.Text = "TL";
             // 
-            // numericUpDown9
+            // rota8Numeric
             // 
-            numericUpDown9.BorderStyle = BorderStyle.FixedSingle;
-            numericUpDown9.Location = new Point(426, 388);
-            numericUpDown9.Name = "numericUpDown9";
-            numericUpDown9.Size = new Size(42, 29);
-            numericUpDown9.TabIndex = 60;
-            numericUpDown9.TextAlign = HorizontalAlignment.Center;
+            rota8Numeric.BorderStyle = BorderStyle.FixedSingle;
+            rota8Numeric.Location = new Point(426, 388);
+            rota8Numeric.Name = "rota8Numeric";
+            rota8Numeric.Size = new Size(42, 29);
+            rota8Numeric.TabIndex = 60;
+            rota8Numeric.TextAlign = HorizontalAlignment.Center;
             // 
-            // richTextBox9
+            // rota8Text
             // 
-            richTextBox9.BorderStyle = BorderStyle.None;
-            richTextBox9.Location = new Point(257, 348);
-            richTextBox9.Name = "richTextBox9";
-            richTextBox9.Size = new Size(163, 69);
-            richTextBox9.TabIndex = 59;
-            richTextBox9.Text = "";
+            rota8Text.BorderStyle = BorderStyle.None;
+            rota8Text.Location = new Point(257, 348);
+            rota8Text.Name = "rota8Text";
+            rota8Text.Size = new Size(163, 69);
+            rota8Text.TabIndex = 59;
+            rota8Text.Text = "";
             // 
             // label24
             // 
@@ -396,23 +396,23 @@
             label20.TabIndex = 57;
             label20.Text = "TL";
             // 
-            // numericUpDown8
+            // rota6Numeric
             // 
-            numericUpDown8.BorderStyle = BorderStyle.FixedSingle;
-            numericUpDown8.Location = new Point(426, 287);
-            numericUpDown8.Name = "numericUpDown8";
-            numericUpDown8.Size = new Size(42, 29);
-            numericUpDown8.TabIndex = 56;
-            numericUpDown8.TextAlign = HorizontalAlignment.Center;
+            rota6Numeric.BorderStyle = BorderStyle.FixedSingle;
+            rota6Numeric.Location = new Point(426, 287);
+            rota6Numeric.Name = "rota6Numeric";
+            rota6Numeric.Size = new Size(42, 29);
+            rota6Numeric.TabIndex = 56;
+            rota6Numeric.TextAlign = HorizontalAlignment.Center;
             // 
-            // richTextBox8
+            // rota6Text
             // 
-            richTextBox8.BorderStyle = BorderStyle.None;
-            richTextBox8.Location = new Point(257, 247);
-            richTextBox8.Name = "richTextBox8";
-            richTextBox8.Size = new Size(163, 69);
-            richTextBox8.TabIndex = 55;
-            richTextBox8.Text = "";
+            rota6Text.BorderStyle = BorderStyle.None;
+            rota6Text.Location = new Point(257, 247);
+            rota6Text.Name = "rota6Text";
+            rota6Text.Size = new Size(163, 69);
+            rota6Text.TabIndex = 55;
+            rota6Text.Text = "";
             // 
             // label22
             // 
@@ -432,23 +432,23 @@
             label18.TabIndex = 53;
             label18.Text = "TL";
             // 
-            // numericUpDown7
+            // rota4Numeric
             // 
-            numericUpDown7.BorderStyle = BorderStyle.FixedSingle;
-            numericUpDown7.Location = new Point(426, 183);
-            numericUpDown7.Name = "numericUpDown7";
-            numericUpDown7.Size = new Size(42, 29);
-            numericUpDown7.TabIndex = 52;
-            numericUpDown7.TextAlign = HorizontalAlignment.Center;
+            rota4Numeric.BorderStyle = BorderStyle.FixedSingle;
+            rota4Numeric.Location = new Point(426, 183);
+            rota4Numeric.Name = "rota4Numeric";
+            rota4Numeric.Size = new Size(42, 29);
+            rota4Numeric.TabIndex = 52;
+            rota4Numeric.TextAlign = HorizontalAlignment.Center;
             // 
-            // richTextBox7
+            // rota4Text
             // 
-            richTextBox7.BorderStyle = BorderStyle.None;
-            richTextBox7.Location = new Point(257, 143);
-            richTextBox7.Name = "richTextBox7";
-            richTextBox7.Size = new Size(163, 69);
-            richTextBox7.TabIndex = 51;
-            richTextBox7.Text = "";
+            rota4Text.BorderStyle = BorderStyle.None;
+            rota4Text.Location = new Point(257, 143);
+            rota4Text.Name = "rota4Text";
+            rota4Text.Size = new Size(163, 69);
+            rota4Text.TabIndex = 51;
+            rota4Text.Text = "";
             // 
             // label19
             // 
@@ -477,32 +477,32 @@
             label14.TabIndex = 43;
             label14.Text = "TL";
             // 
-            // numericUpDown6
+            // rota2Numeric
             // 
-            numericUpDown6.BorderStyle = BorderStyle.FixedSingle;
-            numericUpDown6.Location = new Point(426, 78);
-            numericUpDown6.Name = "numericUpDown6";
-            numericUpDown6.Size = new Size(42, 29);
-            numericUpDown6.TabIndex = 48;
-            numericUpDown6.TextAlign = HorizontalAlignment.Center;
+            rota2Numeric.BorderStyle = BorderStyle.FixedSingle;
+            rota2Numeric.Location = new Point(426, 78);
+            rota2Numeric.Name = "rota2Numeric";
+            rota2Numeric.Size = new Size(42, 29);
+            rota2Numeric.TabIndex = 48;
+            rota2Numeric.TextAlign = HorizontalAlignment.Center;
             // 
-            // numericUpDown5
+            // rota9Numeric
             // 
-            numericUpDown5.BorderStyle = BorderStyle.FixedSingle;
-            numericUpDown5.Location = new Point(186, 495);
-            numericUpDown5.Name = "numericUpDown5";
-            numericUpDown5.Size = new Size(42, 29);
-            numericUpDown5.TabIndex = 42;
-            numericUpDown5.TextAlign = HorizontalAlignment.Center;
+            rota9Numeric.BorderStyle = BorderStyle.FixedSingle;
+            rota9Numeric.Location = new Point(186, 495);
+            rota9Numeric.Name = "rota9Numeric";
+            rota9Numeric.Size = new Size(42, 29);
+            rota9Numeric.TabIndex = 42;
+            rota9Numeric.TextAlign = HorizontalAlignment.Center;
             // 
-            // richTextBox6
+            // rota2Text
             // 
-            richTextBox6.BorderStyle = BorderStyle.None;
-            richTextBox6.Location = new Point(257, 38);
-            richTextBox6.Name = "richTextBox6";
-            richTextBox6.Size = new Size(163, 69);
-            richTextBox6.TabIndex = 47;
-            richTextBox6.Text = "";
+            rota2Text.BorderStyle = BorderStyle.None;
+            rota2Text.Location = new Point(257, 38);
+            rota2Text.Name = "rota2Text";
+            rota2Text.Size = new Size(163, 69);
+            rota2Text.TabIndex = 47;
+            rota2Text.Text = "";
             // 
             // label17
             // 
@@ -513,14 +513,14 @@
             label17.TabIndex = 46;
             label17.Text = "rota 2";
             // 
-            // richTextBox5
+            // rota9Text
             // 
-            richTextBox5.BorderStyle = BorderStyle.None;
-            richTextBox5.Location = new Point(17, 455);
-            richTextBox5.Name = "richTextBox5";
-            richTextBox5.Size = new Size(163, 69);
-            richTextBox5.TabIndex = 41;
-            richTextBox5.Text = "";
+            rota9Text.BorderStyle = BorderStyle.None;
+            rota9Text.Location = new Point(17, 455);
+            rota9Text.Name = "rota9Text";
+            rota9Text.Size = new Size(163, 69);
+            rota9Text.TabIndex = 41;
+            rota9Text.Text = "";
             // 
             // label15
             // 
@@ -540,23 +540,23 @@
             label11.TabIndex = 39;
             label11.Text = "TL";
             // 
-            // numericUpDown4
+            // rota7Numeric
             // 
-            numericUpDown4.BorderStyle = BorderStyle.FixedSingle;
-            numericUpDown4.Location = new Point(186, 388);
-            numericUpDown4.Name = "numericUpDown4";
-            numericUpDown4.Size = new Size(42, 29);
-            numericUpDown4.TabIndex = 38;
-            numericUpDown4.TextAlign = HorizontalAlignment.Center;
+            rota7Numeric.BorderStyle = BorderStyle.FixedSingle;
+            rota7Numeric.Location = new Point(186, 388);
+            rota7Numeric.Name = "rota7Numeric";
+            rota7Numeric.Size = new Size(42, 29);
+            rota7Numeric.TabIndex = 38;
+            rota7Numeric.TextAlign = HorizontalAlignment.Center;
             // 
-            // richTextBox4
+            // rota7Text
             // 
-            richTextBox4.BorderStyle = BorderStyle.None;
-            richTextBox4.Location = new Point(17, 348);
-            richTextBox4.Name = "richTextBox4";
-            richTextBox4.Size = new Size(163, 69);
-            richTextBox4.TabIndex = 37;
-            richTextBox4.Text = "";
+            rota7Text.BorderStyle = BorderStyle.None;
+            rota7Text.Location = new Point(17, 348);
+            rota7Text.Name = "rota7Text";
+            rota7Text.Size = new Size(163, 69);
+            rota7Text.TabIndex = 37;
+            rota7Text.Text = "";
             // 
             // label13
             // 
@@ -576,23 +576,23 @@
             label9.TabIndex = 35;
             label9.Text = "TL";
             // 
-            // numericUpDown3
+            // rota5Numeric
             // 
-            numericUpDown3.BorderStyle = BorderStyle.FixedSingle;
-            numericUpDown3.Location = new Point(186, 287);
-            numericUpDown3.Name = "numericUpDown3";
-            numericUpDown3.Size = new Size(42, 29);
-            numericUpDown3.TabIndex = 34;
-            numericUpDown3.TextAlign = HorizontalAlignment.Center;
+            rota5Numeric.BorderStyle = BorderStyle.FixedSingle;
+            rota5Numeric.Location = new Point(186, 287);
+            rota5Numeric.Name = "rota5Numeric";
+            rota5Numeric.Size = new Size(42, 29);
+            rota5Numeric.TabIndex = 34;
+            rota5Numeric.TextAlign = HorizontalAlignment.Center;
             // 
-            // richTextBox3
+            // rota5Text
             // 
-            richTextBox3.BorderStyle = BorderStyle.None;
-            richTextBox3.Location = new Point(17, 247);
-            richTextBox3.Name = "richTextBox3";
-            richTextBox3.Size = new Size(163, 69);
-            richTextBox3.TabIndex = 33;
-            richTextBox3.Text = "";
+            rota5Text.BorderStyle = BorderStyle.None;
+            rota5Text.Location = new Point(17, 247);
+            rota5Text.Name = "rota5Text";
+            rota5Text.Size = new Size(163, 69);
+            rota5Text.TabIndex = 33;
+            rota5Text.Text = "";
             // 
             // label10
             // 
@@ -612,23 +612,23 @@
             label1.TabIndex = 31;
             label1.Text = "TL";
             // 
-            // numericUpDown2
+            // rota3Numeric
             // 
-            numericUpDown2.BorderStyle = BorderStyle.FixedSingle;
-            numericUpDown2.Location = new Point(186, 181);
-            numericUpDown2.Name = "numericUpDown2";
-            numericUpDown2.Size = new Size(42, 29);
-            numericUpDown2.TabIndex = 30;
-            numericUpDown2.TextAlign = HorizontalAlignment.Center;
+            rota3Numeric.BorderStyle = BorderStyle.FixedSingle;
+            rota3Numeric.Location = new Point(186, 181);
+            rota3Numeric.Name = "rota3Numeric";
+            rota3Numeric.Size = new Size(42, 29);
+            rota3Numeric.TabIndex = 30;
+            rota3Numeric.TextAlign = HorizontalAlignment.Center;
             // 
-            // richTextBox2
+            // rota3Text
             // 
-            richTextBox2.BorderStyle = BorderStyle.None;
-            richTextBox2.Location = new Point(17, 141);
-            richTextBox2.Name = "richTextBox2";
-            richTextBox2.Size = new Size(163, 69);
-            richTextBox2.TabIndex = 29;
-            richTextBox2.Text = "";
+            rota3Text.BorderStyle = BorderStyle.None;
+            rota3Text.Location = new Point(17, 141);
+            rota3Text.Name = "rota3Text";
+            rota3Text.Size = new Size(163, 69);
+            rota3Text.TabIndex = 29;
+            rota3Text.Text = "";
             // 
             // label8
             // 
@@ -648,23 +648,23 @@
             label12.TabIndex = 27;
             label12.Text = "TL";
             // 
-            // numericUpDown1
+            // rota1Numeric
             // 
-            numericUpDown1.BorderStyle = BorderStyle.FixedSingle;
-            numericUpDown1.Location = new Point(186, 75);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(42, 29);
-            numericUpDown1.TabIndex = 24;
-            numericUpDown1.TextAlign = HorizontalAlignment.Center;
+            rota1Numeric.BorderStyle = BorderStyle.FixedSingle;
+            rota1Numeric.Location = new Point(186, 75);
+            rota1Numeric.Name = "rota1Numeric";
+            rota1Numeric.Size = new Size(42, 29);
+            rota1Numeric.TabIndex = 24;
+            rota1Numeric.TextAlign = HorizontalAlignment.Center;
             // 
-            // richTextBox1
+            // rota1Text
             // 
-            richTextBox1.BorderStyle = BorderStyle.None;
-            richTextBox1.Location = new Point(17, 35);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(163, 69);
-            richTextBox1.TabIndex = 4;
-            richTextBox1.Text = "";
+            rota1Text.BorderStyle = BorderStyle.None;
+            rota1Text.Location = new Point(17, 35);
+            rota1Text.Name = "rota1Text";
+            rota1Text.Size = new Size(163, 69);
+            rota1Text.TabIndex = 4;
+            rota1Text.Text = "";
             // 
             // label27
             // 
@@ -679,7 +679,7 @@
             // 
             groupBox2.Controls.Add(label21);
             groupBox2.Controls.Add(panel1);
-            groupBox2.Controls.Add(numericUpDown11);
+            groupBox2.Controls.Add(karNumeric);
             groupBox2.Font = new Font("Impact", 18F, FontStyle.Regular, GraphicsUnit.Point, 162);
             groupBox2.Location = new Point(415, 60);
             groupBox2.Name = "groupBox2";
@@ -698,20 +698,20 @@
             label21.TabIndex = 45;
             label21.Text = "Kâr (%)";
             // 
-            // numericUpDown11
+            // karNumeric
             // 
-            numericUpDown11.BorderStyle = BorderStyle.FixedSingle;
-            numericUpDown11.Font = new Font("Eras Medium ITC", 14.25F);
-            numericUpDown11.Location = new Point(25, 610);
-            numericUpDown11.Name = "numericUpDown11";
-            numericUpDown11.RightToLeft = RightToLeft.No;
-            numericUpDown11.Size = new Size(74, 29);
-            numericUpDown11.TabIndex = 44;
-            numericUpDown11.TextAlign = HorizontalAlignment.Center;
+            karNumeric.BorderStyle = BorderStyle.FixedSingle;
+            karNumeric.Font = new Font("Eras Medium ITC", 14.25F);
+            karNumeric.Location = new Point(25, 610);
+            karNumeric.Name = "karNumeric";
+            karNumeric.RightToLeft = RightToLeft.No;
+            karNumeric.Size = new Size(74, 29);
+            karNumeric.TabIndex = 44;
+            karNumeric.TextAlign = HorizontalAlignment.Center;
             // 
             // groupBox3
             // 
-            groupBox3.Controls.Add(button3);
+            groupBox3.Controls.Add(kayit);
             groupBox3.Controls.Add(button1);
             groupBox3.Controls.Add(label41);
             groupBox3.Controls.Add(label40);
@@ -735,16 +735,16 @@
             groupBox3.TabStop = false;
             groupBox3.Text = "Fiyatlandırma";
             // 
-            // button3
+            // kayit
             // 
-            button3.BackColor = Color.LightSteelBlue;
-            button3.Cursor = Cursors.Hand;
-            button3.Location = new Point(284, 554);
-            button3.Name = "button3";
-            button3.Size = new Size(157, 53);
-            button3.TabIndex = 59;
-            button3.Text = "Kaydet";
-            button3.UseVisualStyleBackColor = false;
+            kayit.BackColor = Color.LightSteelBlue;
+            kayit.Cursor = Cursors.Hand;
+            kayit.Location = new Point(284, 554);
+            kayit.Name = "kayit";
+            kayit.Size = new Size(157, 53);
+            kayit.TabIndex = 59;
+            kayit.Text = "Kaydet";
+            kayit.UseVisualStyleBackColor = false;
             // 
             // button1
             // 
@@ -937,14 +937,14 @@
             // kullanıcıEkleToolStripMenuItem
             // 
             kullanıcıEkleToolStripMenuItem.Name = "kullanıcıEkleToolStripMenuItem";
-            kullanıcıEkleToolStripMenuItem.Size = new Size(180, 22);
+            kullanıcıEkleToolStripMenuItem.Size = new Size(143, 22);
             kullanıcıEkleToolStripMenuItem.Text = "Kullanıcı Ekle";
             kullanıcıEkleToolStripMenuItem.Click += kullanıcıEkleToolStripMenuItem_Click;
             // 
             // istatistiklkerToolStripMenuItem
             // 
             istatistiklkerToolStripMenuItem.Name = "istatistiklkerToolStripMenuItem";
-            istatistiklkerToolStripMenuItem.Size = new Size(180, 22);
+            istatistiklkerToolStripMenuItem.Size = new Size(143, 22);
             istatistiklkerToolStripMenuItem.Text = "İstatistiklker";
             // 
             // yedeklemeToolStripMenuItem
@@ -972,19 +972,19 @@
             ((System.ComponentModel.ISupportInitialize)urunMiktarNumeric).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown10).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown9).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown8).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown7).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown6).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown5).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)rota10Numeric).EndInit();
+            ((System.ComponentModel.ISupportInitialize)rota8Numeric).EndInit();
+            ((System.ComponentModel.ISupportInitialize)rota6Numeric).EndInit();
+            ((System.ComponentModel.ISupportInitialize)rota4Numeric).EndInit();
+            ((System.ComponentModel.ISupportInitialize)rota2Numeric).EndInit();
+            ((System.ComponentModel.ISupportInitialize)rota9Numeric).EndInit();
+            ((System.ComponentModel.ISupportInitialize)rota7Numeric).EndInit();
+            ((System.ComponentModel.ISupportInitialize)rota5Numeric).EndInit();
+            ((System.ComponentModel.ISupportInitialize)rota3Numeric).EndInit();
+            ((System.ComponentModel.ISupportInitialize)rota1Numeric).EndInit();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown11).EndInit();
+            ((System.ComponentModel.ISupportInitialize)karNumeric).EndInit();
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
             menuStrip1.ResumeLayout(false);
@@ -1009,12 +1009,12 @@
         private RichTextBox aciklamaTextBox;
         private Panel panel1;
         private Label label12;
-        private NumericUpDown numericUpDown1;
-        private RichTextBox richTextBox1;
+        private NumericUpDown rota1Numeric;
+        private RichTextBox rota1Text;
         private Label label27;
         private GroupBox groupBox2;
         private Label label21;
-        private NumericUpDown numericUpDown11;
+        private NumericUpDown karNumeric;
         private GroupBox groupBox3;
         private Label label28;
         private Label label32;
@@ -1035,46 +1035,46 @@
         private ToolStripMenuItem teklifOnaylaToolStripMenuItem;
         private ToolStripMenuItem yöneticiToolStripMenuItem;
         private Button button1;
-        private Button button3;
+        private Button kayit;
         private ToolStripMenuItem kullanıcıEkleToolStripMenuItem;
         private ToolStripMenuItem istatistiklkerToolStripMenuItem;
         private ToolStripMenuItem yedeklemeToolStripMenuItem;
         private ToolStripMenuItem onaylananTekliflerToolStripMenuItem;
         private Label label25;
-        private NumericUpDown numericUpDown10;
-        private RichTextBox richTextBox10;
+        private NumericUpDown rota10Numeric;
+        private RichTextBox rota10Text;
         private Label label26;
         private Label label23;
-        private NumericUpDown numericUpDown9;
-        private RichTextBox richTextBox9;
+        private NumericUpDown rota8Numeric;
+        private RichTextBox rota8Text;
         private Label label24;
         private Label label20;
-        private NumericUpDown numericUpDown8;
-        private RichTextBox richTextBox8;
+        private NumericUpDown rota6Numeric;
+        private RichTextBox rota6Text;
         private Label label22;
         private Label label18;
-        private NumericUpDown numericUpDown7;
-        private RichTextBox richTextBox7;
+        private NumericUpDown rota4Numeric;
+        private RichTextBox rota4Text;
         private Label label19;
         private Label label16;
         private Label label14;
-        private NumericUpDown numericUpDown6;
-        private NumericUpDown numericUpDown5;
-        private RichTextBox richTextBox6;
+        private NumericUpDown rota2Numeric;
+        private NumericUpDown rota9Numeric;
+        private RichTextBox rota2Text;
         private Label label17;
-        private RichTextBox richTextBox5;
+        private RichTextBox rota9Text;
         private Label label15;
         private Label label11;
-        private NumericUpDown numericUpDown4;
-        private RichTextBox richTextBox4;
+        private NumericUpDown rota7Numeric;
+        private RichTextBox rota7Text;
         private Label label13;
         private Label label9;
-        private NumericUpDown numericUpDown3;
-        private RichTextBox richTextBox3;
+        private NumericUpDown rota5Numeric;
+        private RichTextBox rota5Text;
         private Label label10;
         private Label label1;
-        private NumericUpDown numericUpDown2;
-        private RichTextBox richTextBox2;
+        private NumericUpDown rota3Numeric;
+        private RichTextBox rota3Text;
         private Label label8;
     }
 }
