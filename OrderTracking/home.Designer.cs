@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            urun_cinsiCombo = new ComboBox();
+            urun_adiCombo = new ComboBox();
+            sahipCombo = new ComboBox();
             aciklamaTextBox = new RichTextBox();
             label7 = new Label();
             label6 = new Label();
@@ -84,18 +87,18 @@
             karNumeric = new NumericUpDown();
             groupBox3 = new GroupBox();
             kayit = new Button();
-            button1 = new Button();
-            label41 = new Label();
-            label40 = new Label();
-            label39 = new Label();
-            label38 = new Label();
-            label37 = new Label();
-            label36 = new Label();
-            label35 = new Label();
+            hesaplabtn = new Button();
+            toplamTutarLabel = new Label();
+            kdvsizAdetLabel = new Label();
+            kdvliAdetLabel = new Label();
+            kdvliToplamLabel = new Label();
+            toplamKdvLabel = new Label();
+            karlıToplamLabel = new Label();
+            rotaToplamLabel = new Label();
             label34 = new Label();
             label33 = new Label();
-            label32 = new Label();
-            label31 = new Label();
+            kdvadet = new Label();
+            kdvli = new Label();
             label30 = new Label();
             label29 = new Label();
             label28 = new Label();
@@ -107,9 +110,6 @@
             kullanıcıEkleToolStripMenuItem = new ToolStripMenuItem();
             istatistiklkerToolStripMenuItem = new ToolStripMenuItem();
             yedeklemeToolStripMenuItem = new ToolStripMenuItem();
-            sahipCombo = new ComboBox();
-            urun_adiCombo = new ComboBox();
-            urun_cinsiCombo = new ComboBox();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)urunMiktarNumeric).BeginInit();
             panel1.SuspendLayout();
@@ -150,6 +150,30 @@
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Genel Bilgiler";
+            // 
+            // urun_cinsiCombo
+            // 
+            urun_cinsiCombo.FormattingEnabled = true;
+            urun_cinsiCombo.Location = new Point(18, 425);
+            urun_cinsiCombo.Name = "urun_cinsiCombo";
+            urun_cinsiCombo.Size = new Size(121, 37);
+            urun_cinsiCombo.TabIndex = 50;
+            // 
+            // urun_adiCombo
+            // 
+            urun_adiCombo.FormattingEnabled = true;
+            urun_adiCombo.Location = new Point(18, 264);
+            urun_adiCombo.Name = "urun_adiCombo";
+            urun_adiCombo.Size = new Size(121, 37);
+            urun_adiCombo.TabIndex = 49;
+            // 
+            // sahipCombo
+            // 
+            sahipCombo.FormattingEnabled = true;
+            sahipCombo.Location = new Point(18, 115);
+            sahipCombo.Name = "sahipCombo";
+            sahipCombo.Size = new Size(121, 37);
+            sahipCombo.TabIndex = 48;
             // 
             // aciklamaTextBox
             // 
@@ -285,7 +309,7 @@
             panel1.Font = new Font("Eras Medium ITC", 14.25F);
             panel1.Location = new Point(25, 36);
             panel1.Name = "panel1";
-            panel1.Size = new Size(484, 538);
+            panel1.Size = new Size(498, 538);
             panel1.TabIndex = 13;
             // 
             // label25
@@ -301,8 +325,9 @@
             // 
             rota10Numeric.BorderStyle = BorderStyle.FixedSingle;
             rota10Numeric.Location = new Point(426, 495);
+            rota10Numeric.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
             rota10Numeric.Name = "rota10Numeric";
-            rota10Numeric.Size = new Size(42, 29);
+            rota10Numeric.Size = new Size(69, 29);
             rota10Numeric.TabIndex = 64;
             rota10Numeric.TextAlign = HorizontalAlignment.Center;
             // 
@@ -337,8 +362,9 @@
             // 
             rota8Numeric.BorderStyle = BorderStyle.FixedSingle;
             rota8Numeric.Location = new Point(426, 388);
+            rota8Numeric.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
             rota8Numeric.Name = "rota8Numeric";
-            rota8Numeric.Size = new Size(42, 29);
+            rota8Numeric.Size = new Size(69, 29);
             rota8Numeric.TabIndex = 60;
             rota8Numeric.TextAlign = HorizontalAlignment.Center;
             // 
@@ -373,8 +399,9 @@
             // 
             rota6Numeric.BorderStyle = BorderStyle.FixedSingle;
             rota6Numeric.Location = new Point(426, 287);
+            rota6Numeric.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
             rota6Numeric.Name = "rota6Numeric";
-            rota6Numeric.Size = new Size(42, 29);
+            rota6Numeric.Size = new Size(69, 29);
             rota6Numeric.TabIndex = 56;
             rota6Numeric.TextAlign = HorizontalAlignment.Center;
             // 
@@ -409,8 +436,9 @@
             // 
             rota4Numeric.BorderStyle = BorderStyle.FixedSingle;
             rota4Numeric.Location = new Point(426, 183);
+            rota4Numeric.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
             rota4Numeric.Name = "rota4Numeric";
-            rota4Numeric.Size = new Size(42, 29);
+            rota4Numeric.Size = new Size(69, 29);
             rota4Numeric.TabIndex = 52;
             rota4Numeric.TextAlign = HorizontalAlignment.Center;
             // 
@@ -454,8 +482,9 @@
             // 
             rota2Numeric.BorderStyle = BorderStyle.FixedSingle;
             rota2Numeric.Location = new Point(426, 78);
+            rota2Numeric.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
             rota2Numeric.Name = "rota2Numeric";
-            rota2Numeric.Size = new Size(42, 29);
+            rota2Numeric.Size = new Size(69, 29);
             rota2Numeric.TabIndex = 48;
             rota2Numeric.TextAlign = HorizontalAlignment.Center;
             // 
@@ -463,8 +492,9 @@
             // 
             rota9Numeric.BorderStyle = BorderStyle.FixedSingle;
             rota9Numeric.Location = new Point(186, 495);
+            rota9Numeric.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
             rota9Numeric.Name = "rota9Numeric";
-            rota9Numeric.Size = new Size(42, 29);
+            rota9Numeric.Size = new Size(68, 29);
             rota9Numeric.TabIndex = 42;
             rota9Numeric.TextAlign = HorizontalAlignment.Center;
             // 
@@ -517,8 +547,9 @@
             // 
             rota7Numeric.BorderStyle = BorderStyle.FixedSingle;
             rota7Numeric.Location = new Point(186, 388);
+            rota7Numeric.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
             rota7Numeric.Name = "rota7Numeric";
-            rota7Numeric.Size = new Size(42, 29);
+            rota7Numeric.Size = new Size(68, 29);
             rota7Numeric.TabIndex = 38;
             rota7Numeric.TextAlign = HorizontalAlignment.Center;
             // 
@@ -553,8 +584,9 @@
             // 
             rota5Numeric.BorderStyle = BorderStyle.FixedSingle;
             rota5Numeric.Location = new Point(186, 287);
+            rota5Numeric.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
             rota5Numeric.Name = "rota5Numeric";
-            rota5Numeric.Size = new Size(42, 29);
+            rota5Numeric.Size = new Size(68, 29);
             rota5Numeric.TabIndex = 34;
             rota5Numeric.TextAlign = HorizontalAlignment.Center;
             // 
@@ -589,8 +621,9 @@
             // 
             rota3Numeric.BorderStyle = BorderStyle.FixedSingle;
             rota3Numeric.Location = new Point(186, 181);
+            rota3Numeric.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
             rota3Numeric.Name = "rota3Numeric";
-            rota3Numeric.Size = new Size(42, 29);
+            rota3Numeric.Size = new Size(68, 29);
             rota3Numeric.TabIndex = 30;
             rota3Numeric.TextAlign = HorizontalAlignment.Center;
             // 
@@ -625,8 +658,9 @@
             // 
             rota1Numeric.BorderStyle = BorderStyle.FixedSingle;
             rota1Numeric.Location = new Point(186, 75);
+            rota1Numeric.Maximum = new decimal(new int[] { 1000000, 0, 0, 0 });
             rota1Numeric.Name = "rota1Numeric";
-            rota1Numeric.Size = new Size(42, 29);
+            rota1Numeric.Size = new Size(65, 29);
             rota1Numeric.TabIndex = 24;
             rota1Numeric.TextAlign = HorizontalAlignment.Center;
             // 
@@ -685,18 +719,18 @@
             // groupBox3
             // 
             groupBox3.Controls.Add(kayit);
-            groupBox3.Controls.Add(button1);
-            groupBox3.Controls.Add(label41);
-            groupBox3.Controls.Add(label40);
-            groupBox3.Controls.Add(label39);
-            groupBox3.Controls.Add(label38);
-            groupBox3.Controls.Add(label37);
-            groupBox3.Controls.Add(label36);
-            groupBox3.Controls.Add(label35);
+            groupBox3.Controls.Add(hesaplabtn);
+            groupBox3.Controls.Add(toplamTutarLabel);
+            groupBox3.Controls.Add(kdvsizAdetLabel);
+            groupBox3.Controls.Add(kdvliAdetLabel);
+            groupBox3.Controls.Add(kdvliToplamLabel);
+            groupBox3.Controls.Add(toplamKdvLabel);
+            groupBox3.Controls.Add(karlıToplamLabel);
+            groupBox3.Controls.Add(rotaToplamLabel);
             groupBox3.Controls.Add(label34);
             groupBox3.Controls.Add(label33);
-            groupBox3.Controls.Add(label32);
-            groupBox3.Controls.Add(label31);
+            groupBox3.Controls.Add(kdvadet);
+            groupBox3.Controls.Add(kdvli);
             groupBox3.Controls.Add(label30);
             groupBox3.Controls.Add(label29);
             groupBox3.Controls.Add(label28);
@@ -720,86 +754,87 @@
             kayit.UseVisualStyleBackColor = false;
             kayit.Click += kayit_Click;
             // 
-            // button1
+            // hesaplabtn
             // 
-            button1.BackColor = SystemColors.Highlight;
-            button1.Cursor = Cursors.Hand;
-            button1.Location = new Point(28, 554);
-            button1.Name = "button1";
-            button1.Size = new Size(157, 53);
-            button1.TabIndex = 58;
-            button1.Text = "Fiyat Hesapla";
-            button1.UseVisualStyleBackColor = false;
+            hesaplabtn.BackColor = SystemColors.Highlight;
+            hesaplabtn.Cursor = Cursors.Hand;
+            hesaplabtn.Location = new Point(28, 554);
+            hesaplabtn.Name = "hesaplabtn";
+            hesaplabtn.Size = new Size(157, 53);
+            hesaplabtn.TabIndex = 58;
+            hesaplabtn.Text = "Fiyat Hesapla";
+            hesaplabtn.UseVisualStyleBackColor = false;
+            hesaplabtn.Click += hesaplabtn_Click;
             // 
-            // label41
+            // toplamTutarLabel
             // 
-            label41.AutoSize = true;
-            label41.Font = new Font("Eras Bold ITC", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label41.Location = new Point(182, 315);
-            label41.Name = "label41";
-            label41.Size = new Size(54, 19);
-            label41.TabIndex = 57;
-            label41.Text = "00.00";
+            toplamTutarLabel.AutoSize = true;
+            toplamTutarLabel.Font = new Font("Eras Bold ITC", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            toplamTutarLabel.Location = new Point(182, 315);
+            toplamTutarLabel.Name = "toplamTutarLabel";
+            toplamTutarLabel.Size = new Size(54, 19);
+            toplamTutarLabel.TabIndex = 57;
+            toplamTutarLabel.Text = "00.00";
             // 
-            // label40
+            // kdvsizAdetLabel
             // 
-            label40.AutoSize = true;
-            label40.Font = new Font("Eras Medium ITC", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            label40.Location = new Point(206, 269);
-            label40.Name = "label40";
-            label40.Size = new Size(49, 19);
-            label40.TabIndex = 56;
-            label40.Text = "00.00";
+            kdvsizAdetLabel.AutoSize = true;
+            kdvsizAdetLabel.Font = new Font("Eras Medium ITC", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            kdvsizAdetLabel.Location = new Point(206, 269);
+            kdvsizAdetLabel.Name = "kdvsizAdetLabel";
+            kdvsizAdetLabel.Size = new Size(49, 19);
+            kdvsizAdetLabel.TabIndex = 56;
+            kdvsizAdetLabel.Text = "00.00";
             // 
-            // label39
+            // kdvliAdetLabel
             // 
-            label39.AutoSize = true;
-            label39.Font = new Font("Eras Medium ITC", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            label39.Location = new Point(190, 227);
-            label39.Name = "label39";
-            label39.Size = new Size(49, 19);
-            label39.TabIndex = 55;
-            label39.Text = "00.00";
+            kdvliAdetLabel.AutoSize = true;
+            kdvliAdetLabel.Font = new Font("Eras Medium ITC", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            kdvliAdetLabel.Location = new Point(190, 227);
+            kdvliAdetLabel.Name = "kdvliAdetLabel";
+            kdvliAdetLabel.Size = new Size(49, 19);
+            kdvliAdetLabel.TabIndex = 55;
+            kdvliAdetLabel.Text = "00.00";
             // 
-            // label38
+            // kdvliToplamLabel
             // 
-            label38.AutoSize = true;
-            label38.Font = new Font("Eras Medium ITC", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            label38.Location = new Point(166, 179);
-            label38.Name = "label38";
-            label38.Size = new Size(49, 19);
-            label38.TabIndex = 54;
-            label38.Text = "00.00";
+            kdvliToplamLabel.AutoSize = true;
+            kdvliToplamLabel.Font = new Font("Eras Medium ITC", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            kdvliToplamLabel.Location = new Point(166, 179);
+            kdvliToplamLabel.Name = "kdvliToplamLabel";
+            kdvliToplamLabel.Size = new Size(49, 19);
+            kdvliToplamLabel.TabIndex = 54;
+            kdvliToplamLabel.Text = "00.00";
             // 
-            // label37
+            // toplamKdvLabel
             // 
-            label37.AutoSize = true;
-            label37.Font = new Font("Eras Medium ITC", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            label37.Location = new Point(206, 131);
-            label37.Name = "label37";
-            label37.Size = new Size(49, 19);
-            label37.TabIndex = 53;
-            label37.Text = "00.00";
+            toplamKdvLabel.AutoSize = true;
+            toplamKdvLabel.Font = new Font("Eras Medium ITC", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            toplamKdvLabel.Location = new Point(206, 131);
+            toplamKdvLabel.Name = "toplamKdvLabel";
+            toplamKdvLabel.Size = new Size(49, 19);
+            toplamKdvLabel.TabIndex = 53;
+            toplamKdvLabel.Text = "00.00";
             // 
-            // label36
+            // karlıToplamLabel
             // 
-            label36.AutoSize = true;
-            label36.Font = new Font("Eras Medium ITC", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            label36.Location = new Point(195, 89);
-            label36.Name = "label36";
-            label36.Size = new Size(49, 19);
-            label36.TabIndex = 52;
-            label36.Text = "00.00";
+            karlıToplamLabel.AutoSize = true;
+            karlıToplamLabel.Font = new Font("Eras Medium ITC", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            karlıToplamLabel.Location = new Point(195, 89);
+            karlıToplamLabel.Name = "karlıToplamLabel";
+            karlıToplamLabel.Size = new Size(49, 19);
+            karlıToplamLabel.TabIndex = 52;
+            karlıToplamLabel.Text = "00.00";
             // 
-            // label35
+            // rotaToplamLabel
             // 
-            label35.AutoSize = true;
-            label35.Font = new Font("Eras Medium ITC", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            label35.Location = new Point(197, 46);
-            label35.Name = "label35";
-            label35.Size = new Size(49, 19);
-            label35.TabIndex = 44;
-            label35.Text = "00.00";
+            rotaToplamLabel.AutoSize = true;
+            rotaToplamLabel.Font = new Font("Eras Medium ITC", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            rotaToplamLabel.Location = new Point(197, 46);
+            rotaToplamLabel.Name = "rotaToplamLabel";
+            rotaToplamLabel.Size = new Size(49, 19);
+            rotaToplamLabel.TabIndex = 44;
+            rotaToplamLabel.Text = "00.00";
             // 
             // label34
             // 
@@ -821,25 +856,25 @@
             label33.TabIndex = 50;
             label33.Text = "KDV'siz Adet Fiyatı:";
             // 
-            // label32
+            // kdvadet
             // 
-            label32.AutoSize = true;
-            label32.Font = new Font("Eras Medium ITC", 14.25F);
-            label32.Location = new Point(28, 224);
-            label32.Name = "label32";
-            label32.Size = new Size(156, 22);
-            label32.TabIndex = 49;
-            label32.Text = "KDV'li Adet Fiyatı:";
+            kdvadet.AutoSize = true;
+            kdvadet.Font = new Font("Eras Medium ITC", 14.25F);
+            kdvadet.Location = new Point(28, 224);
+            kdvadet.Name = "kdvadet";
+            kdvadet.Size = new Size(156, 22);
+            kdvadet.TabIndex = 49;
+            kdvadet.Text = "KDV'li Adet Fiyatı:";
             // 
-            // label31
+            // kdvli
             // 
-            label31.AutoSize = true;
-            label31.Font = new Font("Eras Medium ITC", 14.25F);
-            label31.Location = new Point(28, 177);
-            label31.Name = "label31";
-            label31.Size = new Size(132, 22);
-            label31.TabIndex = 48;
-            label31.Text = "KDV li Toplam:";
+            kdvli.AutoSize = true;
+            kdvli.Font = new Font("Eras Medium ITC", 14.25F);
+            kdvli.Location = new Point(28, 177);
+            kdvli.Name = "kdvli";
+            kdvli.Size = new Size(132, 22);
+            kdvli.TabIndex = 48;
+            kdvli.Text = "KDV li Toplam:";
             // 
             // label30
             // 
@@ -928,30 +963,6 @@
             yedeklemeToolStripMenuItem.Text = "Yedekleme";
             yedeklemeToolStripMenuItem.Click += yedeklemeToolStripMenuItem_Click;
             // 
-            // sahipCombo
-            // 
-            sahipCombo.FormattingEnabled = true;
-            sahipCombo.Location = new Point(18, 115);
-            sahipCombo.Name = "sahipCombo";
-            sahipCombo.Size = new Size(121, 37);
-            sahipCombo.TabIndex = 48;
-            // 
-            // urun_adiCombo
-            // 
-            urun_adiCombo.FormattingEnabled = true;
-            urun_adiCombo.Location = new Point(18, 264);
-            urun_adiCombo.Name = "urun_adiCombo";
-            urun_adiCombo.Size = new Size(121, 37);
-            urun_adiCombo.TabIndex = 49;
-            // 
-            // urun_cinsiCombo
-            // 
-            urun_cinsiCombo.FormattingEnabled = true;
-            urun_cinsiCombo.Location = new Point(18, 425);
-            urun_cinsiCombo.Name = "urun_cinsiCombo";
-            urun_cinsiCombo.Size = new Size(121, 37);
-            urun_cinsiCombo.TabIndex = 50;
-            // 
             // home
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -1012,24 +1023,24 @@
         private NumericUpDown karNumeric;
         private GroupBox groupBox3;
         private Label label28;
-        private Label label32;
-        private Label label31;
+        private Label kdvadet;
+        private Label kdvli;
         private Label label30;
         private Label label29;
         private Label label34;
         private Label label33;
-        private Label label35;
-        private Label label41;
-        private Label label40;
-        private Label label39;
-        private Label label38;
-        private Label label37;
-        private Label label36;
+        private Label rotaToplamLabel;
+        private Label toplamTutarLabel;
+        private Label kdvsizAdetLabel;
+        private Label kdvliAdetLabel;
+        private Label kdvliToplamLabel;
+        private Label toplamKdvLabel;
+        private Label karlıToplamLabel;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem anaSayfaToolStripMenuItem;
         private ToolStripMenuItem teklifOnaylaToolStripMenuItem;
         private ToolStripMenuItem yöneticiToolStripMenuItem;
-        private Button button1;
+        private Button hesaplabtn;
         private Button kayit;
         private ToolStripMenuItem kullanıcıEkleToolStripMenuItem;
         private ToolStripMenuItem istatistiklkerToolStripMenuItem;

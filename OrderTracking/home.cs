@@ -142,5 +142,55 @@ namespace OrderTracking
         {
             SaveDataToDatabase();
         }
+
+        private void hesaplabtn_Click(object sender, EventArgs e)
+        {
+            // Rota toplamýný hesapla
+            decimal rotaToplam = 0;
+            for (int i = 1; i <= 10; i++)
+            {
+                NumericUpDown rotaNumeric = this.Controls.Find($"rota{i}Numeric", true).FirstOrDefault() as NumericUpDown;
+                if (rotaNumeric != null)
+                {
+                    rotaToplam += rotaNumeric.Value;
+                }
+            }
+
+            rotaToplamLabel.Text = rotaToplam.ToString("F2");
+
+            // Kâr oraný yüzdesi
+            decimal kar = karNumeric.Value;
+
+            // Kâr eklenmiþ toplam hesaplama
+            decimal kârMiktarý = rotaToplam * (kar / 100);
+            decimal karlýToplam = rotaToplam + kârMiktarý;
+            karlýToplamLabel.Text = karlýToplam.ToString("F2");
+
+            // KDV hesaplama
+            decimal kdv = karlýToplam * 0.20m; // %20 KDV
+            toplamKdvLabel.Text = kdv.ToString("F2");
+
+            // KDV'li toplam hesaplama
+            decimal kdvliToplam = karlýToplam + kdv;
+            kdvliToplamLabel.Text = kdvliToplam.ToString("F2");
+
+            // Toplam tutarý KDV'li toplam olarak ayarlama
+            toplamTutarLabel.Text = kdvliToplam.ToString("F2");
+
+            // KDV'li adeti hesaplama
+            decimal urunMiktari = urunMiktarNumeric.Value;
+            decimal kdvliAdet = kdvliToplam / urunMiktari;
+            kdvliAdetLabel.Text = kdvliAdet.ToString("F2");
+
+            // KDV'siz adeti hesaplama
+            decimal kdvsizAdet = karlýToplam / urunMiktari;
+            kdvsizAdetLabel.Text = kdvsizAdet.ToString("F2");
+        }
+
+
+
+
+
+
     }
 }
