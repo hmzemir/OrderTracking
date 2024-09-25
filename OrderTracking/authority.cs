@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace OrderTracking
@@ -16,6 +9,38 @@ namespace OrderTracking
         public authority()
         {
             InitializeComponent();
+            LoadAdminUsers(); // Form açıldığında kullanıcıları yükle
+        }
+
+        private void LoadAdminUsers()
+        {
+            // Veritabanı bağlantısını oluştur
+            string connectionString = "Data Source=TETrA\\SQLEXPRESS;Initial Catalog=orderTracking;Integrated Security=True;Encrypt=False";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    string query = "SELECT u_username FROM Kullanıcılar WHERE u_admin_level = 1"; // Admin seviyesindeki kullanıcıları seç
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        SqlDataReader reader = command.ExecuteReader();
+                        yetkiliListeLabel.Text = ""; // Önceki metni temizle
+
+                        while (reader.Read())
+                        {
+                            // Kullanıcı adını label'a ekle ve ardından bir satır boşluk bırak
+                            yetkiliListeLabel.Text += reader["u_username"].ToString() + Environment.NewLine;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Bir hata oluştu: " + ex.Message);
+                }
+            }
         }
 
         private void kullanıcıEkle_Click(object sender, EventArgs e)
@@ -54,6 +79,7 @@ namespace OrderTracking
                         if (rowsAffected > 0)
                         {
                             MessageBox.Show("Kullanıcı yetkisi başarıyla güncellendi.");
+                            LoadAdminUsers(); // Kullanıcı yetkisi güncellendiğinde listeyi yeniden yükle
                         }
                         else
                         {
@@ -67,6 +93,10 @@ namespace OrderTracking
                 }
             }
         }
+
+        private void authority_Load(object sender, EventArgs e)
+        {
+            LoadAdminUsers(); // Sayfa yüklendiğinde yetkili kullanıcıları yükle
+        }
     }
 }
-

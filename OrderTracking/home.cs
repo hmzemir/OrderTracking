@@ -199,5 +199,12 @@ namespace OrderTracking
             decimal kdvsizAdet = karlýToplam / urunMiktari;
             kdvsizAdetLabel.Text = kdvsizAdet.ToString("F2");
         }
+
+        private void çýkýþToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            login homeForm = new login();
+            homeForm.Show();
+        }
     }
 }

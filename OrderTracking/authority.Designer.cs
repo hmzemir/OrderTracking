@@ -33,6 +33,8 @@
             kullanıcıadıTextbox = new TextBox();
             yetkicombo = new ComboBox();
             kullanıcıEkle = new Button();
+            label3 = new Label();
+            yetkiliListeLabel = new Label();
             SuspendLayout();
             // 
             // label2
@@ -85,11 +87,33 @@
             kullanıcıEkle.UseVisualStyleBackColor = true;
             kullanıcıEkle.Click += kullanıcıEkle_Click;
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Eras Demi ITC", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Location = new Point(368, 39);
+            label3.Name = "label3";
+            label3.Size = new Size(87, 23);
+            label3.TabIndex = 67;
+            label3.Text = "Yetkililer";
+            // 
+            // yetkiliListeLabel
+            // 
+            yetkiliListeLabel.AutoSize = true;
+            yetkiliListeLabel.Font = new Font("Eras Light ITC", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            yetkiliListeLabel.Location = new Point(368, 72);
+            yetkiliListeLabel.Name = "yetkiliListeLabel";
+            yetkiliListeLabel.Size = new Size(58, 18);
+            yetkiliListeLabel.TabIndex = 68;
+            yetkiliListeLabel.Text = "Yetkililer";
+            // 
             // authority
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(423, 459);
+            ClientSize = new Size(522, 378);
+            Controls.Add(yetkiliListeLabel);
+            Controls.Add(label3);
             Controls.Add(kullanıcıEkle);
             Controls.Add(yetkicombo);
             Controls.Add(label2);
@@ -108,5 +132,7 @@
         private TextBox kullanıcıadıTextbox;
         private ComboBox yetkicombo;
         private Button kullanıcıEkle;
+        private Label label3;
+        private Label yetkiliListeLabel;
     }
 }
