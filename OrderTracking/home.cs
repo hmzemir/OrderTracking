@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Windows.Forms;
@@ -10,10 +9,12 @@ namespace OrderTracking
     {
         private int verticalSpacing = 20;
         private Panel parentPanel;
+        private int userAdminLevel; // Kullanýcýnýn yetki seviyesi
 
-        public home()
+        public home(int adminLevel) // Yapýcý metot
         {
             InitializeComponent();
+            userAdminLevel = adminLevel; // Yetki seviyesini ayarla
             parentPanel = this.panel1;
             parentPanel.AutoScroll = false;
             this.Resize += home_Resize;
@@ -119,17 +120,29 @@ namespace OrderTracking
             }
         }
 
-        private void anaSayfaToolStripMenuItem_Click(object sender, EventArgs e) => ShowForm(new home());
+        private void anaSayfaToolStripMenuItem_Click(object sender, EventArgs e) => ShowForm(new home(userAdminLevel));
         private void onaylananTekliflerToolStripMenuItem_Click(object sender, EventArgs e) => ShowForm(new orders());
         private void teklifOnaylaToolStripMenuItem_Click(object sender, EventArgs e) => ShowForm(new tickets());
-        private void kullanýcýEkleToolStripMenuItem_Click(object sender, EventArgs e) => ShowForm(new addUser());
+        private void kullanýcýEkleToolStripMenuItem_Click(object sender, EventArgs e) => PerformAdminAction(new addUser());
         private void yedeklemeToolStripMenuItem_Click(object sender, EventArgs e) => ShowForm(new databaseSave());
+        private void yetkiVerToolStripMenuItem_Click(object sender, EventArgs e) => PerformAdminAction(new authority());
+
+        private void PerformAdminAction(Form form)
+        {
+            // Kullanýcý yetkisini kontrol et
+            if (userAdminLevel != 1) // Yetkisi yoksa
+            {
+                MessageBox.Show("Bu iþlemi gerçekleþtirmek için yetkiniz yok.");
+                return; // Ýþlemi durdur
+            }
+            // Yetkisi varsa formu göster
+            ShowForm(form);
+        }
 
         private void ShowForm(Form form)
         {
             try
             {
-               
                 form.Show();
             }
             catch (Exception ex)
@@ -186,11 +199,5 @@ namespace OrderTracking
             decimal kdvsizAdet = karlýToplam / urunMiktari;
             kdvsizAdetLabel.Text = kdvsizAdet.ToString("F2");
         }
-
-
-
-
-
-
     }
 }

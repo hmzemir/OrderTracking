@@ -30,15 +30,22 @@ namespace OrderTracking
                 // Mevcut formu kapat
                 this.Hide();
 
-                // Yeni tickets formunu aç
-                home homeForm = new home();
-                homeForm.Show();
+                // Kullanıcı admin seviyesini al
+                int userAdminLevel = GetUserAdminLevel(); // Bu yöntemi, admin seviyesini alacak şekilde tanımlayın
 
+                // Yeni home formunu aç
+                home homeForm = new home(userAdminLevel); // adminLevel değerini geçin
+                homeForm.Show();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Bir hata oluştu: " + ex.Message);
             }
+        }
+        private int GetUserAdminLevel()
+        {
+            // Burada admin seviyesini almak için gereken mantığı yazın
+            return 1; // Örneğin 1 döndürdük
         }
 
         private void teklifOnaylaToolStripMenuItem_Click(object sender, EventArgs e)

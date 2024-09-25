@@ -969,6 +969,7 @@
             yetkiVerToolStripMenuItem.Name = "yetkiVerToolStripMenuItem";
             yetkiVerToolStripMenuItem.Size = new Size(180, 22);
             yetkiVerToolStripMenuItem.Text = "Yetki Ver";
+            yetkiVerToolStripMenuItem.Click += yetkiVerToolStripMenuItem_Click;
             // 
             // home
             // 

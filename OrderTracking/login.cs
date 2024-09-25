@@ -21,21 +21,20 @@ namespace OrderTracking
         private void button1_Click(object sender, EventArgs e)
         {
             // Kullanıcıdan alınan giriş bilgileri
-            string kullaniciAdi = kullanıcıadıTextbox.Text; // Kullanıcı adını kullanıcıadıTextbox'dan alıyoruz
-            string sifre = sifreTextbox.Text; // Şifreyi sifreTextbox'dan alıyoruz
+            string kullaniciAdi = kullanıcıadıTextbox.Text;
+            string sifre = sifreTextbox.Text;
 
             // Şifreyi hash'lemek
             string hashliSifre = ComputeSha256Hash(sifre);
 
-            // Veritabanına bağlanma ve kullanıcıyı doğrulama
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 try
                 {
                     conn.Open();
 
-                    // SQL sorgusu: kullanıcı adı ve hashlenmiş şifreyi kontrol et
-                    string query = "SELECT u_username, u_password, u_admin_level FROM Kullanıcılar WHERE u_username = @kullaniciAdi AND u_password = @hashliSifre";
+                    // Kullanıcının yetki seviyesini de almak için sorguyu güncelleyelim
+                    string query = "SELECT u_admin_level FROM Kullanıcılar WHERE u_username = @kullaniciAdi AND u_password = @hashliSifre";
 
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@kullaniciAdi", kullaniciAdi);
@@ -43,20 +42,17 @@ namespace OrderTracking
 
                     SqlDataReader reader = cmd.ExecuteReader();
 
-                    if (reader.HasRows && reader.Read())
+                    if (reader.Read())
                     {
-                        // Kullanıcının admin seviyesini kaydet
-                        UserAdminLevel = Convert.ToInt32(reader["u_admin_level"]);
-
-                        // Giriş başarılıysa home formuna yönlendirme
+                        // Giriş başarılıysa, yetki seviyesini al
+                        int adminLevel = reader.GetInt32(0);
                         MessageBox.Show("Giriş başarılı! Yönlendiriliyorsunuz...");
-                        this.Hide(); // Login formunu gizle
-                        home homeForm = new home();
-                        homeForm.Show(); // Home formunu göster
+                        this.Hide();
+                        home homeForm = new home(adminLevel); // Yetki seviyesini geçir
+                        homeForm.Show();
                     }
                     else
                     {
-                        // Giriş başarısızsa hata mesajı
                         MessageBox.Show("Kullanıcı adı veya şifre hatalı.");
                     }
 
