@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Security.Cryptography;
+using System.Text;
+using System.Windows.Forms;
 
 namespace OrderTracking
 {
@@ -16,6 +10,9 @@ namespace OrderTracking
     {
         // Veritabanı bağlantı cümlesi (Connection String)
         string connectionString = "Data Source=TETrA\\SQLEXPRESS;Initial Catalog=orderTracking;Integrated Security=True;Encrypt=False";
+
+        public static int UserAdminLevel { get; private set; } // Kullanıcı admin seviyesi
+
         public login()
         {
             InitializeComponent();
@@ -38,7 +35,7 @@ namespace OrderTracking
                     conn.Open();
 
                     // SQL sorgusu: kullanıcı adı ve hashlenmiş şifreyi kontrol et
-                    string query = "SELECT u_username, u_password FROM Kullanıcılar WHERE u_username = @kullaniciAdi AND u_password = @hashliSifre";
+                    string query = "SELECT u_username, u_password, u_admin_level FROM Kullanıcılar WHERE u_username = @kullaniciAdi AND u_password = @hashliSifre";
 
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@kullaniciAdi", kullaniciAdi);
@@ -46,8 +43,11 @@ namespace OrderTracking
 
                     SqlDataReader reader = cmd.ExecuteReader();
 
-                    if (reader.HasRows)
+                    if (reader.HasRows && reader.Read())
                     {
+                        // Kullanıcının admin seviyesini kaydet
+                        UserAdminLevel = Convert.ToInt32(reader["u_admin_level"]);
+
                         // Giriş başarılıysa home formuna yönlendirme
                         MessageBox.Show("Giriş başarılı! Yönlendiriliyorsunuz...");
                         this.Hide(); // Login formunu gizle
