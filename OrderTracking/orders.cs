@@ -1,25 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Drawing.Printing;
 using System.Windows.Forms;
 
 namespace OrderTracking
 {
     public partial class orders : Form
     {
-        private string connectionString = "Data Source=TETrA\\SQLEXPRESS;Initial Catalog=orderTracking;Integrated Security=True;Encrypt=F"; // Veritabanı bağlantı dizesi
+        private string connectionString = "Data Source=TETrA\\SQLEXPRESS;Initial Catalog=orderTracking;Integrated Security=True;Encrypt=False;";
 
         public orders()
         {
             InitializeComponent();
             LoadOrders(); // Siparişleri yükle
         }
+
         private void LoadOrders()
         {
             try
@@ -27,7 +24,7 @@ namespace OrderTracking
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    string query = "SELECT * FROM Siparisler"; // Siparişleri çeken SQL sorgusu
+                    string query = "SELECT * FROM Siparisler";
                     SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
                     DataTable dataTable = new DataTable();
                     adapter.Fill(dataTable);
@@ -35,17 +32,13 @@ namespace OrderTracking
                     dataGridView1.DataSource = dataTable;
 
                     // DataGridView'de satırların arka plan rengini ayarlayın
-                    foreach (DataGridViewRow row in dataGridView1.Rows)
+                    foreach (DataRow row in dataTable.Rows)
                     {
-                        int onayDurumu = Convert.ToInt32(row.Cells["siparis_onay"].Value);
-                        if (onayDurumu == 0)
-                        {
-                            row.DefaultCellStyle.BackColor = Color.LightCoral; // Açık kırmızı
-                        }
-                        else if (onayDurumu == 1)
-                        {
-                            row.DefaultCellStyle.BackColor = Color.LightGreen; // Açık yeşil
-                        }
+                        int onayDurumu = Convert.ToInt32(row["siparis_onay"]);
+                        int rowIndex = dataTable.Rows.IndexOf(row);
+                        dataGridView1.Rows[rowIndex].DefaultCellStyle.BackColor = (onayDurumu == 1)
+                            ? Color.LightGreen // Onaylananlar için açık yeşil
+                            : Color.LightCoral; // Onaylanmayanlar için açık kırmızı
                     }
                 }
             }
@@ -57,24 +50,15 @@ namespace OrderTracking
 
         private void orders_Load(object sender, EventArgs e)
         {
-
+            // Form yüklendiğinde yapılacak işlemler
         }
-
-
-
-
 
         private void anaSayfaToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             try
             {
-                // Mevcut formu kapat
                 this.Hide();
-
-                // Kullanıcı admin seviyesini al
                 int userAdminLevel = GetUserAdminLevel(); // Bu yöntemi, admin seviyesini alacak şekilde tanımlayın
-
-                // Yeni home formunu aç
                 home homeForm = new home(userAdminLevel); // adminLevel değerini geçin
                 homeForm.Show();
             }
@@ -83,6 +67,7 @@ namespace OrderTracking
                 MessageBox.Show("Bir hata oluştu: " + ex.Message);
             }
         }
+
         private int GetUserAdminLevel()
         {
             // Burada admin seviyesini almak için gereken mantığı yazın
@@ -93,13 +78,9 @@ namespace OrderTracking
         {
             try
             {
-                // Mevcut formu kapat
                 this.Hide();
-
-                // Yeni tickets formunu aç
                 tickets ticketForm = new tickets();
                 ticketForm.Show();
-
             }
             catch (Exception ex)
             {
@@ -111,13 +92,9 @@ namespace OrderTracking
         {
             try
             {
-                // Mevcut formu kapat
                 this.Hide();
-
-                // Yeni tickets formunu aç
                 orders orderForm = new orders();
                 orderForm.Show();
-
             }
             catch (Exception ex)
             {
@@ -129,11 +106,8 @@ namespace OrderTracking
         {
             try
             {
-
-                // Yeni tickets formunu aç
                 addUser adduserForm = new addUser();
                 adduserForm.Show();
-
             }
             catch (Exception ex)
             {
@@ -145,11 +119,8 @@ namespace OrderTracking
         {
             try
             {
-
-                // Yeni tickets formunu aç
                 databaseSave dataForm = new databaseSave();
                 dataForm.Show();
-
             }
             catch (Exception ex)
             {
@@ -161,7 +132,74 @@ namespace OrderTracking
         {
             // TextBox içindeki kelimeye göre filtreleme yap
             string filterText = textBox1.Text.ToLower();
-            (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = $"sahip LIKE '%{filterText}%'"; // ColumnName yerine uygun sütun adını yazın
+            (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = $"sahip LIKE '%{filterText}%'";
         }
+
+        private void yazdırbtn_Click(object sender, EventArgs e)
+        {
+            // Seçili satırı kontrol edelim
+            if (dataGridView1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Lütfen bir sipariş seçin.");
+                return;
+            }
+
+            // Seçili siparişi alalım
+            var selectedRow = dataGridView1.SelectedRows[0];
+            Siparis selectedSiparis = new Siparis
+            {
+                Sahip = selectedRow.Cells["sahip"].Value.ToString(),
+                Tarih = Convert.ToDateTime(selectedRow.Cells["tarih"].Value),
+                UrunAdi = selectedRow.Cells["urun_adi"].Value.ToString(),
+                UrunMiktari = Convert.ToInt32(selectedRow.Cells["urun_miktari"].Value),
+                UrunCinsi = selectedRow.Cells["urun_cinsi"].Value.ToString(),
+                Aciklama = selectedRow.Cells["aciklama"].Value.ToString()
+            };
+
+            PrintDocument printDocument = new PrintDocument();
+            printDocument.PrintPage += (s, args) => PrintPage(args, selectedSiparis); // Seçilen siparişi geçiriyoruz
+
+            PrintDialog printDialog = new PrintDialog();
+            printDialog.Document = printDocument;
+
+            if (printDialog.ShowDialog() == DialogResult.OK)
+            {
+                printDocument.Print();
+            }
+        }
+
+        private void PrintPage(PrintPageEventArgs e, Siparis siparis)
+        {
+            // Yazdırılacak içerik
+            Font headerFont = new Font("Arial", 16, FontStyle.Bold);
+            Font regularFont = new Font("Arial", 12);
+            float pageWidth = e.MarginBounds.Width;
+            float boxWidth = 500;
+            float xMargin = (pageWidth - boxWidth) / 2;
+            float lineHeight = regularFont.GetHeight(e.Graphics) + 10;
+            float yMargin = 50;
+
+            // Başlık
+            e.Graphics.DrawString("SİPARİŞ BİLGİLERİ", headerFont, Brushes.Black, xMargin, yMargin);
+
+            // Sipariş Bilgileri
+            yMargin += lineHeight + 10;
+            e.Graphics.DrawString($"Sahip: {siparis.Sahip}", regularFont, Brushes.Black, xMargin, yMargin);
+            e.Graphics.DrawString($"Tarih: {siparis.Tarih}", regularFont, Brushes.Black, xMargin, yMargin + lineHeight);
+            e.Graphics.DrawString($"Ürün Adı: {siparis.UrunAdi}", regularFont, Brushes.Black, xMargin, yMargin + lineHeight * 2);
+            e.Graphics.DrawString($"Ürün Miktarı: {siparis.UrunMiktari}", regularFont, Brushes.Black, xMargin, yMargin + lineHeight * 3);
+            e.Graphics.DrawString($"Ürün Cinsi: {siparis.UrunCinsi}", regularFont, Brushes.Black, xMargin, yMargin + lineHeight * 4);
+            e.Graphics.DrawString($"Açıklama: {siparis.Aciklama}", regularFont, Brushes.Black, xMargin, yMargin + lineHeight * 5);
+        }
+    }
+
+    public class Siparis
+    {
+        public string Sahip { get; set; }
+        public DateTime Tarih { get; set; }
+        public string UrunAdi { get; set; }
+        public int UrunMiktari { get; set; }
+        public string UrunCinsi { get; set; }
+        public string Aciklama { get; set; }
     }
 }

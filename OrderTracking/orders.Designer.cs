@@ -41,6 +41,7 @@
             label1 = new Label();
             textBox1 = new TextBox();
             button1 = new Button();
+            yazdırbtn = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -149,11 +150,25 @@
             button1.Text = "Ara";
             button1.UseVisualStyleBackColor = true;
             // 
+            // yazdırbtn
+            // 
+            yazdırbtn.BackColor = Color.DarkSeaGreen;
+            yazdırbtn.Cursor = Cursors.Hand;
+            yazdırbtn.Font = new Font("Eras Demi ITC", 15.75F);
+            yazdırbtn.Location = new Point(1089, 236);
+            yazdırbtn.Name = "yazdırbtn";
+            yazdırbtn.Size = new Size(194, 53);
+            yazdırbtn.TabIndex = 60;
+            yazdırbtn.Text = "Yazdır";
+            yazdırbtn.UseVisualStyleBackColor = false;
+            yazdırbtn.Click += yazdırbtn_Click;
+            // 
             // orders
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1904, 1041);
+            Controls.Add(yazdırbtn);
             Controls.Add(button1);
             Controls.Add(textBox1);
             Controls.Add(label1);
@@ -185,5 +200,6 @@
         private Label label1;
         private TextBox textBox1;
         private Button button1;
+        private Button yazdırbtn;
     }
 }
