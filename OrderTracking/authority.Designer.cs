@@ -31,7 +31,7 @@
             label2 = new Label();
             label1 = new Label();
             kullanıcıadıTextbox = new TextBox();
-            comboBox1 = new ComboBox();
+            yetkicombo = new ComboBox();
             kullanıcıEkle = new Button();
             SuspendLayout();
             // 
@@ -64,15 +64,15 @@
             kullanıcıadıTextbox.Size = new Size(199, 27);
             kullanıcıadıTextbox.TabIndex = 62;
             // 
-            // comboBox1
+            // yetkicombo
             // 
-            comboBox1.Font = new Font("Segoe UI", 11.25F);
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Admin" });
-            comboBox1.Location = new Point(98, 195);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(121, 28);
-            comboBox1.TabIndex = 65;
+            yetkicombo.Font = new Font("Segoe UI", 11.25F);
+            yetkicombo.FormattingEnabled = true;
+            yetkicombo.Items.AddRange(new object[] { "Admin", "Kullanıcı" });
+            yetkicombo.Location = new Point(98, 195);
+            yetkicombo.Name = "yetkicombo";
+            yetkicombo.Size = new Size(121, 28);
+            yetkicombo.TabIndex = 65;
             // 
             // kullanıcıEkle
             // 
@@ -83,6 +83,7 @@
             kullanıcıEkle.TabIndex = 66;
             kullanıcıEkle.Text = "Ekle";
             kullanıcıEkle.UseVisualStyleBackColor = true;
+            kullanıcıEkle.Click += kullanıcıEkle_Click;
             // 
             // authority
             // 
@@ -90,7 +91,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(423, 459);
             Controls.Add(kullanıcıEkle);
-            Controls.Add(comboBox1);
+            Controls.Add(yetkicombo);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(kullanıcıadıTextbox);
@@ -105,7 +106,7 @@
         private Label label2;
         private Label label1;
         private TextBox kullanıcıadıTextbox;
-        private ComboBox comboBox1;
+        private ComboBox yetkicombo;
         private Button kullanıcıEkle;
     }
 }
