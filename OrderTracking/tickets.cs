@@ -195,7 +195,7 @@ namespace OrderTracking
 
         private void LoadRouteInfo(int siparisId)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString)) // connectionString kullanıyoruz
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
                 string query = "SELECT rota_adi, ucret FROM Rotalar WHERE siparis_id = @siparisId";
@@ -206,6 +206,7 @@ namespace OrderTracking
 
                     decimal toplamUcret = 0; // Ücretleri toplamak için
                     richTextBox1.Clear(); // Önceki bilgileri temizle
+                    int rotaIndex = 1; // Rota numaralandırması
 
                     while (reader.Read())
                     {
@@ -214,14 +215,16 @@ namespace OrderTracking
                         toplamUcret += ucret;
 
                         // Rota bilgilerini yazdır
-                        richTextBox1.AppendText($"{rotaAdi} ({ucret} TL)\n");
+                        richTextBox1.AppendText($"Rota {rotaIndex}: {rotaAdi} ({ucret} TL)\n");
+                        rotaIndex++; // Rota numarasını artır
                     }
 
                     // Toplam ücreti yazdır
                     rotaToplamLabel.Text = toplamUcret.ToString("F2");
 
-                    // KDV Hesaplama
-                    decimal kdvliToplam = toplamUcret + 120; // 120 TL ekle
+                    // KDV Hesaplama (toplamUcret'in %20'si)
+                    decimal kdv = toplamUcret * 0.20m; // KDV'yi hesapla
+                    decimal kdvliToplam = toplamUcret + kdv; // Toplam + KDV
                     kdvliToplamLabel.Text = kdvliToplam.ToString("F2");
 
                     // Adet başına KDV'li fiyat hesaplama
@@ -272,17 +275,60 @@ namespace OrderTracking
         private void PrintPage(object sender, PrintPageEventArgs e)
         {
             // Yazdırılacak içerik
-            string printContent = $"Sahip: {sahipText.Text}\n" +
-                                  $"Tarih: {tarihTimerPicker.Value}\n" +
-                                  $"Ürün Adı: {urunadiText.Text}\n" +
-                                  $"Ürün Miktarı: {urunmiktarıText.Text}\n" +
-                                  $"Ürün Cinsi: {uruncinsiText.Text}\n" +
-                                  $"Açıklama: {aciklamaTextBox.Text}\n" +
-                                  $"Toplam Ücret: {rotaToplamLabel.Text} TL\n" +
-                                  $"KDV'li Toplam: {kdvliToplamLabel.Text} TL\n" +
-                                  $"KDV'li Adet Fiyatı: {kdvliAdetLabel.Text} TL";
+            StringBuilder printContent = new StringBuilder();
 
-            e.Graphics.DrawString(printContent, new Font("Arial", 12), Brushes.Black, new PointF(100, 100)); // Yazdır
+            // Başlık ve içerik stili
+            Font headerFont = new Font("Arial", 16, FontStyle.Bold);
+            Font regularFont = new Font("Arial", 12); // Kalın olmayan font
+            Font boxFont = new Font("Arial", 12, FontStyle.Bold);
+
+            // Sayfa Merkezi
+            float pageWidth = e.MarginBounds.Width;
+            float pageHeight = e.MarginBounds.Height;
+            float boxWidth = 500; // Kutu genişliği
+            float xMargin = (pageWidth - boxWidth) / 2; // Sayfanın ortasında kutu için
+            float lineHeight = regularFont.GetHeight(e.Graphics) + 10;
+
+            // Başlık Kutu
+            float yMargin = 50;
+            e.Graphics.DrawRectangle(Pens.Black, xMargin, yMargin, boxWidth, lineHeight * 2);
+            e.Graphics.DrawString("SİPARİŞ BİLGİLERİ", headerFont, Brushes.Black, xMargin + 10, yMargin + 10);
+
+            // Kişi Bilgileri
+            yMargin += lineHeight * 2 + 10; // Başlık altı boşluk
+            e.Graphics.DrawRectangle(Pens.Black, xMargin, yMargin, boxWidth, lineHeight * 4);
+            e.Graphics.DrawString("----- Kişi Bilgileri -----", headerFont, Brushes.Black, xMargin + 10, yMargin);
+            e.Graphics.DrawString($"Sahip: {sahipText.Text}", regularFont, Brushes.Black, xMargin + 10, yMargin + lineHeight);
+            e.Graphics.DrawString($"Tarih: {tarihTimerPicker.Value}", regularFont, Brushes.Black, xMargin + 10, yMargin + lineHeight * 2);
+
+            // Ürün Bilgileri
+            yMargin += lineHeight * 4 + 10;
+            e.Graphics.DrawRectangle(Pens.Black, xMargin, yMargin, boxWidth, lineHeight * 6);
+            e.Graphics.DrawString("----- Ürün Bilgileri -----", headerFont, Brushes.Black, xMargin + 10, yMargin);
+            e.Graphics.DrawString($"Ürün Adı: {urunadiText.Text}", regularFont, Brushes.Black, xMargin + 10, yMargin + lineHeight);
+            e.Graphics.DrawString($"Ürün Miktarı: {urunmiktarıText.Text}", regularFont, Brushes.Black, xMargin + 10, yMargin + lineHeight * 2);
+            e.Graphics.DrawString($"Ürün Cinsi: {uruncinsiText.Text}", regularFont, Brushes.Black, xMargin + 10, yMargin + lineHeight * 3);
+            e.Graphics.DrawString($"Açıklama: {aciklamaTextBox.Text}", regularFont, Brushes.Black, xMargin + 10, yMargin + lineHeight * 4);
+
+            // Rota Bilgileri
+            yMargin += lineHeight * 6 + 10;
+            e.Graphics.DrawRectangle(Pens.Black, xMargin, yMargin, boxWidth, lineHeight * (richTextBox1.Lines.Length + 1)); // Rota kutusunun yüksekliği dinamik
+            e.Graphics.DrawString("----- Rota Bilgileri -----", headerFont, Brushes.Black, xMargin + 10, yMargin);
+            float lineY = yMargin + lineHeight;
+            foreach (var line in richTextBox1.Lines)
+            {
+                e.Graphics.DrawString(line, regularFont, Brushes.Black, xMargin + 10, lineY);
+                lineY += lineHeight;
+            }
+
+            // Ücret Bilgileri
+            yMargin += lineHeight * (richTextBox1.Lines.Length + 1) + 10; // Rota bilgilerini ekleyince yüksekliği ayarlama
+            e.Graphics.DrawRectangle(Pens.Black, xMargin, yMargin, boxWidth, lineHeight * 4);
+            e.Graphics.DrawString("----- Ücret Bilgileri -----", headerFont, Brushes.Black, xMargin + 10, yMargin);
+            e.Graphics.DrawString($"Toplam Ücret: {rotaToplamLabel.Text} TL", boxFont, Brushes.Black, xMargin + 10, yMargin + lineHeight);
+            e.Graphics.DrawString($"KDV'li Toplam: {kdvliToplamLabel.Text} TL", boxFont, Brushes.Black, xMargin + 10, yMargin + lineHeight * 2);
+            e.Graphics.DrawString($"KDV'li Adet Fiyatı: {kdvliAdetLabel.Text} TL", boxFont, Brushes.Black, xMargin + 10, yMargin + lineHeight * 3);
+
         }
 
         private int GetSelectedSiparisId()

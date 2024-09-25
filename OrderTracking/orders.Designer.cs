@@ -137,6 +137,7 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(162, 23);
             textBox1.TabIndex = 55;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // button1
             // 
@@ -161,6 +162,7 @@
             Controls.Add(dataGridView1);
             Name = "orders";
             Text = "orders";
+            Load += orders_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,12 +13,52 @@ namespace OrderTracking
 {
     public partial class orders : Form
     {
+        private string connectionString = "Data Source=TETrA\\SQLEXPRESS;Initial Catalog=orderTracking;Integrated Security=True;Encrypt=F"; // Veritabanı bağlantı dizesi
+
         public orders()
         {
             InitializeComponent();
+            LoadOrders(); // Siparişleri yükle
+        }
+        private void LoadOrders()
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string query = "SELECT * FROM Siparisler"; // Siparişleri çeken SQL sorgusu
+                    SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+
+                    dataGridView1.DataSource = dataTable;
+
+                    // DataGridView'de satırların arka plan rengini ayarlayın
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
+                    {
+                        int onayDurumu = Convert.ToInt32(row.Cells["siparis_onay"].Value);
+                        if (onayDurumu == 0)
+                        {
+                            row.DefaultCellStyle.BackColor = Color.LightCoral; // Açık kırmızı
+                        }
+                        else if (onayDurumu == 1)
+                        {
+                            row.DefaultCellStyle.BackColor = Color.LightGreen; // Açık yeşil
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Veri yüklenirken bir hata oluştu: " + ex.Message);
+            }
         }
 
+        private void orders_Load(object sender, EventArgs e)
+        {
 
+        }
 
 
 
@@ -114,6 +155,13 @@ namespace OrderTracking
             {
                 MessageBox.Show("Bir hata oluştu: " + ex.Message);
             }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            // TextBox içindeki kelimeye göre filtreleme yap
+            string filterText = textBox1.Text.ToLower();
+            (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = $"sahip LIKE '%{filterText}%'"; // ColumnName yerine uygun sütun adını yazın
         }
     }
 }
