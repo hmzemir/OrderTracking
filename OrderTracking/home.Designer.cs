@@ -110,6 +110,7 @@
             kullanıcıEkleToolStripMenuItem = new ToolStripMenuItem();
             istatistiklkerToolStripMenuItem = new ToolStripMenuItem();
             yedeklemeToolStripMenuItem = new ToolStripMenuItem();
+            yetkiVerToolStripMenuItem = new ToolStripMenuItem();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)urunMiktarNumeric).BeginInit();
             panel1.SuspendLayout();
@@ -938,7 +939,7 @@
             // 
             // yöneticiToolStripMenuItem
             // 
-            yöneticiToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { kullanıcıEkleToolStripMenuItem, istatistiklkerToolStripMenuItem });
+            yöneticiToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { kullanıcıEkleToolStripMenuItem, istatistiklkerToolStripMenuItem, yetkiVerToolStripMenuItem });
             yöneticiToolStripMenuItem.Name = "yöneticiToolStripMenuItem";
             yöneticiToolStripMenuItem.Size = new Size(61, 20);
             yöneticiToolStripMenuItem.Text = "Yönetici";
@@ -946,14 +947,14 @@
             // kullanıcıEkleToolStripMenuItem
             // 
             kullanıcıEkleToolStripMenuItem.Name = "kullanıcıEkleToolStripMenuItem";
-            kullanıcıEkleToolStripMenuItem.Size = new Size(143, 22);
+            kullanıcıEkleToolStripMenuItem.Size = new Size(180, 22);
             kullanıcıEkleToolStripMenuItem.Text = "Kullanıcı Ekle";
             kullanıcıEkleToolStripMenuItem.Click += kullanıcıEkleToolStripMenuItem_Click;
             // 
             // istatistiklkerToolStripMenuItem
             // 
             istatistiklkerToolStripMenuItem.Name = "istatistiklkerToolStripMenuItem";
-            istatistiklkerToolStripMenuItem.Size = new Size(143, 22);
+            istatistiklkerToolStripMenuItem.Size = new Size(180, 22);
             istatistiklkerToolStripMenuItem.Text = "İstatistiklker";
             // 
             // yedeklemeToolStripMenuItem
@@ -962,6 +963,12 @@
             yedeklemeToolStripMenuItem.Size = new Size(76, 20);
             yedeklemeToolStripMenuItem.Text = "Yedekleme";
             yedeklemeToolStripMenuItem.Click += yedeklemeToolStripMenuItem_Click;
+            // 
+            // yetkiVerToolStripMenuItem
+            // 
+            yetkiVerToolStripMenuItem.Name = "yetkiVerToolStripMenuItem";
+            yetkiVerToolStripMenuItem.Size = new Size(180, 22);
+            yetkiVerToolStripMenuItem.Text = "Yetki Ver";
             // 
             // home
             // 
@@ -1085,5 +1092,6 @@
         private ComboBox urun_adiCombo;
         private ComboBox sahipCombo;
         private ComboBox urun_cinsiCombo;
+        private ToolStripMenuItem yetkiVerToolStripMenuItem;
     }
 }

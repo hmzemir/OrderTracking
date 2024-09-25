@@ -129,7 +129,7 @@ namespace OrderTracking
         {
             try
             {
-                this.Hide();
+               
                 form.Show();
             }
             catch (Exception ex)

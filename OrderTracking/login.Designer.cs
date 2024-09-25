@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             label34 = new Label();
-            textBox1 = new TextBox();
+            kullanıcıadıTextbox = new TextBox();
             label1 = new Label();
             label2 = new Label();
-            textBox2 = new TextBox();
+            sifreTextbox = new TextBox();
             button1 = new Button();
             SuspendLayout();
             // 
@@ -46,14 +46,14 @@
             label34.TabIndex = 52;
             label34.Text = "Login";
             // 
-            // textBox1
+            // kullanıcıadıTextbox
             // 
-            textBox1.BorderStyle = BorderStyle.FixedSingle;
-            textBox1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            textBox1.Location = new Point(117, 182);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(199, 27);
-            textBox1.TabIndex = 53;
+            kullanıcıadıTextbox.BorderStyle = BorderStyle.FixedSingle;
+            kullanıcıadıTextbox.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            kullanıcıadıTextbox.Location = new Point(117, 182);
+            kullanıcıadıTextbox.Name = "kullanıcıadıTextbox";
+            kullanıcıadıTextbox.Size = new Size(199, 27);
+            kullanıcıadıTextbox.TabIndex = 53;
             // 
             // label1
             // 
@@ -75,14 +75,14 @@
             label2.TabIndex = 56;
             label2.Text = "Parola";
             // 
-            // textBox2
+            // sifreTextbox
             // 
-            textBox2.BorderStyle = BorderStyle.FixedSingle;
-            textBox2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            textBox2.Location = new Point(117, 250);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(199, 27);
-            textBox2.TabIndex = 55;
+            sifreTextbox.BorderStyle = BorderStyle.FixedSingle;
+            sifreTextbox.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            sifreTextbox.Location = new Point(117, 250);
+            sifreTextbox.Name = "sifreTextbox";
+            sifreTextbox.Size = new Size(199, 27);
+            sifreTextbox.TabIndex = 55;
             // 
             // button1
             // 
@@ -93,6 +93,7 @@
             button1.TabIndex = 57;
             button1.Text = "Giriş Yap";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // login
             // 
@@ -101,9 +102,9 @@
             ClientSize = new Size(423, 459);
             Controls.Add(button1);
             Controls.Add(label2);
-            Controls.Add(textBox2);
+            Controls.Add(sifreTextbox);
             Controls.Add(label1);
-            Controls.Add(textBox1);
+            Controls.Add(kullanıcıadıTextbox);
             Controls.Add(label34);
             Name = "login";
             StartPosition = FormStartPosition.CenterScreen;
@@ -115,10 +116,10 @@
         #endregion
 
         private Label label34;
-        private TextBox textBox1;
+        private TextBox kullanıcıadıTextbox;
         private Label label1;
         private Label label2;
-        private TextBox textBox2;
+        private TextBox sifreTextbox;
         private Button button1;
     }
 }

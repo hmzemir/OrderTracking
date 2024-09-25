@@ -30,10 +30,10 @@
         {
             label34 = new Label();
             label2 = new Label();
-            textBox2 = new TextBox();
+            sıfreTextbox = new TextBox();
             label1 = new Label();
-            textBox1 = new TextBox();
-            button1 = new Button();
+            kullanıcıadıTextbox = new TextBox();
+            kullanıcıEkle = new Button();
             label3 = new Label();
             SuspendLayout();
             // 
@@ -57,14 +57,14 @@
             label2.TabIndex = 61;
             label2.Text = "Parola";
             // 
-            // textBox2
+            // sıfreTextbox
             // 
-            textBox2.BorderStyle = BorderStyle.FixedSingle;
-            textBox2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            textBox2.Location = new Point(104, 234);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(199, 27);
-            textBox2.TabIndex = 60;
+            sıfreTextbox.BorderStyle = BorderStyle.FixedSingle;
+            sıfreTextbox.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            sıfreTextbox.Location = new Point(104, 234);
+            sıfreTextbox.Name = "sıfreTextbox";
+            sıfreTextbox.Size = new Size(199, 27);
+            sıfreTextbox.TabIndex = 60;
             // 
             // label1
             // 
@@ -76,24 +76,25 @@
             label1.TabIndex = 59;
             label1.Text = "Kullanıcı Adı";
             // 
-            // textBox1
+            // kullanıcıadıTextbox
             // 
-            textBox1.BorderStyle = BorderStyle.FixedSingle;
-            textBox1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            textBox1.Location = new Point(104, 166);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(199, 27);
-            textBox1.TabIndex = 58;
+            kullanıcıadıTextbox.BorderStyle = BorderStyle.FixedSingle;
+            kullanıcıadıTextbox.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            kullanıcıadıTextbox.Location = new Point(104, 166);
+            kullanıcıadıTextbox.Name = "kullanıcıadıTextbox";
+            kullanıcıadıTextbox.Size = new Size(199, 27);
+            kullanıcıadıTextbox.TabIndex = 58;
             // 
-            // button1
+            // kullanıcıEkle
             // 
-            button1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            button1.Location = new Point(229, 277);
-            button1.Name = "button1";
-            button1.Size = new Size(74, 34);
-            button1.TabIndex = 62;
-            button1.Text = "Ekle";
-            button1.UseVisualStyleBackColor = true;
+            kullanıcıEkle.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            kullanıcıEkle.Location = new Point(229, 277);
+            kullanıcıEkle.Name = "kullanıcıEkle";
+            kullanıcıEkle.Size = new Size(74, 34);
+            kullanıcıEkle.TabIndex = 62;
+            kullanıcıEkle.Text = "Ekle";
+            kullanıcıEkle.UseVisualStyleBackColor = true;
+            kullanıcıEkle.Click += kullanıcıEkle_Click;
             // 
             // label3
             // 
@@ -113,11 +114,11 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(423, 459);
             Controls.Add(label3);
-            Controls.Add(button1);
+            Controls.Add(kullanıcıEkle);
             Controls.Add(label2);
-            Controls.Add(textBox2);
+            Controls.Add(sıfreTextbox);
             Controls.Add(label1);
-            Controls.Add(textBox1);
+            Controls.Add(kullanıcıadıTextbox);
             Controls.Add(label34);
             Name = "addUser";
             StartPosition = FormStartPosition.CenterScreen;
@@ -130,10 +131,10 @@
 
         private Label label34;
         private Label label2;
-        private TextBox textBox2;
+        private TextBox sıfreTextbox;
         private Label label1;
-        private TextBox textBox1;
-        private Button button1;
+        private TextBox kullanıcıadıTextbox;
+        private Button kullanıcıEkle;
         private Label label3;
     }
 }
