@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
+            onayBekleyenlerDGV = new DataGridView();
             menuStrip1 = new MenuStrip();
             anaSayfaToolStripMenuItem = new ToolStripMenuItem();
             onaylananTekliflerToolStripMenuItem = new ToolStripMenuItem();
@@ -39,36 +39,43 @@
             yedeklemeToolStripMenuItem = new ToolStripMenuItem();
             label34 = new Label();
             groupBox3 = new GroupBox();
+            kdvliAdetLabel = new Label();
+            kdvadet = new Label();
+            kdvliToplamLabel = new Label();
+            kdvli = new Label();
+            rotaToplamLabel = new Label();
+            label28 = new Label();
             richTextBox1 = new RichTextBox();
             label6 = new Label();
             aciklamaTextBox = new RichTextBox();
             label7 = new Label();
-            textBox4 = new TextBox();
+            uruncinsiText = new TextBox();
             label5 = new Label();
-            textBox3 = new TextBox();
+            urunmiktarıText = new TextBox();
             label4 = new Label();
-            textBox2 = new TextBox();
+            urunadiText = new TextBox();
             label1 = new Label();
             tarihTimerPicker = new DateTimePicker();
-            textBox1 = new TextBox();
+            sahipText = new TextBox();
             label3 = new Label();
             label2 = new Label();
-            button3 = new Button();
-            button1 = new Button();
-            textBox5 = new TextBox();
+            onaylabtn = new Button();
+            arabtn = new Button();
+            sahiparamaText = new TextBox();
             label8 = new Label();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)onayBekleyenlerDGV).BeginInit();
             menuStrip1.SuspendLayout();
             groupBox3.SuspendLayout();
             SuspendLayout();
             // 
-            // dataGridView1
+            // onayBekleyenlerDGV
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(30, 102);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(600, 614);
-            dataGridView1.TabIndex = 3;
+            onayBekleyenlerDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            onayBekleyenlerDGV.Location = new Point(30, 102);
+            onayBekleyenlerDGV.Name = "onayBekleyenlerDGV";
+            onayBekleyenlerDGV.Size = new Size(600, 614);
+            onayBekleyenlerDGV.TabIndex = 3;
+            onayBekleyenlerDGV.CellClick += onayBekleyenlerDGV_CellClick;
             // 
             // menuStrip1
             // 
@@ -140,21 +147,27 @@
             // 
             // groupBox3
             // 
+            groupBox3.Controls.Add(kdvliAdetLabel);
+            groupBox3.Controls.Add(kdvadet);
+            groupBox3.Controls.Add(kdvliToplamLabel);
+            groupBox3.Controls.Add(kdvli);
+            groupBox3.Controls.Add(rotaToplamLabel);
+            groupBox3.Controls.Add(label28);
             groupBox3.Controls.Add(richTextBox1);
             groupBox3.Controls.Add(label6);
             groupBox3.Controls.Add(aciklamaTextBox);
             groupBox3.Controls.Add(label7);
-            groupBox3.Controls.Add(textBox4);
+            groupBox3.Controls.Add(uruncinsiText);
             groupBox3.Controls.Add(label5);
-            groupBox3.Controls.Add(textBox3);
+            groupBox3.Controls.Add(urunmiktarıText);
             groupBox3.Controls.Add(label4);
-            groupBox3.Controls.Add(textBox2);
+            groupBox3.Controls.Add(urunadiText);
             groupBox3.Controls.Add(label1);
             groupBox3.Controls.Add(tarihTimerPicker);
-            groupBox3.Controls.Add(textBox1);
+            groupBox3.Controls.Add(sahipText);
             groupBox3.Controls.Add(label3);
             groupBox3.Controls.Add(label2);
-            groupBox3.Controls.Add(button3);
+            groupBox3.Controls.Add(onaylabtn);
             groupBox3.Font = new Font("Impact", 18F, FontStyle.Regular, GraphicsUnit.Point, 162);
             groupBox3.Location = new Point(704, 102);
             groupBox3.Name = "groupBox3";
@@ -162,6 +175,66 @@
             groupBox3.TabIndex = 53;
             groupBox3.TabStop = false;
             groupBox3.Text = "Ürün Bilgileri";
+            // 
+            // kdvliAdetLabel
+            // 
+            kdvliAdetLabel.AutoSize = true;
+            kdvliAdetLabel.Font = new Font("Eras Medium ITC", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            kdvliAdetLabel.Location = new Point(440, 378);
+            kdvliAdetLabel.Name = "kdvliAdetLabel";
+            kdvliAdetLabel.Size = new Size(49, 19);
+            kdvliAdetLabel.TabIndex = 76;
+            kdvliAdetLabel.Text = "00.00";
+            // 
+            // kdvadet
+            // 
+            kdvadet.AutoSize = true;
+            kdvadet.Font = new Font("Eras Medium ITC", 14.25F);
+            kdvadet.Location = new Point(278, 375);
+            kdvadet.Name = "kdvadet";
+            kdvadet.Size = new Size(156, 22);
+            kdvadet.TabIndex = 75;
+            kdvadet.Text = "KDV'li Adet Fiyatı:";
+            // 
+            // kdvliToplamLabel
+            // 
+            kdvliToplamLabel.AutoSize = true;
+            kdvliToplamLabel.Font = new Font("Eras Medium ITC", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            kdvliToplamLabel.Location = new Point(416, 342);
+            kdvliToplamLabel.Name = "kdvliToplamLabel";
+            kdvliToplamLabel.Size = new Size(49, 19);
+            kdvliToplamLabel.TabIndex = 74;
+            kdvliToplamLabel.Text = "00.00";
+            // 
+            // kdvli
+            // 
+            kdvli.AutoSize = true;
+            kdvli.Font = new Font("Eras Medium ITC", 14.25F);
+            kdvli.Location = new Point(278, 340);
+            kdvli.Name = "kdvli";
+            kdvli.Size = new Size(132, 22);
+            kdvli.TabIndex = 73;
+            kdvli.Text = "KDV li Toplam:";
+            // 
+            // rotaToplamLabel
+            // 
+            rotaToplamLabel.AutoSize = true;
+            rotaToplamLabel.Font = new Font("Eras Medium ITC", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            rotaToplamLabel.Location = new Point(447, 308);
+            rotaToplamLabel.Name = "rotaToplamLabel";
+            rotaToplamLabel.Size = new Size(49, 19);
+            rotaToplamLabel.TabIndex = 71;
+            rotaToplamLabel.Text = "00.00";
+            // 
+            // label28
+            // 
+            label28.AutoSize = true;
+            label28.Font = new Font("Eras Medium ITC", 14.25F);
+            label28.Location = new Point(278, 306);
+            label28.Name = "label28";
+            label28.Size = new Size(163, 22);
+            label28.TabIndex = 72;
+            label28.Text = "Rota Toplam Fiyat:";
             // 
             // richTextBox1
             // 
@@ -193,7 +266,7 @@
             aciklamaTextBox.Margin = new Padding(5);
             aciklamaTextBox.Name = "aciklamaTextBox";
             aciklamaTextBox.ReadOnly = true;
-            aciklamaTextBox.Size = new Size(318, 135);
+            aciklamaTextBox.Size = new Size(194, 135);
             aciklamaTextBox.TabIndex = 68;
             aciklamaTextBox.Text = "";
             // 
@@ -207,15 +280,15 @@
             label7.TabIndex = 67;
             label7.Text = "Açıklama";
             // 
-            // textBox4
+            // uruncinsiText
             // 
-            textBox4.BorderStyle = BorderStyle.FixedSingle;
-            textBox4.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            textBox4.Location = new Point(26, 353);
-            textBox4.Name = "textBox4";
-            textBox4.ReadOnly = true;
-            textBox4.Size = new Size(135, 27);
-            textBox4.TabIndex = 66;
+            uruncinsiText.BorderStyle = BorderStyle.FixedSingle;
+            uruncinsiText.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            uruncinsiText.Location = new Point(26, 353);
+            uruncinsiText.Name = "uruncinsiText";
+            uruncinsiText.ReadOnly = true;
+            uruncinsiText.Size = new Size(135, 27);
+            uruncinsiText.TabIndex = 66;
             // 
             // label5
             // 
@@ -227,15 +300,15 @@
             label5.TabIndex = 65;
             label5.Text = "Ürün Cinsi";
             // 
-            // textBox3
+            // urunmiktarıText
             // 
-            textBox3.BorderStyle = BorderStyle.FixedSingle;
-            textBox3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            textBox3.Location = new Point(26, 284);
-            textBox3.Name = "textBox3";
-            textBox3.ReadOnly = true;
-            textBox3.Size = new Size(135, 27);
-            textBox3.TabIndex = 64;
+            urunmiktarıText.BorderStyle = BorderStyle.FixedSingle;
+            urunmiktarıText.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            urunmiktarıText.Location = new Point(26, 284);
+            urunmiktarıText.Name = "urunmiktarıText";
+            urunmiktarıText.ReadOnly = true;
+            urunmiktarıText.Size = new Size(135, 27);
+            urunmiktarıText.TabIndex = 64;
             // 
             // label4
             // 
@@ -247,15 +320,15 @@
             label4.TabIndex = 63;
             label4.Text = "Ürün Miktarı";
             // 
-            // textBox2
+            // urunadiText
             // 
-            textBox2.BorderStyle = BorderStyle.FixedSingle;
-            textBox2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            textBox2.Location = new Point(26, 212);
-            textBox2.Name = "textBox2";
-            textBox2.ReadOnly = true;
-            textBox2.Size = new Size(135, 27);
-            textBox2.TabIndex = 62;
+            urunadiText.BorderStyle = BorderStyle.FixedSingle;
+            urunadiText.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            urunadiText.Location = new Point(26, 212);
+            urunadiText.Name = "urunadiText";
+            urunadiText.ReadOnly = true;
+            urunadiText.Size = new Size(135, 27);
+            urunadiText.TabIndex = 62;
             // 
             // label1
             // 
@@ -277,15 +350,15 @@
             tarihTimerPicker.Size = new Size(121, 27);
             tarihTimerPicker.TabIndex = 55;
             // 
-            // textBox1
+            // sahipText
             // 
-            textBox1.BorderStyle = BorderStyle.FixedSingle;
-            textBox1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            textBox1.Location = new Point(26, 75);
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(135, 27);
-            textBox1.TabIndex = 60;
+            sahipText.BorderStyle = BorderStyle.FixedSingle;
+            sahipText.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            sahipText.Location = new Point(26, 75);
+            sahipText.Name = "sahipText";
+            sahipText.ReadOnly = true;
+            sahipText.Size = new Size(135, 27);
+            sahipText.TabIndex = 60;
             // 
             // label3
             // 
@@ -307,34 +380,36 @@
             label2.TabIndex = 54;
             label2.Text = "Firma / Kişi Adı";
             // 
-            // button3
+            // onaylabtn
             // 
-            button3.BackColor = Color.DarkSeaGreen;
-            button3.Cursor = Cursors.Hand;
-            button3.Location = new Point(349, 555);
-            button3.Name = "button3";
-            button3.Size = new Size(194, 53);
-            button3.TabIndex = 59;
-            button3.Text = "Onayla Ve Yazdır";
-            button3.UseVisualStyleBackColor = false;
+            onaylabtn.BackColor = Color.DarkSeaGreen;
+            onaylabtn.Cursor = Cursors.Hand;
+            onaylabtn.Location = new Point(349, 555);
+            onaylabtn.Name = "onaylabtn";
+            onaylabtn.Size = new Size(194, 53);
+            onaylabtn.TabIndex = 59;
+            onaylabtn.Text = "Onayla Ve Yazdır";
+            onaylabtn.UseVisualStyleBackColor = false;
+            onaylabtn.Click += onaylabtn_Click;
             // 
-            // button1
+            // arabtn
             // 
-            button1.Font = new Font("Eras Demi ITC", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.Location = new Point(1399, 189);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 31);
-            button1.TabIndex = 59;
-            button1.Text = "Ara";
-            button1.UseVisualStyleBackColor = true;
+            arabtn.Font = new Font("Eras Demi ITC", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            arabtn.Location = new Point(1399, 189);
+            arabtn.Name = "arabtn";
+            arabtn.Size = new Size(75, 31);
+            arabtn.TabIndex = 59;
+            arabtn.Text = "Ara";
+            arabtn.UseVisualStyleBackColor = true;
             // 
-            // textBox5
+            // sahiparamaText
             // 
-            textBox5.BorderStyle = BorderStyle.FixedSingle;
-            textBox5.Location = new Point(1312, 151);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(162, 23);
-            textBox5.TabIndex = 58;
+            sahiparamaText.BorderStyle = BorderStyle.FixedSingle;
+            sahiparamaText.Location = new Point(1312, 151);
+            sahiparamaText.Name = "sahiparamaText";
+            sahiparamaText.Size = new Size(162, 23);
+            sahiparamaText.TabIndex = 58;
+            sahiparamaText.KeyUp += sahiparamaText_KeyUp;
             // 
             // label8
             // 
@@ -351,16 +426,17 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1904, 1041);
-            Controls.Add(button1);
-            Controls.Add(textBox5);
+            Controls.Add(arabtn);
+            Controls.Add(sahiparamaText);
             Controls.Add(label8);
             Controls.Add(groupBox3);
             Controls.Add(label34);
             Controls.Add(menuStrip1);
-            Controls.Add(dataGridView1);
+            Controls.Add(onayBekleyenlerDGV);
             Name = "tickets";
             Text = "tickets";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            Load += tickets_Load;
+            ((System.ComponentModel.ISupportInitialize)onayBekleyenlerDGV).EndInit();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             groupBox3.ResumeLayout(false);
@@ -370,7 +446,7 @@
         }
 
         #endregion
-        private DataGridView dataGridView1;
+        private DataGridView onayBekleyenlerDGV;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem anaSayfaToolStripMenuItem;
         private ToolStripMenuItem onaylananTekliflerToolStripMenuItem;
@@ -381,23 +457,29 @@
         private ToolStripMenuItem yedeklemeToolStripMenuItem;
         private Label label34;
         private GroupBox groupBox3;
-        private Button button3;
+        private Button onaylabtn;
         private Label label2;
-        private TextBox textBox1;
+        private TextBox sahipText;
         private DateTimePicker tarihTimerPicker;
         private Label label3;
-        private TextBox textBox3;
+        private TextBox urunmiktarıText;
         private Label label4;
-        private TextBox textBox2;
+        private TextBox urunadiText;
         private Label label1;
-        private TextBox textBox4;
+        private TextBox uruncinsiText;
         private Label label5;
         private RichTextBox aciklamaTextBox;
         private Label label7;
         private RichTextBox richTextBox1;
         private Label label6;
-        private Button button1;
-        private TextBox textBox5;
+        private Button arabtn;
+        private TextBox sahiparamaText;
         private Label label8;
+        private Label rotaToplamLabel;
+        private Label label28;
+        private Label kdvliToplamLabel;
+        private Label kdvli;
+        private Label kdvliAdetLabel;
+        private Label kdvadet;
     }
 }
