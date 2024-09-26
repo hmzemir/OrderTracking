@@ -35,6 +35,8 @@
             kullanıcıEkle = new Button();
             label3 = new Label();
             yetkiliListeLabel = new Label();
+            label4 = new Label();
+            kullanıcılarLabel = new Label();
             SuspendLayout();
             // 
             // label2
@@ -107,11 +109,33 @@
             yetkiliListeLabel.TabIndex = 68;
             yetkiliListeLabel.Text = "Yetkililer";
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Eras Demi ITC", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.Location = new Point(368, 195);
+            label4.Name = "label4";
+            label4.Size = new Size(110, 23);
+            label4.TabIndex = 69;
+            label4.Text = "Kullanıcılar";
+            // 
+            // kullanıcılarLabel
+            // 
+            kullanıcılarLabel.AutoSize = true;
+            kullanıcılarLabel.Font = new Font("Eras Light ITC", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            kullanıcılarLabel.Location = new Point(368, 229);
+            kullanıcılarLabel.Name = "kullanıcılarLabel";
+            kullanıcılarLabel.Size = new Size(73, 18);
+            kullanıcılarLabel.TabIndex = 70;
+            kullanıcılarLabel.Text = "kullanıcılar";
+            // 
             // authority
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(522, 378);
+            Controls.Add(kullanıcılarLabel);
+            Controls.Add(label4);
             Controls.Add(yetkiliListeLabel);
             Controls.Add(label3);
             Controls.Add(kullanıcıEkle);
@@ -134,5 +158,7 @@
         private Button kullanıcıEkle;
         private Label label3;
         private Label yetkiliListeLabel;
+        private Label label4;
+        private Label kullanıcılarLabel;
     }
 }
