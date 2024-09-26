@@ -52,7 +52,7 @@ namespace OrderTracking
             toplamTutarText = new Label();
             label6 = new Label();
             sadeceOnayCheck = new CheckBox();
-            toplamUrun = new Label();
+            toplamUrunText = new Label();
             label7 = new Label();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)verilerTablo).BeginInit();
@@ -183,6 +183,7 @@ namespace OrderTracking
             arabtn.TabIndex = 58;
             arabtn.Text = "Ara";
             arabtn.UseVisualStyleBackColor = true;
+            arabtn.Click += arabtn_Click;
             // 
             // tarihSec
             // 
@@ -194,6 +195,7 @@ namespace OrderTracking
             tarihSec.TabIndex = 59;
             tarihSec.Text = "Tarih Seç";
             tarihSec.UseVisualStyleBackColor = true;
+            tarihSec.CheckedChanged += tarihSec_CheckedChanged;
             // 
             // isimAra
             // 
@@ -205,6 +207,7 @@ namespace OrderTracking
             isimAra.TabIndex = 60;
             isimAra.Text = "İsimle Ara";
             isimAra.UseVisualStyleBackColor = true;
+            isimAra.CheckedChanged += isimAra_CheckedChanged;
             // 
             // verilerTablo
             // 
@@ -265,15 +268,15 @@ namespace OrderTracking
             sadeceOnayCheck.Text = "Sadece Onaylananlar";
             sadeceOnayCheck.UseVisualStyleBackColor = true;
             // 
-            // toplamUrun
+            // toplamUrunText
             // 
-            toplamUrun.AutoSize = true;
-            toplamUrun.Font = new Font("Eras Medium ITC", 14.25F);
-            toplamUrun.Location = new Point(34, 447);
-            toplamUrun.Name = "toplamUrun";
-            toplamUrun.Size = new Size(32, 22);
-            toplamUrun.TabIndex = 68;
-            toplamUrun.Text = "00";
+            toplamUrunText.AutoSize = true;
+            toplamUrunText.Font = new Font("Eras Medium ITC", 14.25F);
+            toplamUrunText.Location = new Point(34, 447);
+            toplamUrunText.Name = "toplamUrunText";
+            toplamUrunText.Size = new Size(32, 22);
+            toplamUrunText.TabIndex = 68;
+            toplamUrunText.Text = "00";
             // 
             // label7
             // 
@@ -290,7 +293,7 @@ namespace OrderTracking
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1904, 1041);
-            Controls.Add(toplamUrun);
+            Controls.Add(toplamUrunText);
             Controls.Add(label7);
             Controls.Add(sadeceOnayCheck);
             Controls.Add(toplamTutarText);
@@ -348,7 +351,7 @@ namespace OrderTracking
         private Label toplamTutarText;
         private Label label6;
         private CheckBox sadeceOnayCheck;
-        private Label toplamUrun;
+        private Label toplamUrunText;
         private Label label7;
     }
 }
