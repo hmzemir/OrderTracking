@@ -63,6 +63,8 @@
             arabtn = new Button();
             sahiparamaText = new TextBox();
             label8 = new Label();
+            karlıToplamLabel = new Label();
+            label10 = new Label();
             ((System.ComponentModel.ISupportInitialize)onayBekleyenlerDGV).BeginInit();
             menuStrip1.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -147,6 +149,8 @@
             // 
             // groupBox3
             // 
+            groupBox3.Controls.Add(karlıToplamLabel);
+            groupBox3.Controls.Add(label10);
             groupBox3.Controls.Add(kdvliAdetLabel);
             groupBox3.Controls.Add(kdvadet);
             groupBox3.Controls.Add(kdvliToplamLabel);
@@ -180,7 +184,7 @@
             // 
             kdvliAdetLabel.AutoSize = true;
             kdvliAdetLabel.Font = new Font("Eras Medium ITC", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            kdvliAdetLabel.Location = new Point(440, 378);
+            kdvliAdetLabel.Location = new Point(440, 415);
             kdvliAdetLabel.Name = "kdvliAdetLabel";
             kdvliAdetLabel.Size = new Size(49, 19);
             kdvliAdetLabel.TabIndex = 76;
@@ -190,7 +194,7 @@
             // 
             kdvadet.AutoSize = true;
             kdvadet.Font = new Font("Eras Medium ITC", 14.25F);
-            kdvadet.Location = new Point(278, 375);
+            kdvadet.Location = new Point(278, 412);
             kdvadet.Name = "kdvadet";
             kdvadet.Size = new Size(156, 22);
             kdvadet.TabIndex = 75;
@@ -200,7 +204,7 @@
             // 
             kdvliToplamLabel.AutoSize = true;
             kdvliToplamLabel.Font = new Font("Eras Medium ITC", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            kdvliToplamLabel.Location = new Point(416, 342);
+            kdvliToplamLabel.Location = new Point(416, 379);
             kdvliToplamLabel.Name = "kdvliToplamLabel";
             kdvliToplamLabel.Size = new Size(49, 19);
             kdvliToplamLabel.TabIndex = 74;
@@ -210,7 +214,7 @@
             // 
             kdvli.AutoSize = true;
             kdvli.Font = new Font("Eras Medium ITC", 14.25F);
-            kdvli.Location = new Point(278, 340);
+            kdvli.Location = new Point(278, 377);
             kdvli.Name = "kdvli";
             kdvli.Size = new Size(132, 22);
             kdvli.TabIndex = 73;
@@ -421,6 +425,26 @@
             label8.TabIndex = 57;
             label8.Text = "Firma / Kisi Ara";
             // 
+            // karlıToplamLabel
+            // 
+            karlıToplamLabel.AutoSize = true;
+            karlıToplamLabel.Font = new Font("Eras Medium ITC", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            karlıToplamLabel.Location = new Point(416, 342);
+            karlıToplamLabel.Name = "karlıToplamLabel";
+            karlıToplamLabel.Size = new Size(49, 19);
+            karlıToplamLabel.TabIndex = 77;
+            karlıToplamLabel.Text = "00.00";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Eras Medium ITC", 14.25F);
+            label10.Location = new Point(278, 340);
+            label10.Name = "label10";
+            label10.Size = new Size(117, 22);
+            label10.TabIndex = 78;
+            label10.Text = "Karlı Toplam:";
+            // 
             // tickets
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -481,5 +505,7 @@
         private Label kdvli;
         private Label kdvliAdetLabel;
         private Label kdvadet;
+        private Label karlıToplamLabel;
+        private Label label10;
     }
 }

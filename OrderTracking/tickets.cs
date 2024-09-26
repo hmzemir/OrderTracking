@@ -198,6 +198,21 @@ namespace OrderTracking
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
+
+                // Siparişin kar yüzdesini almak için sorgu
+                decimal karYuzdesi = 0; // Başlangıç değeri
+                string karYuzdesiQuery = "SELECT kar FROM Siparisler WHERE id = @siparisId";
+                using (SqlCommand karCommand = new SqlCommand(karYuzdesiQuery, connection))
+                {
+                    karCommand.Parameters.AddWithValue("@siparisId", siparisId);
+                    var result = karCommand.ExecuteScalar();
+                    if (result != null)
+                    {
+                        karYuzdesi = Convert.ToDecimal(result) / 100; // Yüzde olarak al
+                    }
+                }
+
+                // Rotaları almak için sorgu
                 string query = "SELECT rota_adi, ucret FROM Rotalar WHERE siparis_id = @siparisId";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -219,23 +234,30 @@ namespace OrderTracking
                         rotaIndex++; // Rota numarasını artır
                     }
 
-                    // Toplam ücreti yazdır
+                    // Toplam ücreti hesapla ve rotaToplamLabel'a yazdır
                     rotaToplamLabel.Text = toplamUcret.ToString("F2");
 
-                    // KDV Hesaplama (toplamUcret'in %20'si)
-                    decimal kdv = toplamUcret * 0.20m; // KDV'yi hesapla
-                    decimal kdvliToplam = toplamUcret + kdv; // Toplam + KDV
+                    // Kâr yüzdesi hesaplama
+                    decimal karMiktari = toplamUcret * karYuzdesi; // Kâr miktarını hesapla
+                    decimal karlitoplam = toplamUcret + karMiktari; // Kâr eklenmiş toplam
+                    karlıToplamLabel.Text = karlitoplam.ToString("F2");
+
+                    // KDV hesaplama (%20)
+                    decimal kdv = karlitoplam * 0.20m; // KDV'yi hesapla
+                    decimal kdvliToplam = karlitoplam + kdv; // KDV eklenmiş toplam
                     kdvliToplamLabel.Text = kdvliToplam.ToString("F2");
 
                     // Adet başına KDV'li fiyat hesaplama
                     if (decimal.TryParse(urunmiktarıText.Text, out decimal urunMiktari) && urunMiktari > 0)
                     {
-                        decimal kdvliAdetFiyati = kdvliToplam / urunMiktari;
+                        decimal kdvliAdetFiyati = kdvliToplam / urunMiktari; // KDV'li toplamı ürün miktarına böl
                         kdvliAdetLabel.Text = kdvliAdetFiyati.ToString("F2");
                     }
                 }
             }
         }
+
+
 
         private void onaylabtn_Click(object sender, EventArgs e)
         {
@@ -281,11 +303,12 @@ namespace OrderTracking
             Font headerFont = new Font("Arial", 16, FontStyle.Bold);
             Font regularFont = new Font("Arial", 12); // Kalın olmayan font
             Font boxFont = new Font("Arial", 12, FontStyle.Bold);
+            Font totalFont = new Font("Arial", 14, FontStyle.Bold); // Toplam için daha büyük font
 
             // Sayfa Merkezi
             float pageWidth = e.MarginBounds.Width;
             float pageHeight = e.MarginBounds.Height;
-            float boxWidth = 500; // Kutu genişliği
+            float boxWidth = 600; // Kutu genişliği
             float xMargin = (pageWidth - boxWidth) / 2; // Sayfanın ortasında kutu için
             float lineHeight = regularFont.GetHeight(e.Graphics) + 10;
 
@@ -296,40 +319,68 @@ namespace OrderTracking
 
             // Kişi Bilgileri
             yMargin += lineHeight * 2 + 10; // Başlık altı boşluk
-            e.Graphics.DrawRectangle(Pens.Black, xMargin, yMargin, boxWidth, lineHeight * 4);
+            e.Graphics.DrawRectangle(Pens.Black, xMargin, yMargin, boxWidth, lineHeight * 6);
             e.Graphics.DrawString("----- Kişi Bilgileri -----", headerFont, Brushes.Black, xMargin + 10, yMargin);
-            e.Graphics.DrawString($"Sahip: {sahipText.Text}", regularFont, Brushes.Black, xMargin + 10, yMargin + lineHeight);
-            e.Graphics.DrawString($"Tarih: {tarihTimerPicker.Value}", regularFont, Brushes.Black, xMargin + 10, yMargin + lineHeight * 2);
+
+            // Kişi bilgilerini tablo şeklinde yazdırma
+            e.Graphics.DrawString("Sahip:", regularFont, Brushes.Black, xMargin + 10, yMargin + lineHeight);
+            e.Graphics.DrawString($"{sahipText.Text}", regularFont, Brushes.Black, xMargin + 100, yMargin + lineHeight);
+
+            e.Graphics.DrawString("Tarih:", regularFont, Brushes.Black, xMargin + 10, yMargin + lineHeight * 2);
+            e.Graphics.DrawString($"{tarihTimerPicker.Value.ToShortDateString()}", regularFont, Brushes.Black, xMargin + 100, yMargin + lineHeight * 2);
 
             // Ürün Bilgileri
-            yMargin += lineHeight * 4 + 10;
-            e.Graphics.DrawRectangle(Pens.Black, xMargin, yMargin, boxWidth, lineHeight * 6);
+            yMargin += lineHeight * 6 + 10; // Kişi bilgileri kutusunun altı
+            e.Graphics.DrawRectangle(Pens.Black, xMargin, yMargin, boxWidth, lineHeight * 8);
             e.Graphics.DrawString("----- Ürün Bilgileri -----", headerFont, Brushes.Black, xMargin + 10, yMargin);
-            e.Graphics.DrawString($"Ürün Adı: {urunadiText.Text}", regularFont, Brushes.Black, xMargin + 10, yMargin + lineHeight);
-            e.Graphics.DrawString($"Ürün Miktarı: {urunmiktarıText.Text}", regularFont, Brushes.Black, xMargin + 10, yMargin + lineHeight * 2);
-            e.Graphics.DrawString($"Ürün Cinsi: {uruncinsiText.Text}", regularFont, Brushes.Black, xMargin + 10, yMargin + lineHeight * 3);
-            e.Graphics.DrawString($"Açıklama: {aciklamaTextBox.Text}", regularFont, Brushes.Black, xMargin + 10, yMargin + lineHeight * 4);
+
+            e.Graphics.DrawString("Ürün Adı:", regularFont, Brushes.Black, xMargin + 10, yMargin + lineHeight);
+            e.Graphics.DrawString($"{urunadiText.Text}", regularFont, Brushes.Black, xMargin + 100, yMargin + lineHeight);
+
+            e.Graphics.DrawString("Ürün Miktarı:", regularFont, Brushes.Black, xMargin + 10, yMargin + lineHeight * 2);
+            e.Graphics.DrawString($"{urunmiktarıText.Text}", regularFont, Brushes.Black, xMargin + 130, yMargin + lineHeight * 2); // Daha sağa alındı
+
+            e.Graphics.DrawString("Ürün Cinsi:", regularFont, Brushes.Black, xMargin + 10, yMargin + lineHeight * 3);
+            e.Graphics.DrawString($"{uruncinsiText.Text}", regularFont, Brushes.Black, xMargin + 100, yMargin + lineHeight * 3);
+
+            e.Graphics.DrawString("Açıklama:", regularFont, Brushes.Black, xMargin + 10, yMargin + lineHeight * 4);
+            e.Graphics.DrawString($"{aciklamaTextBox.Text}", regularFont, Brushes.Black, xMargin + 100, yMargin + lineHeight * 4);
 
             // Rota Bilgileri
-            yMargin += lineHeight * 6 + 10;
-            e.Graphics.DrawRectangle(Pens.Black, xMargin, yMargin, boxWidth, lineHeight * (richTextBox1.Lines.Length + 1)); // Rota kutusunun yüksekliği dinamik
+            yMargin += lineHeight * 8 + 10; // Ürün bilgileri kutusunun altı
+            e.Graphics.DrawRectangle(Pens.Black, xMargin, yMargin, boxWidth, lineHeight * (richTextBox1.Lines.Length + 1));
             e.Graphics.DrawString("----- Rota Bilgileri -----", headerFont, Brushes.Black, xMargin + 10, yMargin);
+
             float lineY = yMargin + lineHeight;
-            foreach (var line in richTextBox1.Lines)
+            for (int i = 0; i < richTextBox1.Lines.Length; i++)
             {
-                e.Graphics.DrawString(line, regularFont, Brushes.Black, xMargin + 10, lineY);
+                e.Graphics.DrawString(richTextBox1.Lines[i], regularFont, Brushes.Black, xMargin + 10, lineY);
+                e.Graphics.DrawString("[   ]", regularFont, Brushes.Black, xMargin + boxWidth - 50, lineY); // Onay kutusu
                 lineY += lineHeight;
             }
 
             // Ücret Bilgileri
             yMargin += lineHeight * (richTextBox1.Lines.Length + 1) + 10; // Rota bilgilerini ekleyince yüksekliği ayarlama
-            e.Graphics.DrawRectangle(Pens.Black, xMargin, yMargin, boxWidth, lineHeight * 4);
+            e.Graphics.DrawRectangle(Pens.Black, xMargin, yMargin, boxWidth, lineHeight * 6);
             e.Graphics.DrawString("----- Ücret Bilgileri -----", headerFont, Brushes.Black, xMargin + 10, yMargin);
-            e.Graphics.DrawString($"Toplam Ücret: {rotaToplamLabel.Text} TL", boxFont, Brushes.Black, xMargin + 10, yMargin + lineHeight);
-            e.Graphics.DrawString($"KDV'li Toplam: {kdvliToplamLabel.Text} TL", boxFont, Brushes.Black, xMargin + 10, yMargin + lineHeight * 2);
-            e.Graphics.DrawString($"KDV'li Adet Fiyatı: {kdvliAdetLabel.Text} TL", boxFont, Brushes.Black, xMargin + 10, yMargin + lineHeight * 3);
 
+            e.Graphics.DrawString($"Toplam Ücret: {rotaToplamLabel.Text} TL", boxFont, Brushes.Black, xMargin + 10, yMargin + lineHeight);
+            e.Graphics.DrawString($"KDV'li Adet Fiyatı: {kdvliAdetLabel.Text} TL", boxFont, Brushes.Black, xMargin + 10, yMargin + lineHeight * 2);
+            e.Graphics.DrawString($"Karlı Toplam: {karlıToplamLabel.Text} TL", boxFont, Brushes.Black, xMargin + 10, yMargin + lineHeight * 3); // Karlı toplam bilgisi
+
+            // KDV'li Toplam: Son Satır
+            yMargin += lineHeight * 4 + 10; // Ücret bilgilerini ekleyince yüksekliği ayarlama
+            e.Graphics.DrawString("Toplam Tutar:", totalFont, Brushes.Black, xMargin + 10, yMargin);
+            e.Graphics.DrawString($"{kdvliToplamLabel.Text} TL", totalFont, Brushes.Black, xMargin + 150, yMargin); // Toplam Tutar
+
+            // Sayfanın ortasında tutmak için
+            float totalHeight = yMargin + lineHeight + 50; // Tüm içeriğin toplam yüksekliği
+            if (totalHeight < pageHeight)
+            {
+                yMargin += (pageHeight - totalHeight) / 2; // Merkezleme
+            }
         }
+
 
         private int GetSelectedSiparisId()
         {
