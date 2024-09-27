@@ -79,8 +79,13 @@ namespace OrderTracking
             verilerTablo.Columns.Add("Kar", "Kar");
             verilerTablo.Columns.Add("SiparisOnay", "Sipariş Onay");
 
-            // İlk başta boş bir veri seti ile başlatabilirsiniz
+            // Başlangıçta boş bir veri seti ile başlatabilirsiniz
             verilerTablo.Rows.Clear();
+
+            // Tarih ve arama kısımlarını başlangıçta pasif yap
+            tarihBaslangıc.Enabled = false;
+            tarihBitis.Enabled = false;
+            aramaText.Enabled = false;
         }
 
         private void tarihSec_CheckedChanged(object sender, EventArgs e)
@@ -141,9 +146,10 @@ namespace OrderTracking
                     cmd.Parameters.AddWithValue("@Isim", "%" + isim + "%");
                 }
 
+                // Siparişin onaylı olup olmadığını kontrol et
                 if (sadeceOnayli)
                 {
-                    cmd.CommandText += " AND siparis_onay = 1";
+                    cmd.CommandText += " AND siparis_onay = 1"; // Sadece onaylı siparişleri al
                 }
 
                 using (SqlDataReader reader = cmd.ExecuteReader())
@@ -168,6 +174,7 @@ namespace OrderTracking
 
             return siparisler;
         }
+
 
         private void VerileriTabloyaEkle(List<Siparis> siparisler)
         {

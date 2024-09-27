@@ -205,9 +205,8 @@ namespace OrderTracking
 
         private void çýkýþToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            login homeForm = new login();
-            homeForm.Show();
+            Application.Exit(); // Uygulamayý kapat
+
         }
 
         private void rotaAlanlariniGizle()
