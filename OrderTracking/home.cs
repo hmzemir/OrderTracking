@@ -337,5 +337,91 @@ namespace OrderTracking
                     break;
             }
         }
+
+        private void home_Load(object sender, EventArgs e)
+        {
+            FillSahipComboBox();
+            FillUrunAdiComboBox();
+            FillUrunCinsiComboBox();
+        }
+
+        private void FillSahipComboBox()
+        {
+            string connectionString = "Data Source=TETrA\\SQLEXPRESS;Initial Catalog=orderTracking;Integrated Security=True;Encrypt=False";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                // Sipariþ tablosundaki sahip bilgilerini almak için sorgu
+                string query = "SELECT DISTINCT sahip FROM siparisler";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        // ComboBox'a sahip isimlerini ekle
+                        sahipCombo.Items.Add(reader["sahip"].ToString());
+                    }
+                }
+            }
+
+            // Kullanýcýya kendi ismini yazma izni ver
+            sahipCombo.DropDownStyle = ComboBoxStyle.DropDown;
+        }
+
+        private void FillUrunAdiComboBox()
+        {
+            string connectionString = "Data Source=TETrA\\SQLEXPRESS;Initial Catalog=orderTracking;Integrated Security=True;Encrypt=False";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                // Sipariþ tablosundaki ürün adý bilgilerini almak için sorgu
+                string query = "SELECT DISTINCT urun_adi FROM siparisler"; // urun_adi sütununu seç
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        // ComboBox'a ürün adlarýný ekle
+                        urun_adiCombo.Items.Add(reader["urun_adi"].ToString());
+                    }
+                }
+            }
+
+            // Kullanýcýya kendi ürün ismini yazma izni ver
+            urun_adiCombo.DropDownStyle = ComboBoxStyle.DropDown;
+        }
+
+        private void FillUrunCinsiComboBox()
+        {
+            string connectionString = "Data Source=TETrA\\SQLEXPRESS;Initial Catalog=orderTracking;Integrated Security=True;Encrypt=False";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                // Sipariþ tablosundaki ürün cinsi bilgilerini almak için sorgu
+                string query = "SELECT DISTINCT urun_cinsi FROM siparisler"; // urun_cinsi sütununu seç
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        // ComboBox'a ürün cinslerini ekle
+                        urun_cinsiCombo.Items.Add(reader["urun_cinsi"].ToString());
+                    }
+                }
+            }
+
+            // Kullanýcýya kendi ürün cinsini yazma izni ver
+            urun_cinsiCombo.DropDownStyle = ComboBoxStyle.DropDown;
+        }
+
     }
 }

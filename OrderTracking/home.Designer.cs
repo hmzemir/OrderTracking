@@ -83,6 +83,7 @@
             rota1Text = new RichTextBox();
             rota1Label = new Label();
             groupBox2 = new GroupBox();
+            rotaEklebtn = new Button();
             label21 = new Label();
             karNumeric = new NumericUpDown();
             groupBox3 = new GroupBox();
@@ -112,7 +113,6 @@
             yetkiVerToolStripMenuItem = new ToolStripMenuItem();
             yedeklemeToolStripMenuItem = new ToolStripMenuItem();
             çıkışToolStripMenuItem = new ToolStripMenuItem();
-            rotaEklebtn = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)urunMiktarNumeric).BeginInit();
             panel1.SuspendLayout();
@@ -156,26 +156,29 @@
             // 
             // urun_cinsiCombo
             // 
+            urun_cinsiCombo.Font = new Font("Eras Medium ITC", 12F, FontStyle.Italic);
             urun_cinsiCombo.FormattingEnabled = true;
             urun_cinsiCombo.Location = new Point(18, 425);
             urun_cinsiCombo.Name = "urun_cinsiCombo";
-            urun_cinsiCombo.Size = new Size(121, 37);
+            urun_cinsiCombo.Size = new Size(121, 27);
             urun_cinsiCombo.TabIndex = 50;
             // 
             // urun_adiCombo
             // 
+            urun_adiCombo.Font = new Font("Eras Medium ITC", 12F, FontStyle.Italic);
             urun_adiCombo.FormattingEnabled = true;
             urun_adiCombo.Location = new Point(18, 264);
             urun_adiCombo.Name = "urun_adiCombo";
-            urun_adiCombo.Size = new Size(121, 37);
+            urun_adiCombo.Size = new Size(121, 27);
             urun_adiCombo.TabIndex = 49;
             // 
             // sahipCombo
             // 
+            sahipCombo.Font = new Font("Eras Medium ITC", 12F, FontStyle.Italic);
             sahipCombo.FormattingEnabled = true;
             sahipCombo.Location = new Point(18, 115);
             sahipCombo.Name = "sahipCombo";
-            sahipCombo.Size = new Size(121, 37);
+            sahipCombo.Size = new Size(121, 27);
             sahipCombo.TabIndex = 48;
             // 
             // aciklamaTextBox
@@ -699,6 +702,17 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Ürün Rotası";
             // 
+            // rotaEklebtn
+            // 
+            rotaEklebtn.Font = new Font("Eras Medium ITC", 14.25F);
+            rotaEklebtn.Location = new Point(397, 596);
+            rotaEklebtn.Name = "rotaEklebtn";
+            rotaEklebtn.Size = new Size(123, 38);
+            rotaEklebtn.TabIndex = 46;
+            rotaEklebtn.Text = "Rota Ekle";
+            rotaEklebtn.UseVisualStyleBackColor = true;
+            rotaEklebtn.Click += rotaEklebtn_Click;
+            // 
             // label21
             // 
             label21.AutoSize = true;
@@ -982,17 +996,6 @@
             çıkışToolStripMenuItem.Text = "Çıkış";
             çıkışToolStripMenuItem.Click += çıkışToolStripMenuItem_Click;
             // 
-            // rotaEklebtn
-            // 
-            rotaEklebtn.Font = new Font("Eras Medium ITC", 14.25F);
-            rotaEklebtn.Location = new Point(397, 596);
-            rotaEklebtn.Name = "rotaEklebtn";
-            rotaEklebtn.Size = new Size(123, 38);
-            rotaEklebtn.TabIndex = 46;
-            rotaEklebtn.Text = "Rota Ekle";
-            rotaEklebtn.UseVisualStyleBackColor = true;
-            rotaEklebtn.Click += rotaEklebtn_Click;
-            // 
             // home
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -1006,6 +1009,7 @@
             Name = "home";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Ana Sayfa";
+            Load += home_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)urunMiktarNumeric).EndInit();

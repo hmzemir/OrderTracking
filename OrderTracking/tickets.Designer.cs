@@ -39,6 +39,8 @@
             yedeklemeToolStripMenuItem = new ToolStripMenuItem();
             label34 = new Label();
             groupBox3 = new GroupBox();
+            karlıToplamLabel = new Label();
+            label10 = new Label();
             kdvliAdetLabel = new Label();
             kdvadet = new Label();
             kdvliToplamLabel = new Label();
@@ -63,8 +65,6 @@
             arabtn = new Button();
             sahiparamaText = new TextBox();
             label8 = new Label();
-            karlıToplamLabel = new Label();
-            label10 = new Label();
             ((System.ComponentModel.ISupportInitialize)onayBekleyenlerDGV).BeginInit();
             menuStrip1.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -180,6 +180,26 @@
             groupBox3.TabStop = false;
             groupBox3.Text = "Ürün Bilgileri";
             // 
+            // karlıToplamLabel
+            // 
+            karlıToplamLabel.AutoSize = true;
+            karlıToplamLabel.Font = new Font("Eras Medium ITC", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            karlıToplamLabel.Location = new Point(416, 342);
+            karlıToplamLabel.Name = "karlıToplamLabel";
+            karlıToplamLabel.Size = new Size(49, 19);
+            karlıToplamLabel.TabIndex = 77;
+            karlıToplamLabel.Text = "00.00";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Eras Medium ITC", 14.25F);
+            label10.Location = new Point(278, 340);
+            label10.Name = "label10";
+            label10.Size = new Size(117, 22);
+            label10.TabIndex = 78;
+            label10.Text = "Karlı Toplam:";
+            // 
             // kdvliAdetLabel
             // 
             kdvliAdetLabel.AutoSize = true;
@@ -244,11 +264,11 @@
             // 
             richTextBox1.BorderStyle = BorderStyle.FixedSingle;
             richTextBox1.Font = new Font("Century Gothic", 12F);
-            richTextBox1.Location = new Point(339, 50);
+            richTextBox1.Location = new Point(278, 50);
             richTextBox1.Margin = new Padding(5);
             richTextBox1.Name = "richTextBox1";
             richTextBox1.ReadOnly = true;
-            richTextBox1.Size = new Size(173, 159);
+            richTextBox1.Size = new Size(234, 159);
             richTextBox1.TabIndex = 70;
             richTextBox1.Text = "";
             // 
@@ -256,7 +276,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Eras Medium ITC", 14.25F);
-            label6.Location = new Point(339, 23);
+            label6.Location = new Point(278, 23);
             label6.Name = "label6";
             label6.Size = new Size(69, 22);
             label6.TabIndex = 69;
@@ -424,26 +444,6 @@
             label8.Size = new Size(162, 24);
             label8.TabIndex = 57;
             label8.Text = "Firma / Kisi Ara";
-            // 
-            // karlıToplamLabel
-            // 
-            karlıToplamLabel.AutoSize = true;
-            karlıToplamLabel.Font = new Font("Eras Medium ITC", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            karlıToplamLabel.Location = new Point(416, 342);
-            karlıToplamLabel.Name = "karlıToplamLabel";
-            karlıToplamLabel.Size = new Size(49, 19);
-            karlıToplamLabel.TabIndex = 77;
-            karlıToplamLabel.Text = "00.00";
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Eras Medium ITC", 14.25F);
-            label10.Location = new Point(278, 340);
-            label10.Name = "label10";
-            label10.Size = new Size(117, 22);
-            label10.TabIndex = 78;
-            label10.Text = "Karlı Toplam:";
             // 
             // tickets
             // 
