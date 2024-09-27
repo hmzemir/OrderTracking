@@ -18,6 +18,7 @@ namespace OrderTracking
             parentPanel = this.panel1;
             parentPanel.AutoScroll = false;
             this.Resize += home_Resize;
+            rotaAlanlariniGizle();
         }
 
         private void home_Resize(object sender, EventArgs e)
@@ -207,6 +208,134 @@ namespace OrderTracking
             this.Hide();
             login homeForm = new login();
             homeForm.Show();
+        }
+
+        private void rotaAlanlariniGizle()
+        {
+            // Tüm rota alanlarýný baþlangýçta gizliyoruz
+            rota1Label.Visible = false;
+            rota1Text.Visible = false;
+            rota1TL.Visible = false;
+            rota1Numeric.Visible = false;
+
+            rota2Label.Visible = false;
+            rota2Text.Visible = false;
+            rota2TL.Visible = false;
+            rota2Numeric.Visible = false;
+
+            rota3Label.Visible = false;
+            rota3Text.Visible = false;
+            rota3TL.Visible = false;
+            rota3Numeric.Visible = false;
+
+            rota4Label.Visible = false;
+            rota4Text.Visible = false;
+            rota4TL.Visible = false;
+            rota4Numeric.Visible = false;
+
+            rota5Label.Visible = false;
+            rota5Text.Visible = false;
+            rota5TL.Visible = false;
+            rota5Numeric.Visible = false;
+
+            rota6Label.Visible = false;
+            rota6Text.Visible = false;
+            rota6TL.Visible = false;
+            rota6Numeric.Visible = false;
+
+            rota7Label.Visible = false;
+            rota7Text.Visible = false;
+            rota7TL.Visible = false;
+            rota7Numeric.Visible = false;
+
+            rota8Label.Visible = false;
+            rota8Text.Visible = false;
+            rota8TL.Visible = false;
+            rota8Numeric.Visible = false;
+
+            rota9Label.Visible = false;
+            rota9Text.Visible = false;
+            rota9TL.Visible = false;
+            rota9Numeric.Visible = false;
+
+            rota10Label.Visible = false;
+            rota10Text.Visible = false;
+            rota10TL.Visible = false;
+            rota10Numeric.Visible = false;
+        }
+        private int rotaSayaci = 0;
+
+        private void rotaEklebtn_Click(object sender, EventArgs e)
+        {
+            // Sayaç kontrolü yaparak hangi alanlarý açacaðýmýzý belirliyoruz
+            rotaSayaci++;
+
+            switch (rotaSayaci)
+            {
+                case 1:
+                    rota1Label.Visible = true;
+                    rota1Text.Visible = true;
+                    rota1TL.Visible = true;
+                    rota1Numeric.Visible = true;
+                    break;
+                case 2:
+                    rota2Label.Visible = true;
+                    rota2Text.Visible = true;
+                    rota2TL.Visible = true;
+                    rota2Numeric.Visible = true;
+                    break;
+                case 3:
+                    rota3Label.Visible = true;
+                    rota3Text.Visible = true;
+                    rota3TL.Visible = true;
+                    rota3Numeric.Visible = true;
+                    break;
+                case 4:
+                    rota4Label.Visible = true;
+                    rota4Text.Visible = true;
+                    rota4TL.Visible = true;
+                    rota4Numeric.Visible = true;
+                    break;
+                case 5:
+                    rota5Label.Visible = true;
+                    rota5Text.Visible = true;
+                    rota5TL.Visible = true;
+                    rota5Numeric.Visible = true;
+                    break;
+                case 6:
+                    rota6Label.Visible = true;
+                    rota6Text.Visible = true;
+                    rota6TL.Visible = true;
+                    rota6Numeric.Visible = true;
+                    break;
+                case 7:
+                    rota7Label.Visible = true;
+                    rota7Text.Visible = true;
+                    rota7TL.Visible = true;
+                    rota7Numeric.Visible = true;
+                    break;
+                case 8:
+                    rota8Label.Visible = true;
+                    rota8Text.Visible = true;
+                    rota8TL.Visible = true;
+                    rota8Numeric.Visible = true;
+                    break;
+                case 9:
+                    rota9Label.Visible = true;
+                    rota9Text.Visible = true;
+                    rota9TL.Visible = true;
+                    rota9Numeric.Visible = true;
+                    break;
+                case 10:
+                    rota10Label.Visible = true;
+                    rota10Text.Visible = true;
+                    rota10TL.Visible = true;
+                    rota10Numeric.Visible = true;
+                    break;
+                default:
+                    MessageBox.Show("Tüm rotalar zaten aktif!");
+                    break;
+            }
         }
     }
 }
