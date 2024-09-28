@@ -205,7 +205,7 @@ namespace OrderTracking
 
         private void çýkýþToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Application.Exit(); // Uygulamayý kapat
+            Application.Exit(); // Uygulamayý 
 
         }
 
