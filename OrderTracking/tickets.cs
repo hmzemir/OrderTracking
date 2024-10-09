@@ -324,10 +324,10 @@ namespace OrderTracking
 
             // Kişi bilgilerini tablo şeklinde yazdırma
             e.Graphics.DrawString("Sahip:", regularFont, Brushes.Black, xMargin + 10, yMargin + lineHeight);
-            e.Graphics.DrawString($"{sahipText.Text}", regularFont, Brushes.Black, xMargin + 100, yMargin + lineHeight);
+            e.Graphics.DrawString($"{sahipText.Text}", regularFont, Brushes.Black, xMargin + 65, yMargin + lineHeight);
 
             e.Graphics.DrawString("Tarih:", regularFont, Brushes.Black, xMargin + 10, yMargin + lineHeight * 2);
-            e.Graphics.DrawString($"{tarihTimerPicker.Value.ToShortDateString()}", regularFont, Brushes.Black, xMargin + 100, yMargin + lineHeight * 2);
+            e.Graphics.DrawString($"{tarihTimerPicker.Value.ToShortDateString()}", regularFont, Brushes.Black, xMargin + 60, yMargin + lineHeight * 2);
 
             // Ürün Bilgileri
             yMargin += lineHeight * 6 + 10; // Kişi bilgileri kutusunun altı
@@ -335,16 +335,16 @@ namespace OrderTracking
             e.Graphics.DrawString("----- Ürün Bilgileri -----", headerFont, Brushes.Black, xMargin + 10, yMargin);
 
             e.Graphics.DrawString("Ürün Adı:", regularFont, Brushes.Black, xMargin + 10, yMargin + lineHeight);
-            e.Graphics.DrawString($"{urunadiText.Text}", regularFont, Brushes.Black, xMargin + 100, yMargin + lineHeight);
+            e.Graphics.DrawString($"{urunadiText.Text}", regularFont, Brushes.Black, xMargin + 90, yMargin + lineHeight);
 
             e.Graphics.DrawString("Ürün Miktarı:", regularFont, Brushes.Black, xMargin + 10, yMargin + lineHeight * 2);
-            e.Graphics.DrawString($"{urunmiktarıText.Text}", regularFont, Brushes.Black, xMargin + 130, yMargin + lineHeight * 2); // Daha sağa alındı
+            e.Graphics.DrawString($"{urunmiktarıText.Text}", regularFont, Brushes.Black, xMargin + 110, yMargin + lineHeight * 2); // Daha sağa alındı
 
             e.Graphics.DrawString("Ürün Cinsi:", regularFont, Brushes.Black, xMargin + 10, yMargin + lineHeight * 3);
             e.Graphics.DrawString($"{uruncinsiText.Text}", regularFont, Brushes.Black, xMargin + 100, yMargin + lineHeight * 3);
 
             e.Graphics.DrawString("Açıklama:", regularFont, Brushes.Black, xMargin + 10, yMargin + lineHeight * 4);
-            e.Graphics.DrawString($"{aciklamaTextBox.Text}", regularFont, Brushes.Black, xMargin + 100, yMargin + lineHeight * 4);
+            e.Graphics.DrawString($"{aciklamaTextBox.Text}", regularFont, Brushes.Black, xMargin + 90, yMargin + lineHeight * 4);
 
             // Rota Bilgileri
             yMargin += lineHeight * 8 + 10; // Ürün bilgileri kutusunun altı
@@ -380,6 +380,7 @@ namespace OrderTracking
                 yMargin += (pageHeight - totalHeight) / 2; // Merkezleme
             }
         }
+
 
 
         private int GetSelectedSiparisId()
