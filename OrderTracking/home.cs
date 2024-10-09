@@ -125,7 +125,7 @@ namespace OrderTracking
         private void onaylananTekliflerToolStripMenuItem_Click(object sender, EventArgs e) => ShowForm(new orders());
         private void teklifOnaylaToolStripMenuItem_Click(object sender, EventArgs e) => PerformAdminAction(new tickets());
         private void kullanýcýEkleToolStripMenuItem_Click(object sender, EventArgs e) => PerformAdminAction(new addUser());
-        private void yedeklemeToolStripMenuItem_Click(object sender, EventArgs e) => ShowForm(new databaseSave());
+        private void yedeklemeToolStripMenuItem_Click(object sender, EventArgs e) => PerformAdminAction(new databaseSave());
         private void yetkiVerToolStripMenuItem_Click(object sender, EventArgs e) => PerformAdminAction(new authority());
         private void istatistiklkerToolStripMenuItem_Click(object sender, EventArgs e) => PerformAdminAction(new statistics());
 
