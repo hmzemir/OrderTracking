@@ -9,12 +9,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
 
 namespace OrderTracking
 {
     public partial class tickets : Form
     {
-        private string connectionString = "Data Source=TETrA\\SQLEXPRESS;Initial Catalog=orderTracking;Integrated Security=True;Encrypt=False";
+        private string connectionString = ConfigurationManager.ConnectionStrings["OrderTrackingDB"].ConnectionString;
         public tickets()
         {
             InitializeComponent();

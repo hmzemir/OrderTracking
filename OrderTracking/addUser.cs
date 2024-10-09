@@ -4,13 +4,14 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Configuration;
 
 namespace OrderTracking
 {
     public partial class addUser : Form
     {
         // Veritabanı bağlantı cümlesi
-        string connectionString = "Data Source=TETrA\\SQLEXPRESS;Initial Catalog=orderTracking;Integrated Security=True;Encrypt=False";
+        private string connectionString = ConfigurationManager.ConnectionStrings["OrderTrackingDB"].ConnectionString;
 
         public addUser()
         {
