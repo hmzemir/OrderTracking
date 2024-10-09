@@ -2,13 +2,14 @@
 using System.Data.SqlClient;
 using System.IO;
 using System.Windows.Forms;
+using System.Configuration;
 
 namespace OrderTracking
 {
     public partial class databaseSave : Form
     {
         private System.Windows.Forms.Timer backupTimer;  // System.Timers yerine Windows.Forms.Timer kullanıyoruz
-        private string connectionString = "Data Source=TETrA\\SQLEXPRESS;Initial Catalog=orderTracking;Integrated Security=True;Encrypt=False"; // Bağlantı dizesini ayarla
+        private string connectionString = ConfigurationManager.ConnectionStrings["OrderTrackingDB"].ConnectionString;
 
         public databaseSave()
         {

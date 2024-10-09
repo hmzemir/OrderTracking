@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using System.Configuration;
 
 namespace OrderTracking
 {
@@ -16,7 +18,7 @@ namespace OrderTracking
         private void LoadAdminUsers()
         {
             // Veritabanı bağlantısını oluştur
-            string connectionString = "Data Source=TETrA\\SQLEXPRESS;Initial Catalog=orderTracking;Integrated Security=True;Encrypt=False";
+            string connectionString = ConfigurationManager.ConnectionStrings["OrderTrackingDB"].ConnectionString;
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {

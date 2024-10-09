@@ -3,13 +3,14 @@ using System.Data.SqlClient;
 using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
+using System.Configuration;
 
 namespace OrderTracking
 {
     public partial class login : Form
     {
         // Veritabanı bağlantı cümlesi (Connection String)
-        string connectionString = "Data Source=TETrA\\SQLEXPRESS;Initial Catalog=orderTracking;Integrated Security=True;Encrypt=False";
+        string connectionString = ConfigurationManager.ConnectionStrings["OrderTrackingDB"].ConnectionString;
 
         public static int UserAdminLevel { get; private set; } // Kullanıcı admin seviyesi
 

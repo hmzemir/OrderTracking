@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -9,7 +10,7 @@ namespace OrderTracking
 {
     public partial class orders : Form
     {
-        private string connectionString = "Data Source=TETrA\\SQLEXPRESS;Initial Catalog=orderTracking;Integrated Security=True;Encrypt=False;";
+        private string connectionString = ConfigurationManager.ConnectionStrings["OrderTrackingDB"].ConnectionString;
 
         public orders()
         {
