@@ -142,5 +142,92 @@ namespace OrderTracking
             // Sayaç sıfırlanır
             rotaCounter = 1;
         }
+
+        private void btnSil_Click(object sender, EventArgs e)
+        {
+            string selectedBaslik = rotalarCombo.SelectedItem?.ToString();
+
+            if (string.IsNullOrEmpty(selectedBaslik))
+            {
+                MessageBox.Show("Lütfen silmek istediğiniz başlığı seçin.");
+                return;
+            }
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string deleteQuery = "DELETE FROM kayitliRotalar WHERE k_rota_baslik = @K_Rota_Baslik";
+
+                using (SqlCommand command = new SqlCommand(deleteQuery, connection))
+                {
+                    command.Parameters.AddWithValue("@K_Rota_Baslik", selectedBaslik);
+                    int rowsAffected = command.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Seçilen başlığa ait veriler silindi.");
+                        // Başlıkları tekrar yükle
+                        rotalarCombo.Items.Clear();
+                        LoadRotaBasliklar();
+                        rotaAdlariLabel.Text = ""; // Label'ı temizle
+                    }
+                    else
+                    {
+                        MessageBox.Show("Silme işlemi sırasında bir sorun oluştu.");
+                    }
+                }
+            }
+        }
+
+
+        private void yeniRota_Load(object sender, EventArgs e)
+        {
+            LoadRotaBasliklar();
+        }
+        private void LoadRotaBasliklar()
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string query = "SELECT DISTINCT k_rota_baslik FROM kayitliRotalar";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            rotalarCombo.Items.Add(reader["k_rota_baslik"].ToString());
+                        }
+                    }
+                }
+            }
+        }
+
+        private void rotalarCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            rotaAdlariLabel.Text = ""; // Önceki değerleri temizle
+            string selectedBaslik = rotalarCombo.SelectedItem.ToString();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string query = "SELECT k_rota_adi FROM kayitliRotalar WHERE k_rota_baslik = @K_Rota_Baslik";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@K_Rota_Baslik", selectedBaslik);
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            // k_rota_adi'yi her bir satıra ekle
+                            rotaAdlariLabel.Text += reader["k_rota_adi"].ToString() + Environment.NewLine;
+                        }
+                    }
+                }
+            }
+        }
+
     }
 }
