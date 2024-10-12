@@ -113,6 +113,7 @@
             yetkiVerToolStripMenuItem = new ToolStripMenuItem();
             yedeklemeToolStripMenuItem = new ToolStripMenuItem();
             çıkışToolStripMenuItem = new ToolStripMenuItem();
+            yeniRotabtn = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)urunMiktarNumeric).BeginInit();
             panel1.SuspendLayout();
@@ -690,6 +691,7 @@
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(yeniRotabtn);
             groupBox2.Controls.Add(rotaEklebtn);
             groupBox2.Controls.Add(label21);
             groupBox2.Controls.Add(panel1);
@@ -996,6 +998,17 @@
             çıkışToolStripMenuItem.Text = "Çıkış";
             çıkışToolStripMenuItem.Click += çıkışToolStripMenuItem_Click;
             // 
+            // yeniRotabtn
+            // 
+            yeniRotabtn.Font = new Font("Eras Medium ITC", 14.25F);
+            yeniRotabtn.Location = new Point(256, 596);
+            yeniRotabtn.Name = "yeniRotabtn";
+            yeniRotabtn.Size = new Size(123, 38);
+            yeniRotabtn.TabIndex = 47;
+            yeniRotabtn.Text = "Rota Kaydet";
+            yeniRotabtn.UseVisualStyleBackColor = true;
+            yeniRotabtn.Click += yeniRotabtn_Click;
+            // 
             // home
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -1122,5 +1135,6 @@
         private ToolStripMenuItem yetkiVerToolStripMenuItem;
         private ToolStripMenuItem çıkışToolStripMenuItem;
         private Button rotaEklebtn;
+        private Button yeniRotabtn;
     }
 }

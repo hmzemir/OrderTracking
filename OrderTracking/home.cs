@@ -424,5 +424,16 @@ namespace OrderTracking
             urun_cinsiCombo.DropDownStyle = ComboBoxStyle.DropDown;
         }
 
+        private void yeniRotabtn_Click(object sender, EventArgs e)
+        {
+            // yeniRota formunu oluþtur
+            yeniRota rotaForm = new yeniRota();
+
+            // yeniRota formunu göster
+            rotaForm.Show();
+
+            // Eðer açýlan formun önceki form ile baðýmsýz olmasýný istiyorsan, aþaðýdaki kodu ekleyebilirsin
+            // rotaForm.Show(this);  // Bu, yeni formu önceki formun sahibi yapar.
+        }
     }
 }
