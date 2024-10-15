@@ -41,48 +41,11 @@
             tarihTimerPicker = new DateTimePicker();
             label3 = new Label();
             label2 = new Label();
-            panel1 = new Panel();
-            rota10TL = new Label();
-            rota10Numeric = new NumericUpDown();
-            rota10Text = new RichTextBox();
-            rota10Label = new Label();
-            rota8TL = new Label();
-            rota8Numeric = new NumericUpDown();
-            rota8Text = new RichTextBox();
-            rota8Label = new Label();
-            rota6TL = new Label();
-            rota6Numeric = new NumericUpDown();
-            rota6Text = new RichTextBox();
-            rota6Label = new Label();
-            rota4TL = new Label();
-            rota4Numeric = new NumericUpDown();
-            rota4Text = new RichTextBox();
-            rota4Label = new Label();
-            rota2TL = new Label();
-            rota9TL = new Label();
-            rota2Numeric = new NumericUpDown();
-            rota9Numeric = new NumericUpDown();
-            rota2Text = new RichTextBox();
-            rota2Label = new Label();
-            rota9Text = new RichTextBox();
-            rota9Label = new Label();
-            rota7TL = new Label();
-            rota7Numeric = new NumericUpDown();
-            rota7Text = new RichTextBox();
-            rota7Label = new Label();
-            rota5TL = new Label();
-            rota5Numeric = new NumericUpDown();
-            rota5Text = new RichTextBox();
-            rota5Label = new Label();
-            rota3TL = new Label();
-            rota3Numeric = new NumericUpDown();
-            rota3Text = new RichTextBox();
-            rota3Label = new Label();
-            rota1TL = new Label();
-            rota1Numeric = new NumericUpDown();
-            rota1Text = new RichTextBox();
-            rota1Label = new Label();
             groupBox2 = new GroupBox();
+            rotaCombo = new ComboBox();
+            panel1 = new Panel();
+            label1 = new Label();
+            yeniRotabtn = new Button();
             rotaEklebtn = new Button();
             label21 = new Label();
             karNumeric = new NumericUpDown();
@@ -113,20 +76,8 @@
             yetkiVerToolStripMenuItem = new ToolStripMenuItem();
             yedeklemeToolStripMenuItem = new ToolStripMenuItem();
             çıkışToolStripMenuItem = new ToolStripMenuItem();
-            yeniRotabtn = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)urunMiktarNumeric).BeginInit();
-            panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)rota10Numeric).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)rota8Numeric).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)rota6Numeric).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)rota4Numeric).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)rota2Numeric).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)rota9Numeric).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)rota7Numeric).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)rota5Numeric).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)rota3Numeric).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)rota1Numeric).BeginInit();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)karNumeric).BeginInit();
             groupBox3.SuspendLayout();
@@ -271,430 +222,14 @@
             label2.TabIndex = 0;
             label2.Text = "Firma / Kişi Adı";
             // 
-            // panel1
-            // 
-            panel1.Controls.Add(rota10TL);
-            panel1.Controls.Add(rota10Numeric);
-            panel1.Controls.Add(rota10Text);
-            panel1.Controls.Add(rota10Label);
-            panel1.Controls.Add(rota8TL);
-            panel1.Controls.Add(rota8Numeric);
-            panel1.Controls.Add(rota8Text);
-            panel1.Controls.Add(rota8Label);
-            panel1.Controls.Add(rota6TL);
-            panel1.Controls.Add(rota6Numeric);
-            panel1.Controls.Add(rota6Text);
-            panel1.Controls.Add(rota6Label);
-            panel1.Controls.Add(rota4TL);
-            panel1.Controls.Add(rota4Numeric);
-            panel1.Controls.Add(rota4Text);
-            panel1.Controls.Add(rota4Label);
-            panel1.Controls.Add(rota2TL);
-            panel1.Controls.Add(rota9TL);
-            panel1.Controls.Add(rota2Numeric);
-            panel1.Controls.Add(rota9Numeric);
-            panel1.Controls.Add(rota2Text);
-            panel1.Controls.Add(rota2Label);
-            panel1.Controls.Add(rota9Text);
-            panel1.Controls.Add(rota9Label);
-            panel1.Controls.Add(rota7TL);
-            panel1.Controls.Add(rota7Numeric);
-            panel1.Controls.Add(rota7Text);
-            panel1.Controls.Add(rota7Label);
-            panel1.Controls.Add(rota5TL);
-            panel1.Controls.Add(rota5Numeric);
-            panel1.Controls.Add(rota5Text);
-            panel1.Controls.Add(rota5Label);
-            panel1.Controls.Add(rota3TL);
-            panel1.Controls.Add(rota3Numeric);
-            panel1.Controls.Add(rota3Text);
-            panel1.Controls.Add(rota3Label);
-            panel1.Controls.Add(rota1TL);
-            panel1.Controls.Add(rota1Numeric);
-            panel1.Controls.Add(rota1Text);
-            panel1.Controls.Add(rota1Label);
-            panel1.Font = new Font("Eras Medium ITC", 14.25F);
-            panel1.Location = new Point(25, 36);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(498, 538);
-            panel1.TabIndex = 13;
-            // 
-            // rota10TL
-            // 
-            rota10TL.AutoSize = true;
-            rota10TL.Location = new Point(426, 473);
-            rota10TL.Name = "rota10TL";
-            rota10TL.Size = new Size(29, 22);
-            rota10TL.TabIndex = 65;
-            rota10TL.Text = "TL";
-            // 
-            // rota10Numeric
-            // 
-            rota10Numeric.BorderStyle = BorderStyle.FixedSingle;
-            rota10Numeric.Location = new Point(426, 495);
-            rota10Numeric.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
-            rota10Numeric.Name = "rota10Numeric";
-            rota10Numeric.Size = new Size(69, 29);
-            rota10Numeric.TabIndex = 64;
-            rota10Numeric.TextAlign = HorizontalAlignment.Center;
-            // 
-            // rota10Text
-            // 
-            rota10Text.BorderStyle = BorderStyle.None;
-            rota10Text.Location = new Point(257, 455);
-            rota10Text.Name = "rota10Text";
-            rota10Text.Size = new Size(163, 69);
-            rota10Text.TabIndex = 63;
-            rota10Text.Text = "";
-            // 
-            // rota10Label
-            // 
-            rota10Label.AutoSize = true;
-            rota10Label.Location = new Point(257, 430);
-            rota10Label.Name = "rota10Label";
-            rota10Label.Size = new Size(71, 22);
-            rota10Label.TabIndex = 62;
-            rota10Label.Text = "rota 10";
-            // 
-            // rota8TL
-            // 
-            rota8TL.AutoSize = true;
-            rota8TL.Location = new Point(426, 366);
-            rota8TL.Name = "rota8TL";
-            rota8TL.Size = new Size(29, 22);
-            rota8TL.TabIndex = 61;
-            rota8TL.Text = "TL";
-            // 
-            // rota8Numeric
-            // 
-            rota8Numeric.BorderStyle = BorderStyle.FixedSingle;
-            rota8Numeric.Location = new Point(426, 388);
-            rota8Numeric.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
-            rota8Numeric.Name = "rota8Numeric";
-            rota8Numeric.Size = new Size(69, 29);
-            rota8Numeric.TabIndex = 60;
-            rota8Numeric.TextAlign = HorizontalAlignment.Center;
-            // 
-            // rota8Text
-            // 
-            rota8Text.BorderStyle = BorderStyle.None;
-            rota8Text.Location = new Point(257, 348);
-            rota8Text.Name = "rota8Text";
-            rota8Text.Size = new Size(163, 69);
-            rota8Text.TabIndex = 59;
-            rota8Text.Text = "";
-            // 
-            // rota8Label
-            // 
-            rota8Label.AutoSize = true;
-            rota8Label.Location = new Point(257, 323);
-            rota8Label.Name = "rota8Label";
-            rota8Label.Size = new Size(60, 22);
-            rota8Label.TabIndex = 58;
-            rota8Label.Text = "rota 8";
-            // 
-            // rota6TL
-            // 
-            rota6TL.AutoSize = true;
-            rota6TL.Location = new Point(426, 265);
-            rota6TL.Name = "rota6TL";
-            rota6TL.Size = new Size(29, 22);
-            rota6TL.TabIndex = 57;
-            rota6TL.Text = "TL";
-            // 
-            // rota6Numeric
-            // 
-            rota6Numeric.BorderStyle = BorderStyle.FixedSingle;
-            rota6Numeric.Location = new Point(426, 287);
-            rota6Numeric.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
-            rota6Numeric.Name = "rota6Numeric";
-            rota6Numeric.Size = new Size(69, 29);
-            rota6Numeric.TabIndex = 56;
-            rota6Numeric.TextAlign = HorizontalAlignment.Center;
-            // 
-            // rota6Text
-            // 
-            rota6Text.BorderStyle = BorderStyle.None;
-            rota6Text.Location = new Point(257, 247);
-            rota6Text.Name = "rota6Text";
-            rota6Text.Size = new Size(163, 69);
-            rota6Text.TabIndex = 55;
-            rota6Text.Text = "";
-            // 
-            // rota6Label
-            // 
-            rota6Label.AutoSize = true;
-            rota6Label.Location = new Point(257, 222);
-            rota6Label.Name = "rota6Label";
-            rota6Label.Size = new Size(60, 22);
-            rota6Label.TabIndex = 54;
-            rota6Label.Text = "rota 6";
-            // 
-            // rota4TL
-            // 
-            rota4TL.AutoSize = true;
-            rota4TL.Location = new Point(426, 161);
-            rota4TL.Name = "rota4TL";
-            rota4TL.Size = new Size(29, 22);
-            rota4TL.TabIndex = 53;
-            rota4TL.Text = "TL";
-            // 
-            // rota4Numeric
-            // 
-            rota4Numeric.BorderStyle = BorderStyle.FixedSingle;
-            rota4Numeric.Location = new Point(426, 183);
-            rota4Numeric.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
-            rota4Numeric.Name = "rota4Numeric";
-            rota4Numeric.Size = new Size(69, 29);
-            rota4Numeric.TabIndex = 52;
-            rota4Numeric.TextAlign = HorizontalAlignment.Center;
-            // 
-            // rota4Text
-            // 
-            rota4Text.BorderStyle = BorderStyle.None;
-            rota4Text.Location = new Point(257, 143);
-            rota4Text.Name = "rota4Text";
-            rota4Text.Size = new Size(163, 69);
-            rota4Text.TabIndex = 51;
-            rota4Text.Text = "";
-            // 
-            // rota4Label
-            // 
-            rota4Label.AutoSize = true;
-            rota4Label.Location = new Point(257, 118);
-            rota4Label.Name = "rota4Label";
-            rota4Label.Size = new Size(60, 22);
-            rota4Label.TabIndex = 50;
-            rota4Label.Text = "rota 4";
-            // 
-            // rota2TL
-            // 
-            rota2TL.AutoSize = true;
-            rota2TL.Location = new Point(426, 56);
-            rota2TL.Name = "rota2TL";
-            rota2TL.Size = new Size(29, 22);
-            rota2TL.TabIndex = 49;
-            rota2TL.Text = "TL";
-            // 
-            // rota9TL
-            // 
-            rota9TL.AutoSize = true;
-            rota9TL.Location = new Point(186, 473);
-            rota9TL.Name = "rota9TL";
-            rota9TL.Size = new Size(29, 22);
-            rota9TL.TabIndex = 43;
-            rota9TL.Text = "TL";
-            // 
-            // rota2Numeric
-            // 
-            rota2Numeric.BorderStyle = BorderStyle.FixedSingle;
-            rota2Numeric.Location = new Point(426, 78);
-            rota2Numeric.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
-            rota2Numeric.Name = "rota2Numeric";
-            rota2Numeric.Size = new Size(69, 29);
-            rota2Numeric.TabIndex = 48;
-            rota2Numeric.TextAlign = HorizontalAlignment.Center;
-            // 
-            // rota9Numeric
-            // 
-            rota9Numeric.BorderStyle = BorderStyle.FixedSingle;
-            rota9Numeric.Location = new Point(186, 495);
-            rota9Numeric.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
-            rota9Numeric.Name = "rota9Numeric";
-            rota9Numeric.Size = new Size(68, 29);
-            rota9Numeric.TabIndex = 42;
-            rota9Numeric.TextAlign = HorizontalAlignment.Center;
-            // 
-            // rota2Text
-            // 
-            rota2Text.BorderStyle = BorderStyle.None;
-            rota2Text.Location = new Point(257, 38);
-            rota2Text.Name = "rota2Text";
-            rota2Text.Size = new Size(163, 69);
-            rota2Text.TabIndex = 47;
-            rota2Text.Text = "";
-            // 
-            // rota2Label
-            // 
-            rota2Label.AutoSize = true;
-            rota2Label.Location = new Point(257, 13);
-            rota2Label.Name = "rota2Label";
-            rota2Label.Size = new Size(60, 22);
-            rota2Label.TabIndex = 46;
-            rota2Label.Text = "rota 2";
-            // 
-            // rota9Text
-            // 
-            rota9Text.BorderStyle = BorderStyle.None;
-            rota9Text.Location = new Point(17, 455);
-            rota9Text.Name = "rota9Text";
-            rota9Text.Size = new Size(163, 69);
-            rota9Text.TabIndex = 41;
-            rota9Text.Text = "";
-            // 
-            // rota9Label
-            // 
-            rota9Label.AutoSize = true;
-            rota9Label.Location = new Point(17, 430);
-            rota9Label.Name = "rota9Label";
-            rota9Label.Size = new Size(60, 22);
-            rota9Label.TabIndex = 40;
-            rota9Label.Text = "rota 9";
-            // 
-            // rota7TL
-            // 
-            rota7TL.AutoSize = true;
-            rota7TL.Location = new Point(186, 366);
-            rota7TL.Name = "rota7TL";
-            rota7TL.Size = new Size(29, 22);
-            rota7TL.TabIndex = 39;
-            rota7TL.Text = "TL";
-            // 
-            // rota7Numeric
-            // 
-            rota7Numeric.BorderStyle = BorderStyle.FixedSingle;
-            rota7Numeric.Location = new Point(186, 388);
-            rota7Numeric.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
-            rota7Numeric.Name = "rota7Numeric";
-            rota7Numeric.Size = new Size(68, 29);
-            rota7Numeric.TabIndex = 38;
-            rota7Numeric.TextAlign = HorizontalAlignment.Center;
-            // 
-            // rota7Text
-            // 
-            rota7Text.BorderStyle = BorderStyle.None;
-            rota7Text.Location = new Point(17, 348);
-            rota7Text.Name = "rota7Text";
-            rota7Text.Size = new Size(163, 69);
-            rota7Text.TabIndex = 37;
-            rota7Text.Text = "";
-            // 
-            // rota7Label
-            // 
-            rota7Label.AutoSize = true;
-            rota7Label.Location = new Point(17, 323);
-            rota7Label.Name = "rota7Label";
-            rota7Label.Size = new Size(60, 22);
-            rota7Label.TabIndex = 36;
-            rota7Label.Text = "rota 7";
-            // 
-            // rota5TL
-            // 
-            rota5TL.AutoSize = true;
-            rota5TL.Location = new Point(186, 265);
-            rota5TL.Name = "rota5TL";
-            rota5TL.Size = new Size(29, 22);
-            rota5TL.TabIndex = 35;
-            rota5TL.Text = "TL";
-            // 
-            // rota5Numeric
-            // 
-            rota5Numeric.BorderStyle = BorderStyle.FixedSingle;
-            rota5Numeric.Location = new Point(186, 287);
-            rota5Numeric.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
-            rota5Numeric.Name = "rota5Numeric";
-            rota5Numeric.Size = new Size(68, 29);
-            rota5Numeric.TabIndex = 34;
-            rota5Numeric.TextAlign = HorizontalAlignment.Center;
-            // 
-            // rota5Text
-            // 
-            rota5Text.BorderStyle = BorderStyle.None;
-            rota5Text.Location = new Point(17, 247);
-            rota5Text.Name = "rota5Text";
-            rota5Text.Size = new Size(163, 69);
-            rota5Text.TabIndex = 33;
-            rota5Text.Text = "";
-            // 
-            // rota5Label
-            // 
-            rota5Label.AutoSize = true;
-            rota5Label.Location = new Point(17, 222);
-            rota5Label.Name = "rota5Label";
-            rota5Label.Size = new Size(60, 22);
-            rota5Label.TabIndex = 32;
-            rota5Label.Text = "rota 5";
-            // 
-            // rota3TL
-            // 
-            rota3TL.AutoSize = true;
-            rota3TL.Location = new Point(186, 159);
-            rota3TL.Name = "rota3TL";
-            rota3TL.Size = new Size(29, 22);
-            rota3TL.TabIndex = 31;
-            rota3TL.Text = "TL";
-            // 
-            // rota3Numeric
-            // 
-            rota3Numeric.BorderStyle = BorderStyle.FixedSingle;
-            rota3Numeric.Location = new Point(186, 181);
-            rota3Numeric.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
-            rota3Numeric.Name = "rota3Numeric";
-            rota3Numeric.Size = new Size(68, 29);
-            rota3Numeric.TabIndex = 30;
-            rota3Numeric.TextAlign = HorizontalAlignment.Center;
-            // 
-            // rota3Text
-            // 
-            rota3Text.BorderStyle = BorderStyle.None;
-            rota3Text.Location = new Point(17, 141);
-            rota3Text.Name = "rota3Text";
-            rota3Text.Size = new Size(163, 69);
-            rota3Text.TabIndex = 29;
-            rota3Text.Text = "";
-            // 
-            // rota3Label
-            // 
-            rota3Label.AutoSize = true;
-            rota3Label.Location = new Point(17, 116);
-            rota3Label.Name = "rota3Label";
-            rota3Label.Size = new Size(60, 22);
-            rota3Label.TabIndex = 28;
-            rota3Label.Text = "rota 3";
-            // 
-            // rota1TL
-            // 
-            rota1TL.AutoSize = true;
-            rota1TL.Location = new Point(186, 53);
-            rota1TL.Name = "rota1TL";
-            rota1TL.Size = new Size(29, 22);
-            rota1TL.TabIndex = 27;
-            rota1TL.Text = "TL";
-            // 
-            // rota1Numeric
-            // 
-            rota1Numeric.BorderStyle = BorderStyle.FixedSingle;
-            rota1Numeric.Location = new Point(186, 75);
-            rota1Numeric.Maximum = new decimal(new int[] { 1000000, 0, 0, 0 });
-            rota1Numeric.Name = "rota1Numeric";
-            rota1Numeric.Size = new Size(65, 29);
-            rota1Numeric.TabIndex = 24;
-            rota1Numeric.TextAlign = HorizontalAlignment.Center;
-            // 
-            // rota1Text
-            // 
-            rota1Text.BorderStyle = BorderStyle.None;
-            rota1Text.Location = new Point(17, 35);
-            rota1Text.Name = "rota1Text";
-            rota1Text.Size = new Size(163, 69);
-            rota1Text.TabIndex = 4;
-            rota1Text.Text = "";
-            // 
-            // rota1Label
-            // 
-            rota1Label.AutoSize = true;
-            rota1Label.Location = new Point(17, 10);
-            rota1Label.Name = "rota1Label";
-            rota1Label.Size = new Size(60, 22);
-            rota1Label.TabIndex = 3;
-            rota1Label.Text = "rota 1";
-            // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(rotaCombo);
+            groupBox2.Controls.Add(panel1);
+            groupBox2.Controls.Add(label1);
             groupBox2.Controls.Add(yeniRotabtn);
             groupBox2.Controls.Add(rotaEklebtn);
             groupBox2.Controls.Add(label21);
-            groupBox2.Controls.Add(panel1);
             groupBox2.Controls.Add(karNumeric);
             groupBox2.Font = new Font("Impact", 18F, FontStyle.Regular, GraphicsUnit.Point, 162);
             groupBox2.Location = new Point(415, 60);
@@ -703,6 +238,46 @@
             groupBox2.TabIndex = 13;
             groupBox2.TabStop = false;
             groupBox2.Text = "Ürün Rotası";
+            groupBox2.Enter += groupBox2_Enter;
+            // 
+            // rotaCombo
+            // 
+            rotaCombo.Font = new Font("Eras Medium ITC", 12F, FontStyle.Italic);
+            rotaCombo.FormattingEnabled = true;
+            rotaCombo.Location = new Point(25, 64);
+            rotaCombo.Name = "rotaCombo";
+            rotaCombo.Size = new Size(121, 27);
+            rotaCombo.TabIndex = 51;
+            rotaCombo.SelectedIndexChanged += rotaCombo_SelectedIndexChanged;
+            // 
+            // panel1
+            // 
+            panel1.Font = new Font("Eras Medium ITC", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            panel1.Location = new Point(25, 97);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(480, 473);
+            panel1.TabIndex = 48;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Eras Medium ITC", 14.25F);
+            label1.Location = new Point(25, 39);
+            label1.Name = "label1";
+            label1.Size = new Size(81, 22);
+            label1.TabIndex = 51;
+            label1.Text = "Rota Seç";
+            // 
+            // yeniRotabtn
+            // 
+            yeniRotabtn.Font = new Font("Eras Medium ITC", 14.25F);
+            yeniRotabtn.Location = new Point(256, 596);
+            yeniRotabtn.Name = "yeniRotabtn";
+            yeniRotabtn.Size = new Size(123, 38);
+            yeniRotabtn.TabIndex = 47;
+            yeniRotabtn.Text = "Rota Kaydet";
+            yeniRotabtn.UseVisualStyleBackColor = true;
+            yeniRotabtn.Click += yeniRotabtn_Click;
             // 
             // rotaEklebtn
             // 
@@ -998,17 +573,6 @@
             çıkışToolStripMenuItem.Text = "Çıkış";
             çıkışToolStripMenuItem.Click += çıkışToolStripMenuItem_Click;
             // 
-            // yeniRotabtn
-            // 
-            yeniRotabtn.Font = new Font("Eras Medium ITC", 14.25F);
-            yeniRotabtn.Location = new Point(256, 596);
-            yeniRotabtn.Name = "yeniRotabtn";
-            yeniRotabtn.Size = new Size(123, 38);
-            yeniRotabtn.TabIndex = 47;
-            yeniRotabtn.Text = "Rota Kaydet";
-            yeniRotabtn.UseVisualStyleBackColor = true;
-            yeniRotabtn.Click += yeniRotabtn_Click;
-            // 
             // home
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -1026,18 +590,6 @@
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)urunMiktarNumeric).EndInit();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)rota10Numeric).EndInit();
-            ((System.ComponentModel.ISupportInitialize)rota8Numeric).EndInit();
-            ((System.ComponentModel.ISupportInitialize)rota6Numeric).EndInit();
-            ((System.ComponentModel.ISupportInitialize)rota4Numeric).EndInit();
-            ((System.ComponentModel.ISupportInitialize)rota2Numeric).EndInit();
-            ((System.ComponentModel.ISupportInitialize)rota9Numeric).EndInit();
-            ((System.ComponentModel.ISupportInitialize)rota7Numeric).EndInit();
-            ((System.ComponentModel.ISupportInitialize)rota5Numeric).EndInit();
-            ((System.ComponentModel.ISupportInitialize)rota3Numeric).EndInit();
-            ((System.ComponentModel.ISupportInitialize)rota1Numeric).EndInit();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)karNumeric).EndInit();
@@ -1060,11 +612,6 @@
         private Label label6;
         private Label label7;
         private RichTextBox aciklamaTextBox;
-        private Panel panel1;
-        private Label rota1TL;
-        private NumericUpDown rota1Numeric;
-        private RichTextBox rota1Text;
-        private Label rota1Label;
         private GroupBox groupBox2;
         private Label label21;
         private NumericUpDown karNumeric;
@@ -1093,42 +640,6 @@
         private ToolStripMenuItem istatistiklkerToolStripMenuItem;
         private ToolStripMenuItem yedeklemeToolStripMenuItem;
         private ToolStripMenuItem onaylananTekliflerToolStripMenuItem;
-        private Label rota10TL;
-        private NumericUpDown rota10Numeric;
-        private RichTextBox rota10Text;
-        private Label rota10Label;
-        private Label rota8TL;
-        private NumericUpDown rota8Numeric;
-        private RichTextBox rota8Text;
-        private Label rota8Label;
-        private Label rota6TL;
-        private NumericUpDown rota6Numeric;
-        private RichTextBox rota6Text;
-        private Label rota6Label;
-        private Label rota4TL;
-        private NumericUpDown rota4Numeric;
-        private RichTextBox rota4Text;
-        private Label rota4Label;
-        private Label rota2TL;
-        private Label rota9TL;
-        private NumericUpDown rota2Numeric;
-        private NumericUpDown rota9Numeric;
-        private RichTextBox rota2Text;
-        private Label rota2Label;
-        private RichTextBox rota9Text;
-        private Label rota9Label;
-        private Label rota7TL;
-        private NumericUpDown rota7Numeric;
-        private RichTextBox rota7Text;
-        private Label rota7Label;
-        private Label rota5TL;
-        private NumericUpDown rota5Numeric;
-        private RichTextBox rota5Text;
-        private Label rota5Label;
-        private Label rota3TL;
-        private NumericUpDown rota3Numeric;
-        private RichTextBox rota3Text;
-        private Label rota3Label;
         private ComboBox urun_adiCombo;
         private ComboBox sahipCombo;
         private ComboBox urun_cinsiCombo;
@@ -1136,5 +647,8 @@
         private ToolStripMenuItem çıkışToolStripMenuItem;
         private Button rotaEklebtn;
         private Button yeniRotabtn;
+        private Label label1;
+        private ComboBox rotaCombo;
+        private Panel panel1;
     }
 }

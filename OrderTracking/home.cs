@@ -15,10 +15,13 @@ namespace OrderTracking
 
         public home(int adminLevel) // Yapýcý metot
         {
-            InitializeComponent();
+            InitializeComponent(); // Bu metodun ilk çaðrýlmasý gerektiðinden emin olun
             userAdminLevel = adminLevel; // Yetki seviyesini ayarla
+
+            // 'panel1' burada InitializeComponent() ile baþlatýlmýþ olmalý
             parentPanel = this.panel1;
             parentPanel.AutoScroll = false;
+
             this.Resize += home_Resize;
             rotaAlanlariniGizle();
         }
@@ -63,6 +66,7 @@ namespace OrderTracking
                     return;
                 }
 
+                // Yeni sipariþ ekleme sorgusu (rota sistemi ile birlikte)
                 string insertOrderQuery = "INSERT INTO siparisler (sahip, tarih, urun_adi, urun_miktari, urun_cinsi, aciklama, kar) OUTPUT INSERTED.id VALUES (@sahip, @tarih, @urun_adi, @urun_miktari, @urun_cinsi, @aciklama, @kar)";
 
                 using (SqlCommand orderCommand = new SqlCommand(insertOrderQuery, connection))
@@ -75,14 +79,21 @@ namespace OrderTracking
                     orderCommand.Parameters.AddWithValue("@aciklama", aciklama);
                     orderCommand.Parameters.AddWithValue("@kar", kar);
 
+                    // Sipariþ ID'sini al
                     int siparisId = (int)orderCommand.ExecuteScalar();
 
+                    // Kaydedilen sipariþ ID'sini kontrol edelim
+                    Console.WriteLine($"Kaydedilen Sipariþ ID: {siparisId}");
+
+                    // Rota alanlarýný kaydet
                     for (int i = 1; i <= 10; i++)
                     {
+                        // Her bir rota için TextBox ve NumericUpDown deðerlerini al
                         string rotaAd = this.Controls.Find($"rota{i}Text", true).FirstOrDefault()?.Text.Trim();
                         NumericUpDown rotaNumeric = this.Controls.Find($"rota{i}Numeric", true).FirstOrDefault() as NumericUpDown;
                         decimal? ucret = rotaNumeric?.Value;
 
+                        // Eðer rota adý boþ deðilse ve ücret varsa rotayý kaydet
                         if (!string.IsNullOrEmpty(rotaAd) && ucret.HasValue)
                         {
                             string insertRotaQuery = "INSERT INTO rotalar (siparis_id, rota_adi, ucret) VALUES (@siparis_id, @rota_adi, @ucret)";
@@ -104,6 +115,11 @@ namespace OrderTracking
             }
         }
 
+
+
+        // Tüm giriþ alanlarýný temizleme fonksiyonu
+
+
         private void ClearInputFields()
         {
             sahipCombo.SelectedIndex = -1;
@@ -112,14 +128,19 @@ namespace OrderTracking
             aciklamaTextBox.Clear();
             urunMiktarNumeric.Value = 0;
             karNumeric.Value = 0;
+            tarihTimerPicker.Value = DateTime.Now;
 
+            // Rota alanlarýný temizle
             for (int i = 1; i <= 10; i++)
             {
-                var rotaText = this.Controls.Find($"rota{i}Text", true).FirstOrDefault() as TextBox;
-                var rotaNumeric = this.Controls.Find($"rota{i}Numeric", true).FirstOrDefault() as NumericUpDown;
+                TextBox rotaText = this.Controls.Find($"rota{i}Text", true).FirstOrDefault() as TextBox;
+                NumericUpDown rotaNumeric = this.Controls.Find($"rota{i}Numeric", true).FirstOrDefault() as NumericUpDown;
 
-                if (rotaText != null) rotaText.Clear();
-                if (rotaNumeric != null) rotaNumeric.Value = 0;
+                if (rotaText != null)
+                    rotaText.Clear();
+
+                if (rotaNumeric != null)
+                    rotaNumeric.Value = 0;
             }
         }
 
@@ -213,129 +234,13 @@ namespace OrderTracking
 
         private void rotaAlanlariniGizle()
         {
-            // Tüm rota alanlarýný baþlangýçta gizliyoruz
-            rota1Label.Visible = false;
-            rota1Text.Visible = false;
-            rota1TL.Visible = false;
-            rota1Numeric.Visible = false;
 
-            rota2Label.Visible = false;
-            rota2Text.Visible = false;
-            rota2TL.Visible = false;
-            rota2Numeric.Visible = false;
-
-            rota3Label.Visible = false;
-            rota3Text.Visible = false;
-            rota3TL.Visible = false;
-            rota3Numeric.Visible = false;
-
-            rota4Label.Visible = false;
-            rota4Text.Visible = false;
-            rota4TL.Visible = false;
-            rota4Numeric.Visible = false;
-
-            rota5Label.Visible = false;
-            rota5Text.Visible = false;
-            rota5TL.Visible = false;
-            rota5Numeric.Visible = false;
-
-            rota6Label.Visible = false;
-            rota6Text.Visible = false;
-            rota6TL.Visible = false;
-            rota6Numeric.Visible = false;
-
-            rota7Label.Visible = false;
-            rota7Text.Visible = false;
-            rota7TL.Visible = false;
-            rota7Numeric.Visible = false;
-
-            rota8Label.Visible = false;
-            rota8Text.Visible = false;
-            rota8TL.Visible = false;
-            rota8Numeric.Visible = false;
-
-            rota9Label.Visible = false;
-            rota9Text.Visible = false;
-            rota9TL.Visible = false;
-            rota9Numeric.Visible = false;
-
-            rota10Label.Visible = false;
-            rota10Text.Visible = false;
-            rota10TL.Visible = false;
-            rota10Numeric.Visible = false;
         }
         private int rotaSayaci = 0;
 
         private void rotaEklebtn_Click(object sender, EventArgs e)
         {
-            // Sayaç kontrolü yaparak hangi alanlarý açacaðýmýzý belirliyoruz
-            rotaSayaci++;
-
-            switch (rotaSayaci)
             {
-                case 1:
-                    rota1Label.Visible = true;
-                    rota1Text.Visible = true;
-                    rota1TL.Visible = true;
-                    rota1Numeric.Visible = true;
-                    break;
-                case 2:
-                    rota2Label.Visible = true;
-                    rota2Text.Visible = true;
-                    rota2TL.Visible = true;
-                    rota2Numeric.Visible = true;
-                    break;
-                case 3:
-                    rota3Label.Visible = true;
-                    rota3Text.Visible = true;
-                    rota3TL.Visible = true;
-                    rota3Numeric.Visible = true;
-                    break;
-                case 4:
-                    rota4Label.Visible = true;
-                    rota4Text.Visible = true;
-                    rota4TL.Visible = true;
-                    rota4Numeric.Visible = true;
-                    break;
-                case 5:
-                    rota5Label.Visible = true;
-                    rota5Text.Visible = true;
-                    rota5TL.Visible = true;
-                    rota5Numeric.Visible = true;
-                    break;
-                case 6:
-                    rota6Label.Visible = true;
-                    rota6Text.Visible = true;
-                    rota6TL.Visible = true;
-                    rota6Numeric.Visible = true;
-                    break;
-                case 7:
-                    rota7Label.Visible = true;
-                    rota7Text.Visible = true;
-                    rota7TL.Visible = true;
-                    rota7Numeric.Visible = true;
-                    break;
-                case 8:
-                    rota8Label.Visible = true;
-                    rota8Text.Visible = true;
-                    rota8TL.Visible = true;
-                    rota8Numeric.Visible = true;
-                    break;
-                case 9:
-                    rota9Label.Visible = true;
-                    rota9Text.Visible = true;
-                    rota9TL.Visible = true;
-                    rota9Numeric.Visible = true;
-                    break;
-                case 10:
-                    rota10Label.Visible = true;
-                    rota10Text.Visible = true;
-                    rota10TL.Visible = true;
-                    rota10Numeric.Visible = true;
-                    break;
-                default:
-                    MessageBox.Show("Tüm rotalar zaten aktif!");
-                    break;
             }
         }
 
@@ -344,11 +249,13 @@ namespace OrderTracking
             FillSahipComboBox();
             FillUrunAdiComboBox();
             FillUrunCinsiComboBox();
+            FillRotaComboBox();
         }
+        
 
         private void FillSahipComboBox()
         {
-            string connectionString = "Data Source=TETrA\\SQLEXPRESS;Initial Catalog=orderTracking;Integrated Security=True;Encrypt=False";
+            string connectionString = ConfigurationManager.ConnectionStrings["OrderTrackingDB"].ConnectionString;
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -374,7 +281,7 @@ namespace OrderTracking
 
         private void FillUrunAdiComboBox()
         {
-            string connectionString = "Data Source=TETrA\\SQLEXPRESS;Initial Catalog=orderTracking;Integrated Security=True;Encrypt=False";
+            string connectionString = ConfigurationManager.ConnectionStrings["OrderTrackingDB"].ConnectionString;
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -400,7 +307,7 @@ namespace OrderTracking
 
         private void FillUrunCinsiComboBox()
         {
-            string connectionString = "Data Source=TETrA\\SQLEXPRESS;Initial Catalog=orderTracking;Integrated Security=True;Encrypt=False";
+            string connectionString = ConfigurationManager.ConnectionStrings["OrderTrackingDB"].ConnectionString;
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -435,5 +342,104 @@ namespace OrderTracking
             // Eðer açýlan formun önceki form ile baðýmsýz olmasýný istiyorsan, aþaðýdaki kodu ekleyebilirsin
             // rotaForm.Show(this);  // Bu, yeni formu önceki formun sahibi yapar.
         }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FillRotaComboBox()
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["OrderTrackingDB"].ConnectionString;
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                // Kayýtlý rotalarýn baþlýklarýný getiren sorgu
+                string query = "SELECT DISTINCT k_rota_baslik FROM kayitliRotalar";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        // ComboBox'a baþlýklarý ekle
+                        rotaCombo.Items.Add(reader["k_rota_baslik"].ToString());
+                    }
+                }
+            }
+        }
+
+        private void rotaCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedRota = rotaCombo.SelectedItem.ToString();
+            string connectionString = ConfigurationManager.ConnectionStrings["OrderTrackingDB"].ConnectionString;
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                // Seçilen rota baþlýðýna göre rota adlarýný getiren sorgu
+                string query = "SELECT k_rota_adi FROM kayitliRotalar WHERE k_rota_baslik = @baslik";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@baslik", selectedRota);
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        // Panel içeriðini temizle
+                        panel1.Controls.Clear();
+
+                        int i = 0; // Kontrol setleri için sayaç
+                        while (reader.Read())
+                        {
+                            // Yeni label oluþtur
+                            Label rotaLabel = new Label();
+                            rotaLabel.Text = reader["k_rota_adi"].ToString();
+                            rotaLabel.Location = new Point(20, 50 + (i * 30));
+                            panel1.Controls.Add(rotaLabel); // panel1 içine ekle
+
+                            // Yeni TextBox oluþtur (rota açýklamasý için)
+                            TextBox rotaTextBox = new TextBox();
+                            rotaTextBox.Name = $"rota{i}Text"; // Unutmayýn ki burasý 0'dan baþlayacak
+                            rotaTextBox.Location = new Point(150, 50 + (i * 30));
+                            panel1.Controls.Add(rotaTextBox); // panel1 içine ekle
+
+                            // Yeni NumericUpDown oluþtur (rota ücreti için)
+                            NumericUpDown rotaNumeric = new NumericUpDown();
+                            rotaNumeric.Name = $"rota{i}Numeric"; // Unutmayýn ki burasý 0'dan baþlayacak
+                            rotaNumeric.Location = new Point(300, 50 + (i * 30));
+
+                            // NumericUpDown ayarlarý
+                            rotaNumeric.Minimum = 0; // Minimum deðer
+                            rotaNumeric.Maximum = decimal.MaxValue; // Sýnýrsýz girdi için maximum deðeri en yüksek yap
+                            rotaNumeric.DecimalPlaces = 2; // Ondalýk basamak sayýsý
+                            rotaNumeric.Increment = 1M; // Artýþ miktarý
+
+                            panel1.Controls.Add(rotaNumeric); // panel1 içine ekle
+
+                            i++; // Sayaç artýr
+                        }
+
+                        // Eðer hiçbir kayýt yoksa, isteðe baðlý olarak kullanýcýya bir mesaj gösterebilirsiniz
+                        if (i == 0)
+                        {
+                            Label noResultsLabel = new Label();
+                            noResultsLabel.Text = "Hiçbir rota bulunamadý.";
+                            noResultsLabel.Location = new Point(20, 50);
+                            panel1.Controls.Add(noResultsLabel);
+                        }
+                    }
+                }
+            }
+        }
+
+
+
+
+
+
+
     }
 }
