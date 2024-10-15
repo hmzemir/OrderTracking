@@ -46,7 +46,6 @@
             panel1 = new Panel();
             label1 = new Label();
             yeniRotabtn = new Button();
-            rotaEklebtn = new Button();
             label21 = new Label();
             karNumeric = new NumericUpDown();
             groupBox3 = new GroupBox();
@@ -228,7 +227,6 @@
             groupBox2.Controls.Add(panel1);
             groupBox2.Controls.Add(label1);
             groupBox2.Controls.Add(yeniRotabtn);
-            groupBox2.Controls.Add(rotaEklebtn);
             groupBox2.Controls.Add(label21);
             groupBox2.Controls.Add(karNumeric);
             groupBox2.Font = new Font("Impact", 18F, FontStyle.Regular, GraphicsUnit.Point, 162);
@@ -271,24 +269,13 @@
             // yeniRotabtn
             // 
             yeniRotabtn.Font = new Font("Eras Medium ITC", 14.25F);
-            yeniRotabtn.Location = new Point(256, 596);
+            yeniRotabtn.Location = new Point(382, 601);
             yeniRotabtn.Name = "yeniRotabtn";
             yeniRotabtn.Size = new Size(123, 38);
             yeniRotabtn.TabIndex = 47;
             yeniRotabtn.Text = "Rota Kaydet";
             yeniRotabtn.UseVisualStyleBackColor = true;
             yeniRotabtn.Click += yeniRotabtn_Click;
-            // 
-            // rotaEklebtn
-            // 
-            rotaEklebtn.Font = new Font("Eras Medium ITC", 14.25F);
-            rotaEklebtn.Location = new Point(397, 596);
-            rotaEklebtn.Name = "rotaEklebtn";
-            rotaEklebtn.Size = new Size(123, 38);
-            rotaEklebtn.TabIndex = 46;
-            rotaEklebtn.Text = "Rota Ekle";
-            rotaEklebtn.UseVisualStyleBackColor = true;
-            rotaEklebtn.Click += rotaEklebtn_Click;
             // 
             // label21
             // 
@@ -645,7 +632,6 @@
         private ComboBox urun_cinsiCombo;
         private ToolStripMenuItem yetkiVerToolStripMenuItem;
         private ToolStripMenuItem çıkışToolStripMenuItem;
-        private Button rotaEklebtn;
         private Button yeniRotabtn;
         private Label label1;
         private ComboBox rotaCombo;

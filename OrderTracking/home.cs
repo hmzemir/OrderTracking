@@ -238,11 +238,7 @@ namespace OrderTracking
         }
         private int rotaSayaci = 0;
 
-        private void rotaEklebtn_Click(object sender, EventArgs e)
-        {
-            {
-            }
-        }
+        
 
         private void home_Load(object sender, EventArgs e)
         {
