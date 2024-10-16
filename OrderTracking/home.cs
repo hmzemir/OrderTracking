@@ -91,18 +91,21 @@ namespace OrderTracking
                         // Her bir rota için TextBox ve NumericUpDown deðerlerini al
                         string rotaAd = this.Controls.Find($"rota{i}Text", true).FirstOrDefault()?.Text.Trim();
                         NumericUpDown rotaNumeric = this.Controls.Find($"rota{i}Numeric", true).FirstOrDefault() as NumericUpDown;
+                        string rotaAciklama = this.Controls.Find($"rota{i}AciklamaText", true).FirstOrDefault()?.Text.Trim(); // Açýklama TextBox'ý için
+
                         decimal? ucret = rotaNumeric?.Value;
 
                         // Eðer rota adý boþ deðilse ve ücret varsa rotayý kaydet
                         if (!string.IsNullOrEmpty(rotaAd) && ucret.HasValue)
                         {
-                            string insertRotaQuery = "INSERT INTO rotalar (siparis_id, rota_adi, ucret) VALUES (@siparis_id, @rota_adi, @ucret)";
+                            string insertRotaQuery = "INSERT INTO Rotalar (siparis_id, rota_adi, ucret, rota_aciklama) VALUES (@siparis_id, @rota_adi, @ucret, @rota_aciklama)";
 
                             using (SqlCommand rotaCommand = new SqlCommand(insertRotaQuery, connection))
                             {
                                 rotaCommand.Parameters.AddWithValue("@siparis_id", siparisId);
                                 rotaCommand.Parameters.AddWithValue("@rota_adi", rotaAd);
                                 rotaCommand.Parameters.AddWithValue("@ucret", ucret.Value);
+                                rotaCommand.Parameters.AddWithValue("@rota_aciklama", string.IsNullOrEmpty(rotaAciklama) ? "" : rotaAciklama); // Rota açýklamasý boþ olabilir
                                 rotaCommand.ExecuteNonQuery();
                             }
                         }
@@ -114,6 +117,8 @@ namespace OrderTracking
                 MessageBox.Show("Kayýt baþarýyla tamamlandý.");
             }
         }
+
+
 
 
 
@@ -180,6 +185,7 @@ namespace OrderTracking
         private void kayit_Click(object sender, EventArgs e)
         {
             SaveDataToDatabase();
+            
         }
 
         private void hesaplabtn_Click(object sender, EventArgs e)
@@ -392,6 +398,7 @@ namespace OrderTracking
                         {
                             // Yeni label oluþtur
                             Label rotaLabel = new Label();
+                            rotaLabel.Name = $"rotaLabel{i}"; // Eklenen Kýsým
                             rotaLabel.Text = reader["k_rota_adi"].ToString();
                             rotaLabel.Location = new Point(20, 50 + (i * 30));
                             panel1.Controls.Add(rotaLabel); // panel1 içine ekle
@@ -418,6 +425,7 @@ namespace OrderTracking
                             i++; // Sayaç artýr
                         }
 
+
                         // Eðer hiçbir kayýt yoksa, isteðe baðlý olarak kullanýcýya bir mesaj gösterebilirsiniz
                         if (i == 0)
                         {
@@ -430,6 +438,8 @@ namespace OrderTracking
                 }
             }
         }
+
+       
 
 
 
