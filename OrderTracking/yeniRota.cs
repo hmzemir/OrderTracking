@@ -53,19 +53,20 @@ namespace OrderTracking
         // "Kaydet" butonuna basıldığında çağrılan metot
         private void btnKaydet_Click(object sender, EventArgs e)
         {
-            string rotaBaslik = txtRotaBaslik.Text; // Rota başlığını al
+            // rotalarCombo nesnesini güncelle (doğru ComboBox'u ilet)
+            RotaComboYenile(rotalarCombo);  // rotalarCombo yerine sizin formdaki ilgili ComboBox ismi
+
+            string rotaBaslik = txtRotaBaslik.Text;
             List<string> rotaAdlari = new List<string>();
 
-            // FlowLayoutPanel'deki tüm TextBox'ları dolaşarak rota adlarını al
             foreach (Control control in flowLayoutPanelAltRotalar.Controls)
             {
                 if (control is TextBox textBox && !string.IsNullOrWhiteSpace(textBox.Text))
                 {
-                    rotaAdlari.Add(textBox.Text.Trim()); // Boşlukları temizle ve ekle
+                    rotaAdlari.Add(textBox.Text.Trim());
                 }
             }
 
-            // Rota adlarını kaydet
             if (rotaAdlari.Count > 0)
             {
                 KaydetVeritabanina(rotaBaslik, rotaAdlari);
@@ -75,6 +76,8 @@ namespace OrderTracking
                 MessageBox.Show("Lütfen en az bir alt rota adı giriniz.");
             }
         }
+
+
 
 
         private void KaydetVeritabanina(string rotaBaslik, List<string> rotaAdlari)
@@ -124,6 +127,8 @@ namespace OrderTracking
                 }
             }
         }
+
+
 
 
 
@@ -228,6 +233,30 @@ namespace OrderTracking
                 }
             }
         }
+
+        private void RotaComboYenile(ComboBox comboBox)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["OrderTrackingDB"].ConnectionString;
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string query = "SELECT DISTINCT k_rota_baslik FROM kayitliRotalar"; // Rota başlıklarını getirir
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        comboBox.Items.Clear(); // Mevcut itemleri temizle
+                        while (reader.Read())
+                        {
+                            comboBox.Items.Add(reader["k_rota_baslik"].ToString()); // Yeni itemleri ekle
+                        }
+                    }
+                }
+            }
+        }
+
 
     }
 }

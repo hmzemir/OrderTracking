@@ -343,8 +343,12 @@ namespace OrderTracking
             // yeniRota formunu göster
             rotaForm.Show();
 
-            // Eðer açýlan formun önceki form ile baðýmsýz olmasýný istiyorsan, aþaðýdaki kodu ekleyebilirsin
-            // rotaForm.Show(this);  // Bu, yeni formu önceki formun sahibi yapar.
+            // Form kapandýktan sonra comboBox yenilemek için formun kapanma olayýný dinle
+            rotaForm.FormClosed += (s, args) =>
+            {
+                // Form kapandýðýnda rotaCombo'yu yenile
+                RotaComboYenile();
+            };
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)
@@ -434,6 +438,28 @@ namespace OrderTracking
                             noResultsLabel.Text = "Hiçbir rota bulunamadý.";
                             noResultsLabel.Location = new Point(20, 50);
                             panel1.Controls.Add(noResultsLabel);
+                        }
+                    }
+                }
+            }
+        }
+        private void RotaComboYenile()
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["OrderTrackingDB"].ConnectionString;
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string query = "SELECT DISTINCT k_rota_baslik FROM kayitliRotalar"; // Rota baþlýklarýný getirir
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        rotaCombo.Items.Clear(); // Mevcut itemleri temizle
+                        while (reader.Read())
+                        {
+                            rotaCombo.Items.Add(reader["k_rota_baslik"].ToString()); // Yeni itemleri ekle
                         }
                     }
                 }

@@ -62,7 +62,7 @@
             // btnYeniRotaEkle
             // 
             btnYeniRotaEkle.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            btnYeniRotaEkle.Location = new Point(12, 369);
+            btnYeniRotaEkle.Location = new Point(12, 528);
             btnYeniRotaEkle.Name = "btnYeniRotaEkle";
             btnYeniRotaEkle.Size = new Size(119, 51);
             btnYeniRotaEkle.TabIndex = 58;
@@ -74,13 +74,13 @@
             // 
             flowLayoutPanelAltRotalar.Location = new Point(24, 108);
             flowLayoutPanelAltRotalar.Name = "flowLayoutPanelAltRotalar";
-            flowLayoutPanelAltRotalar.Size = new Size(200, 191);
+            flowLayoutPanelAltRotalar.Size = new Size(232, 357);
             flowLayoutPanelAltRotalar.TabIndex = 59;
             // 
             // btnKaydet
             // 
             btnKaydet.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            btnKaydet.Location = new Point(150, 312);
+            btnKaydet.Location = new Point(137, 471);
             btnKaydet.Name = "btnKaydet";
             btnKaydet.Size = new Size(119, 51);
             btnKaydet.TabIndex = 60;
@@ -91,7 +91,7 @@
             // btnTemizle
             // 
             btnTemizle.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            btnTemizle.Location = new Point(150, 369);
+            btnTemizle.Location = new Point(137, 528);
             btnTemizle.Name = "btnTemizle";
             btnTemizle.Size = new Size(119, 51);
             btnTemizle.TabIndex = 61;
@@ -131,7 +131,7 @@
             // btnSil
             // 
             btnSil.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            btnSil.Location = new Point(387, 312);
+            btnSil.Location = new Point(387, 528);
             btnSil.Name = "btnSil";
             btnSil.Size = new Size(119, 51);
             btnSil.TabIndex = 65;
@@ -143,7 +143,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(518, 440);
+            ClientSize = new Size(518, 591);
             Controls.Add(btnSil);
             Controls.Add(rotaAdlariLabel);
             Controls.Add(label2);
