@@ -215,7 +215,7 @@ namespace OrderTracking
                 }
 
                 // Rotaları almak için sorgu
-                string query = "SELECT rota_adi, ucret FROM Rotalar WHERE siparis_id = @siparisId";
+                string query = "SELECT rota_adi, rota_aciklama, ucret FROM Rotalar WHERE siparis_id = @siparisId";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@siparisId", siparisId);
@@ -223,17 +223,18 @@ namespace OrderTracking
 
                     decimal toplamUcret = 0; // Ücretleri toplamak için
                     richTextBox1.Clear(); // Önceki bilgileri temizle
-                    int rotaIndex = 1; // Rota numaralandırması
 
                     while (reader.Read())
                     {
                         string rotaAdi = reader["rota_adi"].ToString();
+                        string rotaAciklama = reader["rota_aciklama"].ToString();
                         decimal ucret = Convert.ToDecimal(reader["ucret"]);
                         toplamUcret += ucret;
 
                         // Rota bilgilerini yazdır
-                        richTextBox1.AppendText($"Rota {rotaIndex}: {rotaAdi} ({ucret} TL)\n");
-                        rotaIndex++; // Rota numarasını artır
+                        richTextBox1.AppendText($"Rota Adı: {rotaAdi}\n");
+                        richTextBox1.AppendText($"Açıklama: {rotaAciklama}\n");
+                        richTextBox1.AppendText($"Ücret: {ucret} TL\n\n");
                     }
 
                     // Toplam ücreti hesapla ve rotaToplamLabel'a yazdır
@@ -258,6 +259,7 @@ namespace OrderTracking
                 }
             }
         }
+
 
 
 

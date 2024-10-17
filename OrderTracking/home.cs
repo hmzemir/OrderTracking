@@ -395,7 +395,7 @@ namespace OrderTracking
                         // Panel içeriðini temizle
                         panel1.Controls.Clear();
 
-                        int i = 0; // Kontrol setleri için sayaç
+                        int i = 1; // Kontrol setleri için sayaç (1'den baþlatýyoruz)
                         while (reader.Read())
                         {
                             // Yeni label oluþtur
@@ -407,20 +407,20 @@ namespace OrderTracking
 
                             // Yeni TextBox oluþtur (rota açýklamasý için)
                             TextBox rotaTextBox = new TextBox();
-                            rotaTextBox.Name = $"rota{i}Text"; // Unutmayýn ki burasý 0'dan baþlayacak
+                            rotaTextBox.Name = $"rota{i}Text";
                             rotaTextBox.Location = new Point(150, 50 + (i * 30));
                             panel1.Controls.Add(rotaTextBox); // panel1 içine ekle
 
                             // Yeni NumericUpDown oluþtur (rota ücreti için)
                             NumericUpDown rotaNumeric = new NumericUpDown();
-                            rotaNumeric.Name = $"rota{i}Numeric"; // Unutmayýn ki burasý 0'dan baþlayacak
+                            rotaNumeric.Name = $"rota{i}Numeric";
                             rotaNumeric.Location = new Point(300, 50 + (i * 30));
 
                             // NumericUpDown ayarlarý
-                            rotaNumeric.Minimum = 0; // Minimum deðer
-                            rotaNumeric.Maximum = decimal.MaxValue; // Sýnýrsýz girdi için maximum deðeri en yüksek yap
-                            rotaNumeric.DecimalPlaces = 2; // Ondalýk basamak sayýsý
-                            rotaNumeric.Increment = 1M; // Artýþ miktarý
+                            rotaNumeric.Minimum = 0;
+                            rotaNumeric.Maximum = decimal.MaxValue;
+                            rotaNumeric.DecimalPlaces = 2;
+                            rotaNumeric.Increment = 1M;
 
                             panel1.Controls.Add(rotaNumeric); // panel1 içine ekle
 
@@ -428,7 +428,7 @@ namespace OrderTracking
                         }
 
                         // Eðer hiçbir kayýt yoksa, isteðe baðlý olarak kullanýcýya bir mesaj gösterebilirsiniz
-                        if (i == 0)
+                        if (i == 1) // Dizin 1'den baþlýyorsa, i hala 1 ise hiçbir rota eklenmemiþtir
                         {
                             Label noResultsLabel = new Label();
                             noResultsLabel.Text = "Hiçbir rota bulunamadý.";
@@ -439,6 +439,7 @@ namespace OrderTracking
                 }
             }
         }
+
 
 
 
