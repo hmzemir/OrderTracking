@@ -140,7 +140,7 @@
             // 
             label34.AutoSize = true;
             label34.Font = new Font("Eras Demi ITC", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label34.Location = new Point(43, 54);
+            label34.Location = new Point(30, 56);
             label34.Name = "label34";
             label34.Size = new Size(256, 24);
             label34.TabIndex = 52;
