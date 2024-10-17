@@ -86,14 +86,15 @@ namespace OrderTracking
                     Console.WriteLine($"Kaydedilen Sipariþ ID: {siparisId}");
 
                     // Rota alanlarýný kaydet
-                    for (int i = 1; i <= 10; i++)
+                    for (int i = 0; i <= 10; i++) // i'yi 0'dan baþlattým çünkü panelde 0'dan baþlýyordu.
                     {
                         // Her bir rota için TextBox ve NumericUpDown deðerlerini al
-                        string rotaAd = this.Controls.Find($"rota{i}Text", true).FirstOrDefault()?.Text.Trim();
+                        string rotaAd = this.Controls.Find($"rotaLabel{i}", true).FirstOrDefault()?.Text.Trim();  // Label'dan rota adýný al
+                        TextBox rotaTextBox = this.Controls.Find($"rota{i}Text", true).FirstOrDefault() as TextBox;
                         NumericUpDown rotaNumeric = this.Controls.Find($"rota{i}Numeric", true).FirstOrDefault() as NumericUpDown;
-                        string rotaAciklama = this.Controls.Find($"rota{i}AciklamaText", true).FirstOrDefault()?.Text.Trim(); // Açýklama TextBox'ý için
 
                         decimal? ucret = rotaNumeric?.Value;
+                        string rotaAciklama = rotaTextBox?.Text.Trim(); // TextBox'tan açýklamayý al
 
                         // Eðer rota adý boþ deðilse ve ücret varsa rotayý kaydet
                         if (!string.IsNullOrEmpty(rotaAd) && ucret.HasValue)
@@ -117,6 +118,7 @@ namespace OrderTracking
                 MessageBox.Show("Kayýt baþarýyla tamamlandý.");
             }
         }
+
 
 
 
@@ -398,7 +400,7 @@ namespace OrderTracking
                         {
                             // Yeni label oluþtur
                             Label rotaLabel = new Label();
-                            rotaLabel.Name = $"rotaLabel{i}"; // Eklenen Kýsým
+                            rotaLabel.Name = $"rotaLabel{i}";
                             rotaLabel.Text = reader["k_rota_adi"].ToString();
                             rotaLabel.Location = new Point(20, 50 + (i * 30));
                             panel1.Controls.Add(rotaLabel); // panel1 içine ekle
@@ -425,7 +427,6 @@ namespace OrderTracking
                             i++; // Sayaç artýr
                         }
 
-
                         // Eðer hiçbir kayýt yoksa, isteðe baðlý olarak kullanýcýya bir mesaj gösterebilirsiniz
                         if (i == 0)
                         {
@@ -439,7 +440,8 @@ namespace OrderTracking
             }
         }
 
-       
+
+
 
 
 
