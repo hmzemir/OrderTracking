@@ -405,7 +405,7 @@
             // 
             onaylabtn.BackColor = Color.DarkSeaGreen;
             onaylabtn.Cursor = Cursors.Hand;
-            onaylabtn.Location = new Point(349, 555);
+            onaylabtn.Location = new Point(503, 555);
             onaylabtn.Name = "onaylabtn";
             onaylabtn.Size = new Size(194, 53);
             onaylabtn.TabIndex = 59;
