@@ -39,6 +39,7 @@
             yedeklemeToolStripMenuItem = new ToolStripMenuItem();
             label34 = new Label();
             groupBox3 = new GroupBox();
+            rotaPanel = new Panel();
             karlıToplamLabel = new Label();
             label10 = new Label();
             kdvliAdetLabel = new Label();
@@ -47,7 +48,6 @@
             kdvli = new Label();
             rotaToplamLabel = new Label();
             label28 = new Label();
-            richTextBox1 = new RichTextBox();
             label6 = new Label();
             aciklamaTextBox = new RichTextBox();
             label7 = new Label();
@@ -62,6 +62,7 @@
             label3 = new Label();
             label2 = new Label();
             onaylabtn = new Button();
+            richTextBox1 = new RichTextBox();
             arabtn = new Button();
             sahiparamaText = new TextBox();
             label8 = new Label();
@@ -75,7 +76,7 @@
             onayBekleyenlerDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             onayBekleyenlerDGV.Location = new Point(30, 102);
             onayBekleyenlerDGV.Name = "onayBekleyenlerDGV";
-            onayBekleyenlerDGV.Size = new Size(600, 614);
+            onayBekleyenlerDGV.Size = new Size(493, 614);
             onayBekleyenlerDGV.TabIndex = 3;
             onayBekleyenlerDGV.CellClick += onayBekleyenlerDGV_CellClick;
             // 
@@ -149,6 +150,7 @@
             // 
             // groupBox3
             // 
+            groupBox3.Controls.Add(rotaPanel);
             groupBox3.Controls.Add(karlıToplamLabel);
             groupBox3.Controls.Add(label10);
             groupBox3.Controls.Add(kdvliAdetLabel);
@@ -157,7 +159,6 @@
             groupBox3.Controls.Add(kdvli);
             groupBox3.Controls.Add(rotaToplamLabel);
             groupBox3.Controls.Add(label28);
-            groupBox3.Controls.Add(richTextBox1);
             groupBox3.Controls.Add(label6);
             groupBox3.Controls.Add(aciklamaTextBox);
             groupBox3.Controls.Add(label7);
@@ -173,18 +174,26 @@
             groupBox3.Controls.Add(label2);
             groupBox3.Controls.Add(onaylabtn);
             groupBox3.Font = new Font("Impact", 18F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            groupBox3.Location = new Point(704, 102);
+            groupBox3.Location = new Point(540, 102);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(550, 614);
+            groupBox3.Size = new Size(703, 614);
             groupBox3.TabIndex = 53;
             groupBox3.TabStop = false;
             groupBox3.Text = "Ürün Bilgileri";
+            // 
+            // rotaPanel
+            // 
+            rotaPanel.Font = new Font("Segoe UI", 11.25F);
+            rotaPanel.Location = new Point(278, 50);
+            rotaPanel.Name = "rotaPanel";
+            rotaPanel.Size = new Size(407, 357);
+            rotaPanel.TabIndex = 79;
             // 
             // karlıToplamLabel
             // 
             karlıToplamLabel.AutoSize = true;
             karlıToplamLabel.Font = new Font("Eras Medium ITC", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            karlıToplamLabel.Location = new Point(416, 342);
+            karlıToplamLabel.Location = new Point(416, 455);
             karlıToplamLabel.Name = "karlıToplamLabel";
             karlıToplamLabel.Size = new Size(49, 19);
             karlıToplamLabel.TabIndex = 77;
@@ -194,7 +203,7 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Eras Medium ITC", 14.25F);
-            label10.Location = new Point(278, 340);
+            label10.Location = new Point(278, 453);
             label10.Name = "label10";
             label10.Size = new Size(117, 22);
             label10.TabIndex = 78;
@@ -204,7 +213,7 @@
             // 
             kdvliAdetLabel.AutoSize = true;
             kdvliAdetLabel.Font = new Font("Eras Medium ITC", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            kdvliAdetLabel.Location = new Point(440, 415);
+            kdvliAdetLabel.Location = new Point(440, 528);
             kdvliAdetLabel.Name = "kdvliAdetLabel";
             kdvliAdetLabel.Size = new Size(49, 19);
             kdvliAdetLabel.TabIndex = 76;
@@ -214,7 +223,7 @@
             // 
             kdvadet.AutoSize = true;
             kdvadet.Font = new Font("Eras Medium ITC", 14.25F);
-            kdvadet.Location = new Point(278, 412);
+            kdvadet.Location = new Point(278, 525);
             kdvadet.Name = "kdvadet";
             kdvadet.Size = new Size(156, 22);
             kdvadet.TabIndex = 75;
@@ -224,7 +233,7 @@
             // 
             kdvliToplamLabel.AutoSize = true;
             kdvliToplamLabel.Font = new Font("Eras Medium ITC", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            kdvliToplamLabel.Location = new Point(416, 379);
+            kdvliToplamLabel.Location = new Point(416, 492);
             kdvliToplamLabel.Name = "kdvliToplamLabel";
             kdvliToplamLabel.Size = new Size(49, 19);
             kdvliToplamLabel.TabIndex = 74;
@@ -234,7 +243,7 @@
             // 
             kdvli.AutoSize = true;
             kdvli.Font = new Font("Eras Medium ITC", 14.25F);
-            kdvli.Location = new Point(278, 377);
+            kdvli.Location = new Point(278, 490);
             kdvli.Name = "kdvli";
             kdvli.Size = new Size(132, 22);
             kdvli.TabIndex = 73;
@@ -244,7 +253,7 @@
             // 
             rotaToplamLabel.AutoSize = true;
             rotaToplamLabel.Font = new Font("Eras Medium ITC", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            rotaToplamLabel.Location = new Point(447, 308);
+            rotaToplamLabel.Location = new Point(447, 421);
             rotaToplamLabel.Name = "rotaToplamLabel";
             rotaToplamLabel.Size = new Size(49, 19);
             rotaToplamLabel.TabIndex = 71;
@@ -254,23 +263,11 @@
             // 
             label28.AutoSize = true;
             label28.Font = new Font("Eras Medium ITC", 14.25F);
-            label28.Location = new Point(278, 306);
+            label28.Location = new Point(278, 419);
             label28.Name = "label28";
             label28.Size = new Size(163, 22);
             label28.TabIndex = 72;
             label28.Text = "Rota Toplam Fiyat:";
-            // 
-            // richTextBox1
-            // 
-            richTextBox1.BorderStyle = BorderStyle.FixedSingle;
-            richTextBox1.Font = new Font("Century Gothic", 12F);
-            richTextBox1.Location = new Point(278, 50);
-            richTextBox1.Margin = new Padding(5);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.ReadOnly = true;
-            richTextBox1.Size = new Size(234, 159);
-            richTextBox1.TabIndex = 70;
-            richTextBox1.Text = "";
             // 
             // label6
             // 
@@ -416,6 +413,18 @@
             onaylabtn.UseVisualStyleBackColor = false;
             onaylabtn.Click += onaylabtn_Click;
             // 
+            // richTextBox1
+            // 
+            richTextBox1.BorderStyle = BorderStyle.FixedSingle;
+            richTextBox1.Font = new Font("Century Gothic", 12F);
+            richTextBox1.Location = new Point(1292, 242);
+            richTextBox1.Margin = new Padding(5);
+            richTextBox1.Name = "richTextBox1";
+            richTextBox1.ReadOnly = true;
+            richTextBox1.Size = new Size(234, 159);
+            richTextBox1.TabIndex = 70;
+            richTextBox1.Text = "";
+            // 
             // arabtn
             // 
             arabtn.Font = new Font("Eras Demi ITC", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -457,6 +466,7 @@
             Controls.Add(label34);
             Controls.Add(menuStrip1);
             Controls.Add(onayBekleyenlerDGV);
+            Controls.Add(richTextBox1);
             Name = "tickets";
             Text = "tickets";
             Load += tickets_Load;
@@ -507,5 +517,6 @@
         private Label kdvadet;
         private Label karlıToplamLabel;
         private Label label10;
+        private Panel rotaPanel;
     }
 }
