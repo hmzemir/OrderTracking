@@ -62,10 +62,10 @@
             label3 = new Label();
             label2 = new Label();
             onaylabtn = new Button();
-            richTextBox1 = new RichTextBox();
             arabtn = new Button();
             sahiparamaText = new TextBox();
             label8 = new Label();
+            richTextBox1 = new RichTextBox();
             ((System.ComponentModel.ISupportInitialize)onayBekleyenlerDGV).BeginInit();
             menuStrip1.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -413,18 +413,6 @@
             onaylabtn.UseVisualStyleBackColor = false;
             onaylabtn.Click += onaylabtn_Click;
             // 
-            // richTextBox1
-            // 
-            richTextBox1.BorderStyle = BorderStyle.FixedSingle;
-            richTextBox1.Font = new Font("Century Gothic", 12F);
-            richTextBox1.Location = new Point(1292, 242);
-            richTextBox1.Margin = new Padding(5);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.ReadOnly = true;
-            richTextBox1.Size = new Size(234, 159);
-            richTextBox1.TabIndex = 70;
-            richTextBox1.Text = "";
-            // 
             // arabtn
             // 
             arabtn.Font = new Font("Eras Demi ITC", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -453,6 +441,18 @@
             label8.Size = new Size(162, 24);
             label8.TabIndex = 57;
             label8.Text = "Firma / Kisi Ara";
+            // 
+            // richTextBox1
+            // 
+            richTextBox1.BorderStyle = BorderStyle.FixedSingle;
+            richTextBox1.Font = new Font("Century Gothic", 12F);
+            richTextBox1.Location = new Point(1277, 289);
+            richTextBox1.Margin = new Padding(5);
+            richTextBox1.Name = "richTextBox1";
+            richTextBox1.ReadOnly = true;
+            richTextBox1.Size = new Size(234, 159);
+            richTextBox1.TabIndex = 70;
+            richTextBox1.Text = "";
             // 
             // tickets
             // 
@@ -504,7 +504,6 @@
         private Label label5;
         private RichTextBox aciklamaTextBox;
         private Label label7;
-        private RichTextBox richTextBox1;
         private Label label6;
         private Button arabtn;
         private TextBox sahiparamaText;
@@ -518,5 +517,6 @@
         private Label karlıToplamLabel;
         private Label label10;
         private Panel rotaPanel;
+        private RichTextBox richTextBox1;
     }
 }
