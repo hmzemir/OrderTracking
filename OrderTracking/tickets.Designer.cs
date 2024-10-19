@@ -446,7 +446,7 @@
             // 
             richTextBox1.BorderStyle = BorderStyle.FixedSingle;
             richTextBox1.Font = new Font("Century Gothic", 12F);
-            richTextBox1.Location = new Point(1277, 289);
+            richTextBox1.Location = new Point(1272, 323);
             richTextBox1.Margin = new Padding(5);
             richTextBox1.Name = "richTextBox1";
             richTextBox1.ReadOnly = true;
