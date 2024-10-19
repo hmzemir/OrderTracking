@@ -79,13 +79,14 @@
             // 
             // btnKaydet
             // 
+            btnKaydet.BackColor = Color.ForestGreen;
             btnKaydet.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 162);
             btnKaydet.Location = new Point(137, 471);
             btnKaydet.Name = "btnKaydet";
             btnKaydet.Size = new Size(119, 51);
             btnKaydet.TabIndex = 60;
             btnKaydet.Text = "Kaydet";
-            btnKaydet.UseVisualStyleBackColor = true;
+            btnKaydet.UseVisualStyleBackColor = false;
             btnKaydet.Click += btnKaydet_Click;
             // 
             // btnTemizle
@@ -130,13 +131,14 @@
             // 
             // btnSil
             // 
+            btnSil.BackColor = Color.Maroon;
             btnSil.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 162);
             btnSil.Location = new Point(387, 528);
             btnSil.Name = "btnSil";
             btnSil.Size = new Size(119, 51);
             btnSil.TabIndex = 65;
             btnSil.Text = "Sil";
-            btnSil.UseVisualStyleBackColor = true;
+            btnSil.UseVisualStyleBackColor = false;
             btnSil.Click += btnSil_Click;
             // 
             // yeniRota
