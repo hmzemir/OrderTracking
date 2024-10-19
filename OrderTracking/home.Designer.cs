@@ -328,7 +328,7 @@
             // 
             kayit.BackColor = Color.LightSteelBlue;
             kayit.Cursor = Cursors.Hand;
-            kayit.Location = new Point(284, 554);
+            kayit.Location = new Point(206, 554);
             kayit.Name = "kayit";
             kayit.Size = new Size(157, 53);
             kayit.TabIndex = 59;
@@ -340,7 +340,7 @@
             // 
             hesaplabtn.BackColor = SystemColors.Highlight;
             hesaplabtn.Cursor = Cursors.Hand;
-            hesaplabtn.Location = new Point(28, 554);
+            hesaplabtn.Location = new Point(27, 554);
             hesaplabtn.Name = "hesaplabtn";
             hesaplabtn.Size = new Size(157, 53);
             hesaplabtn.TabIndex = 58;
