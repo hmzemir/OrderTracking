@@ -195,6 +195,17 @@ namespace OrderTracking
             }
         }
 
+        // Yeni rota sınıfı
+        public class Rota
+        {
+            public string RotaAdi { get; set; }
+            public string RotaAciklama { get; set; }
+            public decimal Ucret { get; set; }
+        }
+
+        // Rotaları saklamak için liste
+        private List<Rota> rotalarListesi = new List<Rota>();
+
         private void LoadRouteInfo(int siparisId)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -221,6 +232,7 @@ namespace OrderTracking
                     command.Parameters.AddWithValue("@siparisId", siparisId);
                     SqlDataReader reader = command.ExecuteReader();
 
+                    rotalarListesi.Clear(); // Önceki rotaları temizle
                     decimal toplamUcret = 0; // Ücretleri toplamak için
                     rotaPanel.Controls.Clear(); // Mevcut rota kutucuklarını temizle
                     int yOffset = 10; // Yükseklik ayarı için başlangıç
@@ -233,6 +245,9 @@ namespace OrderTracking
                         string rotaAciklama = reader["rota_aciklama"].ToString();
                         decimal ucret = Convert.ToDecimal(reader["ucret"]);
                         toplamUcret += ucret;
+
+                        // Rotaları listeye ekle
+                        rotalarListesi.Add(new Rota { RotaAdi = rotaAdi, RotaAciklama = rotaAciklama, Ucret = ucret });
 
                         // Rota Adı Label
                         Label rotaAdiLabel = new Label
@@ -303,6 +318,7 @@ namespace OrderTracking
 
 
 
+
         private void onaylabtn_Click(object sender, EventArgs e)
         {
             int siparisId = GetSelectedSiparisId(); // Seçilen siparişin ID'sini al
@@ -340,94 +356,159 @@ namespace OrderTracking
 
         private void PrintPage(object sender, PrintPageEventArgs e)
         {
+            // Seçilen satırdan Sipariş ID'sini al
+            int selectedRowIndex = onayBekleyenlerDGV.CurrentCell.RowIndex; // Seçilen satır indeksi
+            string siparisID = onayBekleyenlerDGV.Rows[selectedRowIndex].Cells["ID"].Value.ToString(); // ID kolonundan veri çekme
+
             // Fontlar
             Font headerFont = new Font("Arial", 16, FontStyle.Bold);
+            Font rotaAdiFont = new Font("Arial", 14, FontStyle.Bold); // Rota adı için kalın ve biraz büyük font
             Font regularFont = new Font("Arial", 12);
-            Font boldFont = new Font("Arial", 12, FontStyle.Bold);
+            Font boldFont = new Font("Arial", 20, FontStyle.Bold); // Sipariş ID'si için büyük ve kalın font
 
             // Sayfa boyutları
             float pageWidth = e.PageBounds.Width;
-            float pageHeight = e.PageBounds.Height;
             float boxWidth = 600; // Kutu genişliği
             float xMargin = (pageWidth - boxWidth) / 2; // Ortalamak için kenar boşluğu
             float lineHeight = regularFont.GetHeight(e.Graphics) + 10;
             float yMargin = 50; // Başlangıç yeri
             float padding = 10; // Kutuların iç boşluğu
 
-            // Kişi Bilgileri Kutu
-            e.Graphics.DrawRectangle(Pens.Black, xMargin, yMargin, boxWidth, lineHeight * 6);
-            e.Graphics.DrawString("----- Kişi Bilgileri -----", headerFont, Brushes.Black, xMargin + padding, yMargin);
+            // 1. Sipariş ID'sini çakışmayacak şekilde üstte yazdır
+            string siparisIDYazisi = $"Sipariş ID: {siparisID}";
+            SizeF siparisIDSize = e.Graphics.MeasureString(siparisIDYazisi, boldFont);
+            float siparisIDX = pageWidth - siparisIDSize.Width - 50; // Sağ üst köşeye konumlandırma
+            float siparisIDY = 50; // Yukarıdan biraz boşluk bırak
+            e.Graphics.DrawString(siparisIDYazisi, boldFont, Brushes.Black, siparisIDX, siparisIDY);
 
-            // Sahip ve Tarih kalın
+            // Kutu başlangıç noktalarını ayarla (Sipariş ID ile çakışmayacak şekilde yMargin artırıldı)
+            yMargin += 100; // Sipariş ID'yi çakışmayacak şekilde aşağıya kaydırdık
+
+            // 2. Rota Bilgileri kutusu
+            string rotaBilgileri = "Rota Bilgileri";
+            SizeF rotaBilgileriSize = e.Graphics.MeasureString(rotaBilgileri, headerFont);
+            RectangleF rotaBilgileriBox = new RectangleF(xMargin, yMargin, boxWidth, rotaBilgileriSize.Height + padding * 2);
+            e.Graphics.DrawRectangle(Pens.Black, rotaBilgileriBox.X, rotaBilgileriBox.Y, rotaBilgileriBox.Width, rotaBilgileriBox.Height);
+            e.Graphics.DrawString(rotaBilgileri, headerFont, Brushes.Black, rotaBilgileriBox.X + (rotaBilgileriBox.Width - rotaBilgileriSize.Width) / 2, rotaBilgileriBox.Y + padding);
+
+            // (Rota adlarını ve açıklamalarını burada çiz)
+
+            yMargin += rotaBilgileriBox.Height + 30; // Yükseklik ekleyerek aşağıya kaydır
+
+            // 3. Kişi Bilgileri kutusu
+            string kisiBilgileri = "Kişi Bilgileri";
+            SizeF kisiBilgileriSize = e.Graphics.MeasureString(kisiBilgileri, headerFont);
+            RectangleF kisiBilgileriBox = new RectangleF(xMargin, yMargin, boxWidth, kisiBilgileriSize.Height + padding * 2);
+            e.Graphics.DrawRectangle(Pens.Black, kisiBilgileriBox.X, kisiBilgileriBox.Y, kisiBilgileriBox.Width, kisiBilgileriBox.Height);
+            e.Graphics.DrawString(kisiBilgileri, headerFont, Brushes.Black, kisiBilgileriBox.X + (kisiBilgileriBox.Width - kisiBilgileriSize.Width) / 2, kisiBilgileriBox.Y + padding);
+
+            yMargin += kisiBilgileriBox.Height + 30; // Kişi Bilgileri kutusunun altına boşluk bırak
+
+            // 4. Ürün Bilgileri kutusu
+            string urunBilgileri = "Ürün Bilgileri";
+            SizeF urunBilgileriSize = e.Graphics.MeasureString(urunBilgileri, headerFont);
+            RectangleF urunBilgileriBox = new RectangleF(xMargin, yMargin, boxWidth, urunBilgileriSize.Height + padding * 2);
+            e.Graphics.DrawRectangle(Pens.Black, urunBilgileriBox.X, urunBilgileriBox.Y, urunBilgileriBox.Width, urunBilgileriBox.Height);
+            e.Graphics.DrawString(urunBilgileri, headerFont, Brushes.Black, urunBilgileriBox.X + (urunBilgileriBox.Width - urunBilgileriSize.Width) / 2, urunBilgileriBox.Y + padding);
+
+            // Sağ üst köşeye Sipariş ID'sini ekleyelim
+            string siparisIDYazisi = $"Sipariş ID: {siparisID}";
+            SizeF siparisIDSize = e.Graphics.MeasureString(siparisIDYazisi, boldFont);
+            float siparisIDX = pageWidth - siparisIDSize.Width - 50; // Sağ üst köşeye konumlandırma
+            float siparisIDY = 50;
+            e.Graphics.DrawString(siparisIDYazisi, boldFont, Brushes.Black, siparisIDX, siparisIDY);
+
+            // Kişi Bilgileri Kutusu
+            RectangleF kisiBilgileriRect = new RectangleF(xMargin, yMargin, boxWidth, lineHeight * 6);
+            e.Graphics.DrawRectangle(Pens.Black, kisiBilgileriRect.X, kisiBilgileriRect.Y, kisiBilgileriRect.Width, kisiBilgileriRect.Height);
+
+            // Kişi Bilgileri Başlığı Ortala
+            string kisiBilgileriBaslik = "----- Kişi Bilgileri -----";
+            SizeF kisiBilgileriBaslikSize = e.Graphics.MeasureString(kisiBilgileriBaslik, headerFont);
+            float kisiBilgileriBaslikX = xMargin + (boxWidth - kisiBilgileriBaslikSize.Width) / 2;
+            float kisiBilgileriBaslikY = yMargin + (kisiBilgileriRect.Height - kisiBilgileriBaslikSize.Height) / 2;
+            e.Graphics.DrawString(kisiBilgileriBaslik, headerFont, Brushes.Black, kisiBilgileriBaslikX, kisiBilgileriBaslikY);
+
+            // Sahip ve Tarih (Kutunun İçine Yerleştir)
             yMargin += lineHeight + 10;
-            e.Graphics.DrawString("Sahip:", boldFont, Brushes.Black, xMargin + padding, yMargin);
+            e.Graphics.DrawString("Sahip:", regularFont, Brushes.Black, xMargin + padding, yMargin);
             e.Graphics.DrawString($"{sahipText.Text}", regularFont, Brushes.Black, xMargin + 70, yMargin);
 
             yMargin += lineHeight;
-            e.Graphics.DrawString("Tarih:", boldFont, Brushes.Black, xMargin + padding, yMargin);
+            e.Graphics.DrawString("Tarih:", regularFont, Brushes.Black, xMargin + padding, yMargin);
             e.Graphics.DrawString($"{tarihTimerPicker.Value.ToShortDateString()}", regularFont, Brushes.Black, xMargin + 70, yMargin);
 
-            // Ürün Bilgileri Kutu
+            // Ürün Bilgileri Kutusu
             yMargin += lineHeight * 2 + 10;
-            e.Graphics.DrawRectangle(Pens.Black, xMargin, yMargin, boxWidth, lineHeight * 6);
-            e.Graphics.DrawString("----- Ürün Bilgileri -----", headerFont, Brushes.Black, xMargin + padding, yMargin);
+            RectangleF urunBilgileriRect = new RectangleF(xMargin, yMargin, boxWidth, lineHeight * 6);
+            e.Graphics.DrawRectangle(Pens.Black, urunBilgileriRect.X, urunBilgileriRect.Y, urunBilgileriRect.Width, urunBilgileriRect.Height);
+
+            // Ürün Bilgileri Başlığı Ortala
+            string urunBilgileriBaslik = "----- Ürün Bilgileri -----";
+            SizeF urunBilgileriBaslikSize = e.Graphics.MeasureString(urunBilgileriBaslik, headerFont);
+            float urunBilgileriBaslikX = xMargin + (boxWidth - urunBilgileriBaslikSize.Width) / 2;
+            float urunBilgileriBaslikY = yMargin + (urunBilgileriRect.Height - urunBilgileriBaslikSize.Height) / 2;
+            e.Graphics.DrawString(urunBilgileriBaslik, headerFont, Brushes.Black, urunBilgileriBaslikX, urunBilgileriBaslikY);
 
             yMargin += lineHeight + 10;
-            e.Graphics.DrawString("Ürün Adı:", boldFont, Brushes.Black, xMargin + padding, yMargin);
+            e.Graphics.DrawString("Ürün Adı:", regularFont, Brushes.Black, xMargin + padding, yMargin);
             e.Graphics.DrawString($"{urunadiText.Text}", regularFont, Brushes.Black, xMargin + 90, yMargin);
 
             yMargin += lineHeight;
-            e.Graphics.DrawString("Ürün Miktarı:", boldFont, Brushes.Black, xMargin + padding, yMargin);
+            e.Graphics.DrawString("Ürün Miktarı:", regularFont, Brushes.Black, xMargin + padding, yMargin);
             e.Graphics.DrawString($"{urunmiktarıText.Text}", regularFont, Brushes.Black, xMargin + 110, yMargin);
 
             yMargin += lineHeight;
-            e.Graphics.DrawString("Ürün Cinsi:", boldFont, Brushes.Black, xMargin + padding, yMargin);
+            e.Graphics.DrawString("Ürün Cinsi:", regularFont, Brushes.Black, xMargin + padding, yMargin);
             e.Graphics.DrawString($"{uruncinsiText.Text}", regularFont, Brushes.Black, xMargin + 100, yMargin);
 
             yMargin += lineHeight;
-            e.Graphics.DrawString("Açıklama:", boldFont, Brushes.Black, xMargin + padding, yMargin);
+            e.Graphics.DrawString("Açıklama:", regularFont, Brushes.Black, xMargin + padding, yMargin);
             e.Graphics.DrawString($"{aciklamaTextBox.Text}", regularFont, Brushes.Black, xMargin + 90, yMargin);
 
-            // Rota Bilgileri
+            // Rota Bilgileri Kutusu
             yMargin += lineHeight * 4 + 10;
-            e.Graphics.DrawString("----- Rota Bilgileri -----", headerFont, Brushes.Black, xMargin + padding, yMargin);
+            RectangleF rotaBilgileriRect = new RectangleF(xMargin, yMargin, boxWidth, lineHeight * 2);
+            e.Graphics.DrawRectangle(Pens.Black, rotaBilgileriRect.X, rotaBilgileriRect.Y, rotaBilgileriRect.Width, rotaBilgileriRect.Height);
 
-            yMargin += lineHeight + 10;
+            // Rota Bilgileri Başlığı Ortala
+            string rotaBilgileriBaslik = "----- Rota Bilgileri -----";
+            SizeF rotaBilgileriBaslikSize = e.Graphics.MeasureString(rotaBilgileriBaslik, headerFont);
+            float rotaBilgileriBaslikX = xMargin + (boxWidth - rotaBilgileriBaslikSize.Width) / 2;
+            float rotaBilgileriBaslikY = yMargin + (rotaBilgileriRect.Height - rotaBilgileriBaslikSize.Height) / 2;
+            e.Graphics.DrawString(rotaBilgileriBaslik, headerFont, Brushes.Black, rotaBilgileriBaslikX, rotaBilgileriBaslikY);
 
-            // Verilen rota sayısına göre kutu oluşturma
-            for (int i = 0; i < richTextBox1.Lines.Length; i++)
+            // Her rota için ayrı kutu ve ortalanmış metin
+            foreach (var rota in rotalarListesi)
             {
-                string rotaAdi = richTextBox1.Lines[i];
-                string rotaAciklama = richTextBox1.Lines.Length > i + 1 ? richTextBox1.Lines[i + 1] : "";
+                yMargin += lineHeight * 2 + 10;
 
-                // Eğer veri boşsa boş kutu göster
-                if (string.IsNullOrEmpty(rotaAdi)) rotaAdi = "----- Boş Rota Adı -----";
-                if (string.IsNullOrEmpty(rotaAciklama)) rotaAciklama = "----- Boş Açıklama -----";
+                // Rota Kutusu
+                RectangleF rotaRect = new RectangleF(xMargin, yMargin, boxWidth, lineHeight * 4);
+                e.Graphics.DrawRectangle(Pens.Black, rotaRect.X, rotaRect.Y, rotaRect.Width, rotaRect.Height);
 
-                // Metni taşıyacak şekilde ayarlamak için max width'e göre metni sar
-                SizeF rotaAdiSize = e.Graphics.MeasureString(rotaAdi, boldFont, (int)boxWidth - 2 * (int)padding);
-                SizeF rotaAciklamaSize = e.Graphics.MeasureString(rotaAciklama, regularFont, (int)boxWidth - 2 * (int)padding);
+                // Rota Adı - Kutunun İçinde Kalacak Şekilde
+                StringFormat format = new StringFormat();
+                format.Alignment = StringAlignment.Near;  // Soldan hizalama
+                format.LineAlignment = StringAlignment.Near;  // Yukarıdan hizalama
+                format.Trimming = StringTrimming.EllipsisCharacter;  // Metin uzunsa ...
 
-                // Rota Adı kutusu (Yüksekliği içeriğe göre ayarla)
-                e.Graphics.DrawRectangle(Pens.Black, xMargin, yMargin, boxWidth, rotaAdiSize.Height + lineHeight);
-                e.Graphics.DrawString(rotaAdi, boldFont, Brushes.Black, new RectangleF(xMargin + padding, yMargin, boxWidth - 2 * padding, rotaAdiSize.Height + lineHeight));
+                RectangleF rotaAdiRect = new RectangleF(xMargin + padding, yMargin + padding, boxWidth - 2 * padding, lineHeight);
+                e.Graphics.DrawString(rota.RotaAdi, rotaAdiFont, Brushes.Black, rotaAdiRect, format);
 
-                // Açıklama kutusu (Yüksekliği içeriğe göre ayarla)
-                yMargin += rotaAdiSize.Height + lineHeight;
-                e.Graphics.DrawRectangle(Pens.Black, xMargin, yMargin, boxWidth, rotaAciklamaSize.Height + lineHeight);
-                e.Graphics.DrawString(rotaAciklama, regularFont, Brushes.Black, new RectangleF(xMargin + padding, yMargin, boxWidth - 2 * padding, rotaAciklamaSize.Height + lineHeight));
+                // Rota Açıklaması - Metin Uzun Olursa Alt Satıra Geçsin
+                RectangleF rotaAciklamaRect = new RectangleF(xMargin + padding, yMargin + lineHeight + padding, boxWidth - 2 * padding, lineHeight * 2);
+                e.Graphics.DrawString(rota.RotaAciklama, regularFont, Brushes.Black, rotaAciklamaRect, format);
 
-                // Yüksekliği ayarla
-                yMargin += rotaAciklamaSize.Height + lineHeight + 20; // Her kutu arasına ekstra boşluk
+                // Sonraki kutu için boşluk bırak
+                yMargin += lineHeight + 10;
             }
 
-            // Sayfanın ortasına getirme
-            float totalHeight = yMargin + lineHeight;
-            if (totalHeight < pageHeight)
-            {
-                yMargin += (pageHeight - totalHeight) / 2; // Merkezleme
-            }
+            // Sayfanın sonuna ulaşılıp ulaşılmadığını kontrol et
+            e.HasMorePages = false;
         }
+
+
 
 
 
