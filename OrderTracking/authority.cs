@@ -2,7 +2,6 @@
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Windows.Forms;
-using System.Configuration;
 
 namespace OrderTracking
 {
@@ -11,8 +10,40 @@ namespace OrderTracking
         public authority()
         {
             InitializeComponent();
+            LoadRoles(); // Form açıldığında roller combobox'a yüklenecek
             LoadAdminUsers(); // Form açıldığında admin kullanıcıları yükle
             LoadRegularUsers(); // Form açıldığında yetkisi olmayan kullanıcıları yükle
+        }
+
+        private void LoadRoles()
+        {
+            // Veritabanı bağlantısını oluştur
+            string connectionString = ConfigurationManager.ConnectionStrings["OrderTrackingDB"].ConnectionString;
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    string query = "SELECT rol_isim FROM Roller"; // Roller tablosundaki rol_isim değerlerini seç
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        SqlDataReader reader = command.ExecuteReader();
+                        yetkicombo.Items.Clear(); // ComboBox'ı temizle
+
+                        while (reader.Read())
+                        {
+                            // Her rol ismini yetkicombo'ya ekle
+                            yetkicombo.Items.Add(reader["rol_isim"].ToString());
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Roller yüklenirken bir hata oluştu: " + ex.Message);
+                }
+            }
         }
 
         private void LoadAdminUsers()
@@ -49,7 +80,7 @@ namespace OrderTracking
         private void LoadRegularUsers()
         {
             // Veritabanı bağlantısını oluştur
-            string connectionString = "Data Source=TETrA\\SQLEXPRESS;Initial Catalog=orderTracking;Integrated Security=True;Encrypt=False";
+            string connectionString = ConfigurationManager.ConnectionStrings["OrderTrackingDB"].ConnectionString;
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -89,10 +120,8 @@ namespace OrderTracking
                 return;
             }
 
-            int uAdminLevel = (yetki == "Admin") ? 1 : 0; // Yetkiye göre admin seviyesi belirle
-
             // Veritabanı bağlantısını oluştur
-            string connectionString = "Data Source=TETrA\\SQLEXPRESS;Initial Catalog=orderTracking;Integrated Security=True;Encrypt=False";
+            string connectionString = ConfigurationManager.ConnectionStrings["OrderTrackingDB"].ConnectionString;
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -100,20 +129,33 @@ namespace OrderTracking
                 {
                     connection.Open();
 
-                    // Kullanıcı yetkisini güncelleyen SQL sorgusu
-                    string updateQuery = "UPDATE Kullanıcılar SET u_admin_level = @uAdminLevel WHERE u_username = @kullaniciAdi";
+                    // Seçilen rol ismine göre rol_id'yi bulmak için SQL sorgusu
+                    string roleIdQuery = "SELECT rol_id FROM Roller WHERE rol_isim = @rolIsim";
+                    SqlCommand getRoleIdCommand = new SqlCommand(roleIdQuery, connection);
+                    getRoleIdCommand.Parameters.AddWithValue("@rolIsim", yetki);
 
-                    using (SqlCommand command = new SqlCommand(updateQuery, connection))
+                    object result = getRoleIdCommand.ExecuteScalar();
+                    if (result == null)
                     {
-                        command.Parameters.AddWithValue("@uAdminLevel", uAdminLevel);
-                        command.Parameters.AddWithValue("@kullaniciAdi", kullaniciAdi);
+                        MessageBox.Show("Seçilen rol bulunamadı.");
+                        return;
+                    }
 
-                        int rowsAffected = command.ExecuteNonQuery(); // Sorguyu çalıştır
+                    int rolId = Convert.ToInt32(result);
+
+                    // Kullanıcının rolünü güncelleyen SQL sorgusu
+                    string updateQuery = "UPDATE Kullanıcılar SET u_rol = @rolId WHERE u_username = @kullaniciAdi";
+                    using (SqlCommand updateCommand = new SqlCommand(updateQuery, connection))
+                    {
+                        updateCommand.Parameters.AddWithValue("@rolId", rolId);
+                        updateCommand.Parameters.AddWithValue("@kullaniciAdi", kullaniciAdi);
+
+                        int rowsAffected = updateCommand.ExecuteNonQuery(); // Sorguyu çalıştır
 
                         if (rowsAffected > 0)
                         {
-                            MessageBox.Show("Kullanıcı yetkisi başarıyla güncellendi.");
-                            LoadAdminUsers(); // Kullanıcı yetkisi güncellendiğinde listeyi yeniden yükle
+                            MessageBox.Show("Kullanıcı rolü başarıyla güncellendi.");
+                            LoadAdminUsers(); // Kullanıcı güncellendiğinde listeyi yeniden yükle
                             LoadRegularUsers(); // Yetkisi olmayan kullanıcıları da yeniden yükle
                         }
                         else
@@ -131,6 +173,7 @@ namespace OrderTracking
 
         private void authority_Load(object sender, EventArgs e)
         {
+            LoadRoles(); // Sayfa yüklendiğinde Roller tablosundaki roller ComboBox'a yüklenecek
             LoadAdminUsers(); // Sayfa yüklendiğinde yetkili kullanıcıları yükle
             LoadRegularUsers(); // Sayfa yüklendiğinde yetkisi olmayan kullanıcıları yükle
         }
