@@ -37,13 +37,14 @@
             yetkiliListeLabel = new Label();
             label4 = new Label();
             kullanıcılarLabel = new Label();
+            yetkiEklebtn = new Button();
             SuspendLayout();
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Eras Demi ITC", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(98, 160);
+            label2.Location = new Point(31, 102);
             label2.Name = "label2";
             label2.Size = new Size(111, 18);
             label2.TabIndex = 64;
@@ -53,7 +54,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Eras Demi ITC", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(98, 92);
+            label1.Location = new Point(31, 28);
             label1.Name = "label1";
             label1.Size = new Size(97, 18);
             label1.TabIndex = 63;
@@ -63,7 +64,7 @@
             // 
             kullanıcıadıTextbox.BorderStyle = BorderStyle.FixedSingle;
             kullanıcıadıTextbox.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            kullanıcıadıTextbox.Location = new Point(98, 113);
+            kullanıcıadıTextbox.Location = new Point(31, 63);
             kullanıcıadıTextbox.Name = "kullanıcıadıTextbox";
             kullanıcıadıTextbox.Size = new Size(199, 27);
             kullanıcıadıTextbox.TabIndex = 62;
@@ -73,7 +74,7 @@
             yetkicombo.Font = new Font("Segoe UI", 11.25F);
             yetkicombo.FormattingEnabled = true;
             yetkicombo.Items.AddRange(new object[] { "Admin", "Kullanıcı" });
-            yetkicombo.Location = new Point(98, 195);
+            yetkicombo.Location = new Point(31, 133);
             yetkicombo.Name = "yetkicombo";
             yetkicombo.Size = new Size(121, 28);
             yetkicombo.TabIndex = 65;
@@ -81,11 +82,11 @@
             // kullanıcıEkle
             // 
             kullanıcıEkle.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            kullanıcıEkle.Location = new Point(223, 283);
+            kullanıcıEkle.Location = new Point(31, 183);
             kullanıcıEkle.Name = "kullanıcıEkle";
-            kullanıcıEkle.Size = new Size(74, 34);
+            kullanıcıEkle.Size = new Size(91, 35);
             kullanıcıEkle.TabIndex = 66;
-            kullanıcıEkle.Text = "Ekle";
+            kullanıcıEkle.Text = "Yetki Ver";
             kullanıcıEkle.UseVisualStyleBackColor = true;
             kullanıcıEkle.Click += kullanıcıEkle_Click;
             // 
@@ -129,11 +130,22 @@
             kullanıcılarLabel.TabIndex = 70;
             kullanıcılarLabel.Text = "kullanıcılar";
             // 
+            // yetkiEklebtn
+            // 
+            yetkiEklebtn.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            yetkiEklebtn.Location = new Point(31, 229);
+            yetkiEklebtn.Name = "yetkiEklebtn";
+            yetkiEklebtn.Size = new Size(91, 35);
+            yetkiEklebtn.TabIndex = 71;
+            yetkiEklebtn.Text = "Yetki Ekle";
+            yetkiEklebtn.UseVisualStyleBackColor = true;
+            // 
             // authority
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(522, 378);
+            Controls.Add(yetkiEklebtn);
             Controls.Add(kullanıcılarLabel);
             Controls.Add(label4);
             Controls.Add(yetkiliListeLabel);
@@ -160,5 +172,6 @@
         private Label yetkiliListeLabel;
         private Label label4;
         private Label kullanıcılarLabel;
+        private Button yetkiEklebtn;
     }
 }
