@@ -78,6 +78,7 @@
             yetkicombo.Name = "yetkicombo";
             yetkicombo.Size = new Size(121, 28);
             yetkicombo.TabIndex = 65;
+            yetkicombo.SelectedIndexChanged += yetkicombo_SelectedIndexChanged;
             // 
             // kullanıcıEkle
             // 
@@ -94,7 +95,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Eras Demi ITC", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(368, 39);
+            label3.Location = new Point(31, 291);
             label3.Name = "label3";
             label3.Size = new Size(87, 23);
             label3.TabIndex = 67;
@@ -104,7 +105,7 @@
             // 
             yetkiliListeLabel.AutoSize = true;
             yetkiliListeLabel.Font = new Font("Eras Light ITC", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            yetkiliListeLabel.Location = new Point(368, 72);
+            yetkiliListeLabel.Location = new Point(31, 324);
             yetkiliListeLabel.Name = "yetkiliListeLabel";
             yetkiliListeLabel.Size = new Size(58, 18);
             yetkiliListeLabel.TabIndex = 68;
@@ -114,7 +115,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Eras Demi ITC", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(368, 195);
+            label4.Location = new Point(31, 447);
             label4.Name = "label4";
             label4.Size = new Size(110, 23);
             label4.TabIndex = 69;
@@ -124,7 +125,7 @@
             // 
             kullanıcılarLabel.AutoSize = true;
             kullanıcılarLabel.Font = new Font("Eras Light ITC", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            kullanıcılarLabel.Location = new Point(368, 229);
+            kullanıcılarLabel.Location = new Point(31, 481);
             kullanıcılarLabel.Name = "kullanıcılarLabel";
             kullanıcılarLabel.Size = new Size(73, 18);
             kullanıcılarLabel.TabIndex = 70;
@@ -145,7 +146,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(819, 582);
+            ClientSize = new Size(1189, 617);
             Controls.Add(yetkiEklebtn);
             Controls.Add(kullanıcılarLabel);
             Controls.Add(label4);

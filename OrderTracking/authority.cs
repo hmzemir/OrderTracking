@@ -110,6 +110,7 @@ namespace OrderTracking
 
         private void kullanıcıEkle_Click(object sender, EventArgs e)
         {
+            // Kullanıcı adı ve yetkiyi al
             string kullaniciAdi = kullanıcıadıTextbox.Text.Trim();
             string yetki = yetkicombo.SelectedItem?.ToString(); // Seçili yetkiyi al
 
@@ -134,6 +135,7 @@ namespace OrderTracking
                     SqlCommand getRoleIdCommand = new SqlCommand(roleIdQuery, connection);
                     getRoleIdCommand.Parameters.AddWithValue("@rolIsim", yetki);
 
+                    // Sorguyu çalıştır ve rol_id'yi al
                     object result = getRoleIdCommand.ExecuteScalar();
                     if (result == null)
                     {
@@ -141,7 +143,7 @@ namespace OrderTracking
                         return;
                     }
 
-                    int rolId = Convert.ToInt32(result);
+                    int rolId = Convert.ToInt32(result); // rol_id'yi integer olarak al
 
                     // Kullanıcının rolünü güncelleyen SQL sorgusu
                     string updateQuery = "UPDATE Kullanıcılar SET u_rol = @rolId WHERE u_username = @kullaniciAdi";
@@ -150,13 +152,15 @@ namespace OrderTracking
                         updateCommand.Parameters.AddWithValue("@rolId", rolId);
                         updateCommand.Parameters.AddWithValue("@kullaniciAdi", kullaniciAdi);
 
-                        int rowsAffected = updateCommand.ExecuteNonQuery(); // Sorguyu çalıştır
+                        // Sorguyu çalıştır
+                        int rowsAffected = updateCommand.ExecuteNonQuery();
 
+                        // Eğer sorgu başarılı olduysa
                         if (rowsAffected > 0)
                         {
                             MessageBox.Show("Kullanıcı rolü başarıyla güncellendi.");
-                            LoadAdminUsers(); // Kullanıcı güncellendiğinde listeyi yeniden yükle
-                            LoadRegularUsers(); // Yetkisi olmayan kullanıcıları da yeniden yükle
+                            LoadAdminUsers(); // Güncel yetkili kullanıcıları listele
+                            LoadRegularUsers(); // Yetkisi olmayan kullanıcıları yeniden listele
                         }
                         else
                         {
@@ -171,6 +175,7 @@ namespace OrderTracking
             }
         }
 
+
         private void authority_Load(object sender, EventArgs e)
         {
             LoadRoles(); // Sayfa yüklendiğinde Roller tablosundaki roller ComboBox'a yüklenecek
@@ -183,6 +188,11 @@ namespace OrderTracking
             // addRole formunu aç
             addRole addRoleForm = new addRole();
             addRoleForm.Show(); // Show() metodu mevcut formu kapatmadan yeni formu açar.
+        }
+
+        private void yetkicombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
