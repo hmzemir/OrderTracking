@@ -95,6 +95,7 @@
             yetkiSilbtn.TabIndex = 77;
             yetkiSilbtn.Text = "Yetki Sil";
             yetkiSilbtn.UseVisualStyleBackColor = true;
+            yetkiSilbtn.Click += yetkiSilbtn_Click;
             // 
             // addRole
             // 
