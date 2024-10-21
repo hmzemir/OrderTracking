@@ -93,7 +93,7 @@
             yetkiSilbtn.Name = "yetkiSilbtn";
             yetkiSilbtn.Size = new Size(91, 35);
             yetkiSilbtn.TabIndex = 77;
-            yetkiSilbtn.Text = "Yetki Ekle";
+            yetkiSilbtn.Text = "Yetki Sil";
             yetkiSilbtn.UseVisualStyleBackColor = true;
             // 
             // addRole
