@@ -33,6 +33,7 @@
             label1 = new Label();
             yetkiListeLabel = new Label();
             label3 = new Label();
+            yetkiSilbtn = new Button();
             SuspendLayout();
             // 
             // yetkiEklebtn
@@ -44,6 +45,7 @@
             yetkiEklebtn.TabIndex = 73;
             yetkiEklebtn.Text = "Yetki Ekle";
             yetkiEklebtn.UseVisualStyleBackColor = true;
+            yetkiEklebtn.Click += yetkiEklebtn_Click;
             // 
             // yetkiadıTextbox
             // 
@@ -84,11 +86,22 @@
             label3.TabIndex = 75;
             label3.Text = "Yetkiler";
             // 
+            // yetkiSilbtn
+            // 
+            yetkiSilbtn.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            yetkiSilbtn.Location = new Point(141, 91);
+            yetkiSilbtn.Name = "yetkiSilbtn";
+            yetkiSilbtn.Size = new Size(91, 35);
+            yetkiSilbtn.TabIndex = 77;
+            yetkiSilbtn.Text = "Yetki Ekle";
+            yetkiSilbtn.UseVisualStyleBackColor = true;
+            // 
             // addRole
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(348, 312);
+            Controls.Add(yetkiSilbtn);
             Controls.Add(yetkiListeLabel);
             Controls.Add(label3);
             Controls.Add(label1);
@@ -108,5 +121,6 @@
         private Label label1;
         private Label yetkiListeLabel;
         private Label label3;
+        private Button yetkiSilbtn;
     }
 }

@@ -16,5 +16,10 @@ namespace OrderTracking
         {
             InitializeComponent();
         }
+
+        private void yetkiEklebtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
