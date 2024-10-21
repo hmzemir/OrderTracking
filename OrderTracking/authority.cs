@@ -177,5 +177,12 @@ namespace OrderTracking
             LoadAdminUsers(); // Sayfa yüklendiğinde yetkili kullanıcıları yükle
             LoadRegularUsers(); // Sayfa yüklendiğinde yetkisi olmayan kullanıcıları yükle
         }
+
+        private void yetkiEklebtn_Click(object sender, EventArgs e)
+        {
+            // addRole formunu aç
+            addRole addRoleForm = new addRole();
+            addRoleForm.Show(); // Show() metodu mevcut formu kapatmadan yeni formu açar.
+        }
     }
 }

@@ -139,6 +139,7 @@
             yetkiEklebtn.TabIndex = 71;
             yetkiEklebtn.Text = "Yetki Ekle";
             yetkiEklebtn.UseVisualStyleBackColor = true;
+            yetkiEklebtn.Click += yetkiEklebtn_Click;
             // 
             // authority
             // 
