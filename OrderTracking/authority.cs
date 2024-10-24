@@ -194,5 +194,12 @@ namespace OrderTracking
         {
 
         }
+
+        private void calısanListeBtn_Click(object sender, EventArgs e)
+        {
+            // addRole formunu aç
+            personelListe addRoleForm = new personelListe();
+            addRoleForm.Show(); // Show() metodu mevcut formu kapatmadan yeni formu açar.
+        }
     }
 }

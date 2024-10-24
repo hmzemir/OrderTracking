@@ -152,6 +152,7 @@
             calısanListeBtn.TabIndex = 72;
             calısanListeBtn.Text = "Çalışan Listesi";
             calısanListeBtn.UseVisualStyleBackColor = true;
+            calısanListeBtn.Click += calısanListeBtn_Click;
             // 
             // authority
             // 
