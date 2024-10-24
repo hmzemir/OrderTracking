@@ -39,6 +39,7 @@
             kullanıcılarLabel = new Label();
             yetkiEklebtn = new Button();
             calısanListeBtn = new Button();
+            yetkiAlBtn = new Button();
             SuspendLayout();
             // 
             // label2
@@ -154,11 +155,23 @@
             calısanListeBtn.UseVisualStyleBackColor = true;
             calısanListeBtn.Click += calısanListeBtn_Click;
             // 
+            // yetkiAlBtn
+            // 
+            yetkiAlBtn.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            yetkiAlBtn.Location = new Point(147, 183);
+            yetkiAlBtn.Name = "yetkiAlBtn";
+            yetkiAlBtn.Size = new Size(110, 35);
+            yetkiAlBtn.TabIndex = 73;
+            yetkiAlBtn.Text = "Yetki Al";
+            yetkiAlBtn.UseVisualStyleBackColor = true;
+            yetkiAlBtn.Click += yetkiAlBtn_Click;
+            // 
             // authority
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(419, 524);
+            Controls.Add(yetkiAlBtn);
             Controls.Add(calısanListeBtn);
             Controls.Add(yetkiEklebtn);
             Controls.Add(kullanıcılarLabel);
@@ -171,6 +184,7 @@
             Controls.Add(label1);
             Controls.Add(kullanıcıadıTextbox);
             Name = "authority";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "authority";
             ResumeLayout(false);
             PerformLayout();
@@ -189,5 +203,6 @@
         private Label kullanıcılarLabel;
         private Button yetkiEklebtn;
         private Button calısanListeBtn;
+        private Button yetkiAlBtn;
     }
 }

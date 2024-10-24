@@ -118,6 +118,7 @@
             Controls.Add(personeladıTextbox);
             Controls.Add(yetkiCombo);
             Name = "personelListe";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "personelListe";
             ((System.ComponentModel.ISupportInitialize)personellerDGV).EndInit();
             ResumeLayout(false);

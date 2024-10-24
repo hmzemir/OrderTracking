@@ -201,5 +201,56 @@ namespace OrderTracking
             personelListe addRoleForm = new personelListe();
             addRoleForm.Show(); // Show() metodu mevcut formu kapatmadan yeni formu açar.
         }
+
+        private void yetkiAlBtn_Click(object sender, EventArgs e)
+        {
+            // Kullanıcı adını al
+            string kullaniciAdi = kullanıcıadıTextbox.Text.Trim();
+
+            // Kullanıcı adı kontrolü
+            if (string.IsNullOrWhiteSpace(kullaniciAdi))
+            {
+                MessageBox.Show("Lütfen kullanıcı adını girin.");
+                return;
+            }
+
+            // Veritabanı bağlantısını oluştur
+            string connectionString = ConfigurationManager.ConnectionStrings["OrderTrackingDB"].ConnectionString;
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    // Kullanıcının u_rol değerini boşaltan SQL sorgusu
+                    string updateQuery = "UPDATE Kullanıcılar SET u_rol = NULL WHERE u_username = @kullaniciAdi";
+                    using (SqlCommand updateCommand = new SqlCommand(updateQuery, connection))
+                    {
+                        updateCommand.Parameters.AddWithValue("@kullaniciAdi", kullaniciAdi);
+
+                        // Sorguyu çalıştır
+                        int rowsAffected = updateCommand.ExecuteNonQuery();
+
+                        // Eğer sorgu başarılı olduysa
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Kullanıcı yetkisi başarıyla kaldırıldı.");
+                            LoadAdminUsers(); // Güncel yetkili kullanıcıları listele
+                            LoadRegularUsers(); // Yetkisi olmayan kullanıcıları yeniden listele
+                        }
+                        else
+                        {
+                            MessageBox.Show("Kullanıcı bulunamadı veya güncelleme başarısız oldu.");
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Bir hata oluştu: " + ex.Message);
+                }
+            }
+        }
+
     }
 }
