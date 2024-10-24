@@ -34,6 +34,7 @@
             label2 = new Label();
             araBtn = new Button();
             personellerDGV = new DataGridView();
+            yetkisizlercheckbox = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)personellerDGV).BeginInit();
             SuspendLayout();
             // 
@@ -93,11 +94,23 @@
             personellerDGV.Size = new Size(546, 437);
             personellerDGV.TabIndex = 79;
             // 
+            // yetkisizlercheckbox
+            // 
+            yetkisizlercheckbox.AutoSize = true;
+            yetkisizlercheckbox.Font = new Font("Eras Medium ITC", 14.25F);
+            yetkisizlercheckbox.Location = new Point(25, 213);
+            yetkisizlercheckbox.Name = "yetkisizlercheckbox";
+            yetkisizlercheckbox.Size = new Size(181, 26);
+            yetkisizlercheckbox.TabIndex = 80;
+            yetkisizlercheckbox.Text = "Yetkisi Olmayanlar";
+            yetkisizlercheckbox.UseVisualStyleBackColor = true;
+            // 
             // personelListe
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(861, 521);
+            Controls.Add(yetkisizlercheckbox);
             Controls.Add(personellerDGV);
             Controls.Add(araBtn);
             Controls.Add(label2);
@@ -119,5 +132,6 @@
         private Label label2;
         private Button araBtn;
         private DataGridView personellerDGV;
+        private CheckBox yetkisizlercheckbox;
     }
 }

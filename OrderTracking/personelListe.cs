@@ -8,17 +8,14 @@ namespace OrderTracking
 {
     public partial class personelListe : Form
     {
-        // Veritabanı bağlantı cümlesi, kendi sunucu ve veritabanı bilgilerinizi buraya yazmalısınız.
         string connectionString = ConfigurationManager.ConnectionStrings["OrderTrackingDB"].ConnectionString;
 
         public personelListe()
         {
             InitializeComponent();
-            // ComboBox'ı Roller tablosundaki verilerle doldurma.
             LoadYetkiCombo();
         }
 
-        // Yetki combo box içini Roller tablosundan rol_isim verileriyle dolduruyoruz.
         private void LoadYetkiCombo()
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -42,18 +39,20 @@ namespace OrderTracking
             }
         }
 
-        // Ara butonuna tıklandığında çalışacak işlem.
         private void araBtn_Click(object sender, EventArgs e)
         {
             string personelAdi = personeladıTextbox.Text.Trim();
             string secilenYetki = yetkiCombo.SelectedItem?.ToString();
 
-            // Eğer yetkiCombo'da bir yetki seçilmişse, yetkiye göre arama yapılacak.
-            if (!string.IsNullOrEmpty(secilenYetki))
+            if (yetkisizlercheckbox.Checked)
+            {
+                // Eğer 'yetkisizlerCheckbox' işaretliyse, sadece 'u_rol' değeri boş olanları listele.
+                ListYetkisizler();
+            }
+            else if (!string.IsNullOrEmpty(secilenYetki))
             {
                 ListByYetki(secilenYetki);
             }
-            // Eğer yetki seçilmemişse, kullanıcı adına göre arama yapılacak.
             else if (!string.IsNullOrEmpty(personelAdi))
             {
                 ListByUsername(personelAdi);
@@ -71,7 +70,7 @@ namespace OrderTracking
                     string query = @"
                         SELECT k.u_username AS 'Kullanıcı Adı', r.rol_isim AS 'Yetkisi'
                         FROM Kullanıcılar k
-                        JOIN Roller r ON k.u_rol = r.rol_id
+                        LEFT JOIN Roller r ON k.u_rol = r.rol_id
                         WHERE k.u_username LIKE @username";
 
                     SqlCommand cmd = new SqlCommand(query, conn);
@@ -106,6 +105,34 @@ namespace OrderTracking
 
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@yetki", yetki);
+
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    personellerDGV.DataSource = dt;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Hata: " + ex.Message);
+                }
+            }
+        }
+
+        // Yetkisi olmayanları (u_rol değeri NULL olanları) listeleme fonksiyonu.
+        private void ListYetkisizler()
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = @"
+                        SELECT k.u_username AS 'Kullanıcı Adı', 'Yetkisiz' AS 'Yetkisi'
+                        FROM Kullanıcılar k
+                        WHERE k.u_rol IS NULL";
+
+                    SqlCommand cmd = new SqlCommand(query, conn);
 
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
                     DataTable dt = new DataTable();

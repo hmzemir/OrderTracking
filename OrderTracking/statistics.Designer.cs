@@ -189,7 +189,7 @@ namespace OrderTracking
             // 
             tarihSec.AutoSize = true;
             tarihSec.Font = new Font("Eras Medium ITC", 14.25F);
-            tarihSec.Location = new Point(34, 132);
+            tarihSec.Location = new Point(34, 106);
             tarihSec.Name = "tarihSec";
             tarihSec.Size = new Size(105, 26);
             tarihSec.TabIndex = 59;
@@ -201,7 +201,7 @@ namespace OrderTracking
             // 
             isimAra.AutoSize = true;
             isimAra.Font = new Font("Eras Medium ITC", 14.25F);
-            isimAra.Location = new Point(137, 132);
+            isimAra.Location = new Point(145, 106);
             isimAra.Name = "isimAra";
             isimAra.Size = new Size(109, 26);
             isimAra.TabIndex = 60;
@@ -261,7 +261,7 @@ namespace OrderTracking
             // 
             sadeceOnayCheck.AutoSize = true;
             sadeceOnayCheck.Font = new Font("Eras Medium ITC", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            sadeceOnayCheck.Location = new Point(252, 132);
+            sadeceOnayCheck.Location = new Point(34, 138);
             sadeceOnayCheck.Name = "sadeceOnayCheck";
             sadeceOnayCheck.Size = new Size(205, 26);
             sadeceOnayCheck.TabIndex = 66;
