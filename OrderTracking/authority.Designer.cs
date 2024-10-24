@@ -38,6 +38,7 @@
             label4 = new Label();
             kullanıcılarLabel = new Label();
             yetkiEklebtn = new Button();
+            calısanListeBtn = new Button();
             SuspendLayout();
             // 
             // label2
@@ -85,7 +86,7 @@
             kullanıcıEkle.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 162);
             kullanıcıEkle.Location = new Point(31, 183);
             kullanıcıEkle.Name = "kullanıcıEkle";
-            kullanıcıEkle.Size = new Size(91, 35);
+            kullanıcıEkle.Size = new Size(110, 35);
             kullanıcıEkle.TabIndex = 66;
             kullanıcıEkle.Text = "Yetki Ver";
             kullanıcıEkle.UseVisualStyleBackColor = true;
@@ -95,7 +96,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Eras Demi ITC", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(31, 291);
+            label3.Location = new Point(31, 340);
             label3.Name = "label3";
             label3.Size = new Size(87, 23);
             label3.TabIndex = 67;
@@ -105,7 +106,7 @@
             // 
             yetkiliListeLabel.AutoSize = true;
             yetkiliListeLabel.Font = new Font("Eras Light ITC", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            yetkiliListeLabel.Location = new Point(31, 324);
+            yetkiliListeLabel.Location = new Point(31, 373);
             yetkiliListeLabel.Name = "yetkiliListeLabel";
             yetkiliListeLabel.Size = new Size(58, 18);
             yetkiliListeLabel.TabIndex = 68;
@@ -115,7 +116,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Eras Demi ITC", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(31, 447);
+            label4.Location = new Point(31, 404);
             label4.Name = "label4";
             label4.Size = new Size(110, 23);
             label4.TabIndex = 69;
@@ -125,7 +126,7 @@
             // 
             kullanıcılarLabel.AutoSize = true;
             kullanıcılarLabel.Font = new Font("Eras Light ITC", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            kullanıcılarLabel.Location = new Point(31, 481);
+            kullanıcılarLabel.Location = new Point(31, 438);
             kullanıcılarLabel.Name = "kullanıcılarLabel";
             kullanıcılarLabel.Size = new Size(73, 18);
             kullanıcılarLabel.TabIndex = 70;
@@ -136,17 +137,28 @@
             yetkiEklebtn.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 162);
             yetkiEklebtn.Location = new Point(31, 229);
             yetkiEklebtn.Name = "yetkiEklebtn";
-            yetkiEklebtn.Size = new Size(91, 35);
+            yetkiEklebtn.Size = new Size(110, 35);
             yetkiEklebtn.TabIndex = 71;
             yetkiEklebtn.Text = "Yetki Ekle";
             yetkiEklebtn.UseVisualStyleBackColor = true;
             yetkiEklebtn.Click += yetkiEklebtn_Click;
             // 
+            // calısanListeBtn
+            // 
+            calısanListeBtn.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            calısanListeBtn.Location = new Point(31, 270);
+            calısanListeBtn.Name = "calısanListeBtn";
+            calısanListeBtn.Size = new Size(111, 35);
+            calısanListeBtn.TabIndex = 72;
+            calısanListeBtn.Text = "Çalışan Listesi";
+            calısanListeBtn.UseVisualStyleBackColor = true;
+            // 
             // authority
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1189, 617);
+            ClientSize = new Size(419, 524);
+            Controls.Add(calısanListeBtn);
             Controls.Add(yetkiEklebtn);
             Controls.Add(kullanıcılarLabel);
             Controls.Add(label4);
@@ -175,5 +187,6 @@
         private Label label4;
         private Label kullanıcılarLabel;
         private Button yetkiEklebtn;
+        private Button calısanListeBtn;
     }
 }
