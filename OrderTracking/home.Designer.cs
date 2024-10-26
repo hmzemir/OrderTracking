@@ -75,6 +75,7 @@
             yetkiVerToolStripMenuItem = new ToolStripMenuItem();
             yedeklemeToolStripMenuItem = new ToolStripMenuItem();
             çıkışToolStripMenuItem = new ToolStripMenuItem();
+            yetkiAyarlarıToolStripMenuItem = new ToolStripMenuItem();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)urunMiktarNumeric).BeginInit();
             groupBox2.SuspendLayout();
@@ -507,20 +508,20 @@
             // onaylananTekliflerToolStripMenuItem
             // 
             onaylananTekliflerToolStripMenuItem.Name = "onaylananTekliflerToolStripMenuItem";
-            onaylananTekliflerToolStripMenuItem.Size = new Size(119, 20);
+            onaylananTekliflerToolStripMenuItem.Size = new Size(120, 20);
             onaylananTekliflerToolStripMenuItem.Text = "Onaylanan Teklifler";
             onaylananTekliflerToolStripMenuItem.Click += onaylananTekliflerToolStripMenuItem_Click;
             // 
             // teklifOnaylaToolStripMenuItem
             // 
             teklifOnaylaToolStripMenuItem.Name = "teklifOnaylaToolStripMenuItem";
-            teklifOnaylaToolStripMenuItem.Size = new Size(86, 20);
+            teklifOnaylaToolStripMenuItem.Size = new Size(87, 20);
             teklifOnaylaToolStripMenuItem.Text = "Teklif Onayla";
             teklifOnaylaToolStripMenuItem.Click += teklifOnaylaToolStripMenuItem_Click;
             // 
             // yöneticiToolStripMenuItem
             // 
-            yöneticiToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { kullanıcıEkleToolStripMenuItem, istatistiklkerToolStripMenuItem, yetkiVerToolStripMenuItem });
+            yöneticiToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { kullanıcıEkleToolStripMenuItem, istatistiklkerToolStripMenuItem, yetkiVerToolStripMenuItem, yetkiAyarlarıToolStripMenuItem });
             yöneticiToolStripMenuItem.Name = "yöneticiToolStripMenuItem";
             yöneticiToolStripMenuItem.Size = new Size(61, 20);
             yöneticiToolStripMenuItem.Text = "Yönetici";
@@ -528,21 +529,21 @@
             // kullanıcıEkleToolStripMenuItem
             // 
             kullanıcıEkleToolStripMenuItem.Name = "kullanıcıEkleToolStripMenuItem";
-            kullanıcıEkleToolStripMenuItem.Size = new Size(143, 22);
+            kullanıcıEkleToolStripMenuItem.Size = new Size(180, 22);
             kullanıcıEkleToolStripMenuItem.Text = "Kullanıcı Ekle";
             kullanıcıEkleToolStripMenuItem.Click += kullanıcıEkleToolStripMenuItem_Click;
             // 
             // istatistiklkerToolStripMenuItem
             // 
             istatistiklkerToolStripMenuItem.Name = "istatistiklkerToolStripMenuItem";
-            istatistiklkerToolStripMenuItem.Size = new Size(143, 22);
+            istatistiklkerToolStripMenuItem.Size = new Size(180, 22);
             istatistiklkerToolStripMenuItem.Text = "İstatistiklker";
             istatistiklkerToolStripMenuItem.Click += istatistiklkerToolStripMenuItem_Click;
             // 
             // yetkiVerToolStripMenuItem
             // 
             yetkiVerToolStripMenuItem.Name = "yetkiVerToolStripMenuItem";
-            yetkiVerToolStripMenuItem.Size = new Size(143, 22);
+            yetkiVerToolStripMenuItem.Size = new Size(180, 22);
             yetkiVerToolStripMenuItem.Text = "Yetki Ver";
             yetkiVerToolStripMenuItem.Click += yetkiVerToolStripMenuItem_Click;
             // 
@@ -559,6 +560,13 @@
             çıkışToolStripMenuItem.Size = new Size(44, 20);
             çıkışToolStripMenuItem.Text = "Çıkış";
             çıkışToolStripMenuItem.Click += çıkışToolStripMenuItem_Click;
+            // 
+            // yetkiAyarlarıToolStripMenuItem
+            // 
+            yetkiAyarlarıToolStripMenuItem.Name = "yetkiAyarlarıToolStripMenuItem";
+            yetkiAyarlarıToolStripMenuItem.Size = new Size(180, 22);
+            yetkiAyarlarıToolStripMenuItem.Text = "Yetki Ayarları";
+            yetkiAyarlarıToolStripMenuItem.Click += yetkiAyarlarıToolStripMenuItem_Click;
             // 
             // home
             // 
@@ -636,5 +644,6 @@
         private Label label1;
         private ComboBox rotaCombo;
         private Panel panel1;
+        private ToolStripMenuItem yetkiAyarlarıToolStripMenuItem;
     }
 }

@@ -158,6 +158,7 @@ namespace OrderTracking
         private void yedeklemeToolStripMenuItem_Click(object sender, EventArgs e) => PerformAdminAction(new databaseSave());
         private void yetkiVerToolStripMenuItem_Click(object sender, EventArgs e) => PerformAdminAction(new authority());
         private void istatistiklkerToolStripMenuItem_Click(object sender, EventArgs e) => PerformAdminAction(new statistics());
+        private void yetkiAyarlarýToolStripMenuItem_Click(object sender, EventArgs e) => PerformAdminAction(new roleConfig());
 
 
         private void PerformAdminAction(Form form)
@@ -187,7 +188,7 @@ namespace OrderTracking
         private void kayit_Click(object sender, EventArgs e)
         {
             SaveDataToDatabase();
-            
+
         }
 
         private void hesaplabtn_Click(object sender, EventArgs e)
@@ -246,7 +247,7 @@ namespace OrderTracking
         }
         private int rotaSayaci = 0;
 
-        
+
 
         private void home_Load(object sender, EventArgs e)
         {
@@ -255,7 +256,7 @@ namespace OrderTracking
             FillUrunCinsiComboBox();
             FillRotaComboBox();
         }
-        
+
 
         private void FillSahipComboBox()
         {
@@ -466,15 +467,6 @@ namespace OrderTracking
             }
         }
 
-
-
-
-
-
-
-
-
-
-
+       
     }
 }
