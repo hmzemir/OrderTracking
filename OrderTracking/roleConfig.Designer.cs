@@ -57,7 +57,7 @@
             // kayitBtn
             // 
             kayitBtn.Font = new Font("Eras Medium ITC", 14.25F);
-            kayitBtn.Location = new Point(35, 467);
+            kayitBtn.Location = new Point(35, 366);
             kayitBtn.Name = "kayitBtn";
             kayitBtn.Size = new Size(79, 32);
             kayitBtn.TabIndex = 79;
@@ -69,14 +69,14 @@
             // 
             sayfalarPanel.Location = new Point(35, 97);
             sayfalarPanel.Name = "sayfalarPanel";
-            sayfalarPanel.Size = new Size(185, 364);
+            sayfalarPanel.Size = new Size(121, 263);
             sayfalarPanel.TabIndex = 80;
             // 
             // roleConfig
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(434, 520);
+            ClientSize = new Size(405, 421);
             Controls.Add(sayfalarPanel);
             Controls.Add(kayitBtn);
             Controls.Add(yetkilerCombo);
